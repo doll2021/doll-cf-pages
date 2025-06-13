@@ -396,6 +396,41 @@
             border: 1px dashed #c5d0e6;
         }
         
+        .mobile-path-info {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .mobile-path-info h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #5a3e00;
+            margin-bottom: 10px;
+        }
+        
+        .mobile-path-info ul {
+            padding-left: 20px;
+        }
+        
+        .mobile-path-info li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        .mobile-path-info .path-indicator {
+            background: #fff3cd;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        
         @media (max-width: 768px) {
             .container {
                 border-radius: 0;
@@ -443,6 +478,10 @@
             .btn {
                 width: 100%;
                 justify-content: center;
+            }
+            
+            .mobile-path-info {
+                display: block;
             }
         }
     </style>
@@ -497,6 +536,17 @@
                 </button>
             </div>
             
+            <div class="mobile-path-info">
+                <h3><i class="fas fa-mobile-alt"></i> 移动设备下载路径说明</h3>
+                <p>在移动设备上下载时，请按以下步骤设置保存路径：</p>
+                <ul>
+                    <li>1. 点击下载按钮后，系统会提示您选择保存位置</li>
+                    <li>2. 请选择设备根目录下的 <span class="path-indicator">catshare</span> 文件夹</li>
+                    <li>3. 如果没有该文件夹，请先创建</li>
+                    <li>4. 确保文件保存路径为：<span class="path-indicator">/catshare/文件名.xml</span></li>
+                </ul>
+            </div>
+            
             <div class="progress-container" id="progressContainer">
                 <div class="progress-header">
                     <div class="progress-text">准备下载...</div>
@@ -543,6 +593,11 @@
         // 当前选中的文件
         let selectedFiles = new Set();
         let fileData = [];
+        
+        // 检测是否为移动设备
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
         
         // 初始化
         function init() {
@@ -625,14 +680,14 @@
         }
         
         // 显示通知
-        function showNotification(message, type = "info") {
+        function showNotification(message, type = "info", duration = 3000) {
             notification.textContent = message;
             notification.className = `notification ${type}`;
             notification.style.display = 'block';
             
             setTimeout(() => {
                 notification.style.display = 'none';
-            }, 3000);
+            }, duration);
         }
         
         // 扫描文件
@@ -710,6 +765,13 @@
                 return;
             }
             
+            // 如果是移动设备，显示路径提示
+            if (isMobileDevice()) {
+                showNotification('下载时请选择保存路径为 /catshare 目录', 'info', 5000);
+                // 等待用户看到提示
+                await new Promise(resolve => setTimeout(resolve, 3000));
+            }
+            
             // 显示进度条
             progressContainer.style.display = 'block';
             progressBar.style.width = '0%';
@@ -746,6 +808,11 @@
             setTimeout(() => {
                 progressContainer.style.display = 'none';
                 showNotification(`成功下载 ${downloaded}/${totalFiles} 个文件！`, 'success');
+                
+                // 如果是移动设备，显示文件移动提示
+                if (isMobileDevice()) {
+                    showNotification('请将文件移动到 /catshare 目录', 'info', 5000);
+                }
             }, 500);
         }
         
