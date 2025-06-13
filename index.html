@@ -22,7 +22,7 @@
     
     <script>
         // 动态访问计数器（需配合Pages Functions使用）
-        fetch('/api/doll2021_github_token')
+        fetch('/api/get-github-token')
             .then(res => res.json())
             .then(data => {
                 document.getElementById('visit-counter').innerText = 
