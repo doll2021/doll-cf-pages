@@ -437,11 +437,10 @@
             <p>GitHub文件上传工具 &copy; 2023 | 安全提示：此工具使用预配置的访问令牌</p>
         </footer>
     </div>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // 固定配置值
-            const FIXED_TOKEN = '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';
             const FIXED_REPO = 'doll2021/doll-cf-pages';
             const FIXED_BRANCH = 'main';
             const BASE_PATH = 'resource/carshare/resolver';
@@ -456,13 +455,44 @@
             const tokenStatus = document.getElementById('tokenStatus');
             
             let selectedFile = null;
+            let githubToken = null;
+            
+            // 从Pages Function获取GitHub令牌
+            async function fetchGitHubToken() {
+                try {
+                    tokenStatus.innerHTML = '正在从Cloudflare KV获取令牌...';
+                    
+                    const response = await fetch('/get-github-token');
+                    const data = await response.json();
+                    
+                    if (!response.ok) {
+                        throw new Error(data.error || `获取令牌失败: ${response.status}`);
+                    }
+                    
+                    if (!data.token) {
+                        throw new Error('令牌未在响应中找到');
+                    }
+                    
+                    githubToken = data.token;
+                    return githubToken;
+                } catch (error) {
+                    tokenStatus.innerHTML = `<span style="color: #e74c3c;">令牌获取失败: ${error.message}</span>`;
+                    console.error('令牌获取错误:', error);
+                    throw error;
+                }
+            }
             
             // 检查令牌有效性
             async function checkTokenValidity() {
                 try {
+                    // 确保令牌已获取
+                    if (!githubToken) {
+                        githubToken = await fetchGitHubToken();
+                    }
+                    
                     const response = await fetch('https://api.github.com/user', {
                         headers: {
-                            'Authorization': `token ${FIXED_TOKEN}`,
+                            'Authorization': `token ${githubToken}`,
                             'Accept': 'application/vnd.github.v3+json'
                         }
                     });
@@ -470,12 +500,15 @@
                     if (response.ok) {
                         const userData = await response.json();
                         tokenStatus.innerHTML = `<span style="color: #2ecc71;">有效 (用户: ${userData.login})</span>`;
+                        return true;
                     } else {
                         tokenStatus.innerHTML = '<span style="color: #e74c3c;">无效 - 请检查权限</span>';
+                        return false;
                     }
                 } catch (error) {
                     tokenStatus.innerHTML = '<span style="color: #e74c3c;">检查失败 - 网络问题</span>';
                     console.error('令牌检查错误:', error);
+                    return false;
                 }
             }
             
@@ -579,7 +612,18 @@
                     return;
                 }
                 
+                // 确保令牌已获取
+                if (!githubToken) {
+                    try {
+                        githubToken = await fetchGitHubToken();
+                    } catch (error) {
+                        showResult('error', '无法获取GitHub令牌，上传失败');
+                        return;
+                    }
+                }
+                
                 // 显示上传中状态
+                const originalBtnText = uploadBtn.innerHTML;
                 uploadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 上传中...';
                 uploadBtn.disabled = true;
                 
@@ -593,7 +637,7 @@
                     const response = await fetch(`https://api.github.com/repos/${FIXED_REPO}/contents/${path}`, {
                         method: 'PUT',
                         headers: {
-                            'Authorization': `token ${FIXED_TOKEN}`,
+                            'Authorization': `token ${githubToken}`,
                             'Content-Type': 'application/json',
                             'Accept': 'application/vnd.github.v3+json'
                         },
@@ -639,7 +683,7 @@
                     `);
                     console.error('上传错误:', error);
                 } finally {
-                    uploadBtn.innerHTML = '<i class="fas fa-upload"></i> 上传文件到GitHub';
+                    uploadBtn.innerHTML = originalBtnText;
                     uploadBtn.disabled = false;
                 }
             });
@@ -662,4 +706,5 @@
     </script>
 </body>
 </html>
+
 
