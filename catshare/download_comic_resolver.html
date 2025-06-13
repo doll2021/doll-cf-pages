@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XML 文件下载管理器</title>
+    <title>Cloudflare XML 文件下载器</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -43,6 +43,17 @@
             max-width: 800px;
             margin: 0 auto;
             opacity: 0.9;
+        }
+        
+        .path-info {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 800px;
+            font-family: monospace;
+            word-break: break-all;
+            text-align: center;
         }
         
         .main-content {
@@ -197,6 +208,7 @@
             display: flex;
             justify-content: center;
             gap: 20px;
+            margin-top: 20px;
         }
         
         .btn {
@@ -231,6 +243,17 @@
         
         .btn-secondary:hover {
             background: linear-gradient(to right, #7f8c8d, #6c7a7d);
+            transform: translateY(-2px);
+        }
+        
+        .btn-success {
+            background: linear-gradient(to right, #2ecc71, #27ae60);
+            color: white;
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+        }
+        
+        .btn-success:hover {
+            background: linear-gradient(to right, #27ae60, #219653);
             transform: translateY(-2px);
         }
         
@@ -280,6 +303,10 @@
         
         .error {
             background: linear-gradient(to right, #e74c3c, #c0392b);
+        }
+        
+        .info {
+            background: linear-gradient(to right, #3498db, #1a5f9e);
         }
         
         .empty-state {
@@ -348,8 +375,11 @@
 <body>
     <div class="container">
         <header>
-            <h1><i class="fas fa-file-code"></i> XML 文件下载管理器</h1>
-            <p>扫描并管理 resource/catshare/resolver/comic 目录下的所有XML文件</p>
+            <h1><i class="fas fa-cloud-download-alt"></i> Cloudflare XML 文件下载器</h1>
+            <p>扫描并下载 GitHub 项目中的 XML 文件</p>
+            <div class="path-info">
+                <i class="fas fa-folder"></i> resource/catshare/resolver/comic
+            </div>
         </header>
         
         <div class="main-content">
@@ -358,7 +388,7 @@
                     <h2>XML 文件列表</h2>
                     <div class="search-box">
                         <input type="text" id="searchInput" placeholder="搜索XML文件...">
-                        <button class="btn btn-secondary" id="scanBtn"><i class="fas fa-sync-alt"></i> 重新扫描</button>
+                        <button class="btn btn-success" id="scanBtn"><i class="fas fa-sync-alt"></i> 扫描目录</button>
                     </div>
                 </div>
                 
@@ -375,19 +405,23 @@
                 
                 <div class="file-list" id="fileList">
                     <!-- 文件列表将通过JavaScript动态生成 -->
+                    <div class="empty-state">
+                        <i class="fas fa-search"></i>
+                        <p>点击"扫描目录"按钮加载XML文件列表</p>
+                    </div>
                 </div>
             </div>
             
+            <div class="actions">
+                <button class="btn btn-primary pulse" id="downloadBtn">
+                    <i class="fas fa-download"></i> 下载选中文件
+                </button>
+                <button class="btn btn-secondary" id="clearBtn">
+                    <i class="fas fa-trash-alt"></i> 清除选择
+                </button>
+            </div>
+            
             <div class="card">
-                <div class="actions">
-                    <button class="btn btn-primary pulse" id="downloadBtn">
-                        <i class="fas fa-download"></i> 下载选中文件
-                    </button>
-                    <button class="btn btn-secondary" id="clearBtn">
-                        <i class="fas fa-trash-alt"></i> 清除选择
-                    </button>
-                </div>
-                
                 <div class="progress-container" id="progressContainer">
                     <div class="progress-text">准备下载...</div>
                     <div class="progress-bar">
@@ -402,13 +436,18 @@
     <div class="notification" id="notification"></div>
 
     <script>
-        // 模拟数据 - 实际项目中需要替换为从服务器获取真实数据
+        // 模拟数据 - 实际项目中需要替换为从GitHub API获取真实数据
         const mockFiles = [
             { id: 1, name: "comic_config.xml", path: "resource/catshare/resolver/comic/comic_config.xml", size: 42 },
             { id: 2, name: "characters.xml", path: "resource/catshare/resolver/comic/characters.xml", size: 87 },
             { id: 3, name: "chapters_vol1.xml", path: "resource/catshare/resolver/comic/chapters_vol1.xml", size: 156 },
             { id: 4, name: "chapters_vol2.xml", path: "resource/catshare/resolver/comic/chapters_vol2.xml", size: 143 },
-            { id: 5, name: "artwork_metadata.xml", path: "resource/catshare/resolver/comic/artwork_metadata.xml", size: 231 }
+            { id: 5, name: "artwork_metadata.xml", path: "resource/catshare/resolver/comic/artwork_metadata.xml", size: 231 },
+            { id: 6, name: "authors.xml", path: "resource/catshare/resolver/comic/authors.xml", size: 65 },
+            { id: 7, name: "publishers.xml", path: "resource/catshare/resolver/comic/publishers.xml", size: 58 },
+            { id: 8, name: "collections.xml", path: "resource/catshare/resolver/comic/collections.xml", size: 98 },
+            { id: 9, name: "translations.xml", path: "resource/catshare/resolver/comic/translations.xml", size: 124 },
+            { id: 10, name: "editions.xml", path: "resource/catshare/resolver/comic/editions.xml", size: 76 }
         ];
         
         // DOM 元素
@@ -427,10 +466,10 @@
         
         // 当前选中的文件
         let selectedFiles = new Set();
+        let fileData = [];
         
         // 初始化
         function init() {
-            renderFileList(mockFiles);
             setupEventListeners();
         }
         
@@ -483,7 +522,7 @@
         
         // 更新全选复选框状态
         function updateSelectAllState() {
-            const totalFiles = mockFiles.length;
+            const totalFiles = fileData.length;
             const selectedCount = selectedFiles.size;
             
             if (selectedCount === totalFiles) {
@@ -501,7 +540,7 @@
         // 更新选择信息
         function updateSelectionInfo() {
             const selectedCount = selectedFiles.size;
-            const totalSize = mockFiles
+            const totalSize = fileData
                 .filter(file => selectedFiles.has(file.id))
                 .reduce((sum, file) => sum + file.size, 0);
             
@@ -510,9 +549,9 @@
         }
         
         // 显示通知
-        function showNotification(message, isSuccess = true) {
+        function showNotification(message, type = "info") {
             notification.textContent = message;
-            notification.className = `notification ${isSuccess ? 'success' : 'error'}`;
+            notification.className = `notification ${type}`;
             notification.style.display = 'block';
             
             setTimeout(() => {
@@ -520,10 +559,22 @@
             }, 3000);
         }
         
+        // 扫描文件
+        function scanFiles() {
+            showNotification('正在扫描目录...', 'info');
+            // 模拟扫描延迟
+            setTimeout(() => {
+                // 实际项目中这里应调用GitHub API
+                fileData = [...mockFiles];
+                renderFileList(fileData);
+                showNotification(`发现 ${fileData.length} 个XML文件`, 'success');
+            }, 1500);
+        }
+        
         // 模拟下载进度
         function simulateDownload() {
             if (selectedFiles.size === 0) {
-                showNotification('请先选择要下载的文件', false);
+                showNotification('请先选择要下载的文件', 'error');
                 return;
             }
             
@@ -542,7 +593,7 @@
                     // 下载完成
                     setTimeout(() => {
                         progressContainer.style.display = 'none';
-                        showNotification(`成功下载 ${selectedFiles.size} 个文件！`);
+                        showNotification(`成功下载 ${selectedFiles.size} 个文件！`, 'success');
                     }, 500);
                 }
                 
@@ -557,14 +608,14 @@
             selectAllCheckbox.addEventListener('change', function() {
                 if (this.checked) {
                     // 全选
-                    mockFiles.forEach(file => selectedFiles.add(file.id));
+                    fileData.forEach(file => selectedFiles.add(file.id));
                 } else {
                     // 取消全选
                     selectedFiles.clear();
                 }
                 
                 // 更新UI
-                mockFiles.forEach(file => {
+                fileData.forEach(file => {
                     const checkbox = document.getElementById(`file-${file.id}`);
                     if (checkbox) checkbox.checked = this.checked;
                 });
@@ -589,20 +640,13 @@
                 updateSelectionInfo();
             });
             
-            // 重新扫描
-            scanBtn.addEventListener('click', function() {
-                showNotification('正在扫描目录...', true);
-                // 模拟扫描延迟
-                setTimeout(() => {
-                    renderFileList(mockFiles);
-                    showNotification(`发现 ${mockFiles.length} 个XML文件`, true);
-                }, 800);
-            });
+            // 扫描按钮
+            scanBtn.addEventListener('click', scanFiles);
             
             // 搜索功能
             searchInput.addEventListener('input', function() {
                 const searchTerm = this.value.toLowerCase();
-                const filteredFiles = mockFiles.filter(file => 
+                const filteredFiles = fileData.filter(file => 
                     file.name.toLowerCase().includes(searchTerm) || 
                     file.path.toLowerCase().includes(searchTerm)
                 );
