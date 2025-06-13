@@ -462,7 +462,7 @@
                 try {
                     tokenStatus.innerHTML = '正在从Cloudflare KV获取令牌...';
                     
-                    const response = await fetch('/get-github-token');
+                    const response = await fetch('/api/get-github-token');
                     const data = await response.json();
                     
                     if (!response.ok) {
