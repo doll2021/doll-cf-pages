@@ -360,13 +360,10 @@
 <body>
     <div class="container">
         <header>
-            <h1><i class="fab fa-github"></i> GitHub文件上传工具</h1>
-            <p class="subtitle">将文件上传到仓库的 <code>/resource/carshare/resolver</code> 目录</p>
+            <h1><i class="fab fa-github"></i> 漫画类解析器上传工具</h1>
         </header>
         
         <div class="card">
-            <h2><i class="fas fa-cloud-upload-alt"></i> 上传文件</h2>
-            
             <div class="config-info">
                 <h3><i class="fas fa-cog"></i> 配置信息</h3>
                 <div class="config-grid">
@@ -380,7 +377,7 @@
                     </div>
                     <div class="config-item">
                         <strong>目标目录</strong>
-                        <span>/resource/carshare/resolver/</span>
+                        <span>/resource/carshare/resolver/comic/</span>
                     </div>
                     <div class="config-item">
                         <strong>令牌状态</strong>
@@ -405,7 +402,7 @@
                 </div>
             </div>
             
-            <button class="btn" id="uploadBtn"><i class="fas fa-upload"></i> 上传文件到GitHub</button>
+            <button class="btn" id="uploadBtn"><i class="fas fa-upload"></i> 上传解析器到GitHub</button>
             
             <div class="result-box" id="resultBox">
                 <h3><i class="fas fa-info-circle"></i> 上传结果</h3>
@@ -417,8 +414,7 @@
             <div class="info-box">
                 <h3><i class="fas fa-folder"></i> 上传路径说明</h3>
                 <p>所有文件将上传到仓库的指定目录：</p>
-                <p><code>/resource/carshare/resolver/</code></p>
-                <p>您只需要提供文件名，路径是固定的。</p>
+                <p><code>/resource/carshare/resolver/comic/</code></p>
             </div>
             
             <div class="info-box">
@@ -426,15 +422,13 @@
                 <ul>
                     <li>最大文件大小：<b>25MB</b>（GitHub API限制）</li>
                     <li>文件名不能包含特殊字符（如: / \ * ? " &lt; &gt; |）</li>
-                    <li>文件将直接提交到main分支</li>
                     <li>上传后Cloudflare Pages会自动部署新版本</li>
-                    <li>如果遇到"Bad credentials"错误，请检查令牌权限</li>
                 </ul>
             </div>
         </div>
         
         <footer>
-            <p>GitHub文件上传工具 &copy; 2023 | 安全提示：此工具使用预配置的访问令牌</p>
+            <p>解析器文件上传工具 &copy; 2025 | 安全提示：此工具使用预配置的访问令牌</p>
         </footer>
     </div>
 
@@ -443,7 +437,7 @@
             // 固定配置值
             const FIXED_REPO = 'doll2021/doll-cf-pages';
             const FIXED_BRANCH = 'main';
-            const BASE_PATH = 'resource/carshare/resolver';
+            const BASE_PATH = 'resource/carshare/resolver/comic';
             
             // DOM元素
             const fileInput = document.getElementById('fileInput');
@@ -642,7 +636,7 @@
                             'Accept': 'application/vnd.github.v3+json'
                         },
                         body: JSON.stringify({
-                            message: `添加文件: ${filenameInput.value} 到 /resource/carshare/resolver`,
+                            message: `添加文件: ${filenameInput.value} 到 /resource/carshare/resolver/comic`,
                             content: fileContent.split(',')[1], // 移除Base64前缀
                             branch: FIXED_BRANCH
                         })
@@ -706,5 +700,3 @@
     </script>
 </body>
 </html>
-
-
