@@ -666,7 +666,44 @@
             }
         }
         
-        // 下载文件
+        // 下载单个文件（使用Blob方式强制下载）
+        async function downloadFile(file) {
+            return new Promise(async (resolve, reject) => {
+                try {
+                    // 获取文件内容
+                    const response = await fetch(file.download_url);
+                    if (!response.ok) {
+                        throw new Error(`下载失败: ${response.status} ${response.statusText}`);
+                    }
+                    
+                    // 将响应数据转换为Blob
+                    const blob = await response.blob();
+                    
+                    // 创建对象URL
+                    const blobUrl = URL.createObjectURL(blob);
+                    
+                    // 创建下载链接并触发下载
+                    const a = document.createElement('a');
+                    a.href = blobUrl;
+                    a.download = file.name;
+                    a.style.display = 'none';
+                    document.body.appendChild(a);
+                    a.click();
+                    
+                    // 释放对象URL
+                    setTimeout(() => {
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(blobUrl);
+                        resolve();
+                    }, 100);
+                    
+                } catch (error) {
+                    reject(error);
+                }
+            });
+        }
+        
+        // 下载所有选中的文件
         async function downloadFiles() {
             if (selectedFiles.size === 0) {
                 showNotification('请先选择要下载的文件', 'error');
@@ -690,17 +727,8 @@
                     // 更新当前文件信息
                     currentFileElement.textContent = `正在下载: ${file.name}`;
                     
-                    // 创建下载链接
-                    const a = document.createElement('a');
-                    a.href = file.download_url;
-                    a.download = file.name;
-                    a.style.display = 'none';
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                    
-                    // 等待一小段时间以确保下载开始
-                    await new Promise(resolve => setTimeout(resolve, 300));
+                    // 下载文件
+                    await downloadFile(file);
                     
                     // 更新进度
                     downloaded++;
@@ -710,14 +738,14 @@
                     
                 } catch (error) {
                     console.error(`下载文件 ${file.name} 失败:`, error);
-                    showNotification(`下载失败: ${file.name}`, 'error');
+                    showNotification(`下载失败: ${file.name} - ${error.message}`, 'error');
                 }
             }
             
             // 完成下载
             setTimeout(() => {
                 progressContainer.style.display = 'none';
-                showNotification(`成功下载 ${totalFiles} 个文件！`, 'success');
+                showNotification(`成功下载 ${downloaded}/${totalFiles} 个文件！`, 'success');
             }, 500);
         }
         
