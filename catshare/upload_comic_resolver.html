@@ -377,7 +377,7 @@
                     </div>
                     <div class="config-item">
                         <strong>目标目录</strong>
-                        <span>/resource/carshare/resolver/comic/</span>
+                        <span>/resource/catshare/resolver/comic/</span>
                     </div>
                     <div class="config-item">
                         <strong>令牌状态</strong>
@@ -414,7 +414,7 @@
             <div class="info-box">
                 <h3><i class="fas fa-folder"></i> 上传路径说明</h3>
                 <p>所有文件将上传到仓库的指定目录：</p>
-                <p><code>/resource/carshare/resolver/comic/</code></p>
+                <p><code>/resource/catshare/resolver/comic/</code></p>
             </div>
             
             <div class="info-box">
@@ -437,7 +437,7 @@
             // 固定配置值
             const FIXED_REPO = 'doll2021/doll-cf-pages';
             const FIXED_BRANCH = 'main';
-            const BASE_PATH = 'resource/carshare/resolver/comic';
+            const BASE_PATH = 'resource/catshare/resolver/comic';
             
             // DOM元素
             const fileInput = document.getElementById('fileInput');
@@ -636,7 +636,7 @@
                             'Accept': 'application/vnd.github.v3+json'
                         },
                         body: JSON.stringify({
-                            message: `添加文件: ${filenameInput.value} 到 /resource/carshare/resolver/comic`,
+                            message: `添加文件: ${filenameInput.value} 到 /resource/catshare/resolver/comic`,
                             content: fileContent.split(',')[1], // 移除Base64前缀
                             branch: FIXED_BRANCH
                         })
