@@ -26,7 +26,7 @@
             .then(res => res.json())
             .then(data => {
                 document.getElementById('visit-counter').innerText = 
-                    `You are visitor #${data.count}`;
+                    `You are visitor #${data.token}`;
             });
     </script>
 </body>
