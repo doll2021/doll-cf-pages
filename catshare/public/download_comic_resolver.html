@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub XML文件下载管理器</title>
+    <title>下载漫画类解析器</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -99,11 +99,6 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            flex: 1;
-        }
-        
-        .card-header .header-actions {
-            flex-shrink: 0;
         }
         
         .search-box {
@@ -204,7 +199,6 @@
         
         .file-details {
             flex: 1;
-            min-width: 0; /* 防止内容溢出 */
         }
         
         .file-name {
@@ -214,6 +208,7 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            max-width: 70%;
         }
         
         .file-path {
@@ -230,15 +225,14 @@
             color: #5a6b8c;
             font-weight: 600;
             min-width: 70px;
-            text-align: center; /* 文字居中 */
+            text-align: right;
             font-size: 0.95rem;
-            padding: 6px 8px; /* 调整宽度 */
+            padding: 6px 10px;
             background: #f0f4ff;
             border-radius: 6px;
             position: absolute;
             top: 14px;
             right: 14px;
-            width: auto;
         }
         
         .actions {
@@ -406,6 +400,44 @@
             font-size: 0.85rem;
         }
         
+        .mobile-path-info {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: none;
+        }
+        
+        .mobile-path-info h3 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #5a3e00;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+        
+        .mobile-path-info ul {
+            padding-left: 18px;
+            font-size: 0.9rem;
+        }
+        
+        .mobile-path-info li {
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+        
+        .mobile-path-info .path-indicator {
+            background: #fff3cd;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            display: inline-block;
+            margin-top: 4px;
+            font-size: 0.85rem;
+        }
+        
         @media (max-width: 768px) {
             .container {
                 border-radius: 12px;
@@ -425,10 +457,6 @@
                 gap: 15px;
             }
             
-            .card-header .header-actions {
-                width: 100%;
-            }
-            
             .controls {
                 flex-direction: column;
                 align-items: flex-start;
@@ -443,6 +471,10 @@
                 width: 100%;
                 justify-content: center;
                 padding: 12px 20px;
+            }
+            
+            .mobile-path-info {
+                display: block;
             }
             
             .file-name {
@@ -474,12 +506,6 @@
             .file-name {
                 max-width: 50%;
             }
-            
-            .file-size {
-                min-width: 60px;
-                padding: 6px 5px;
-                font-size: 0.85rem;
-            }
         }
     </style>
 </head>
@@ -487,17 +513,16 @@
     <div class="container">
         <header>
             <div class="header-content">
-                <h3><i class="fas fa-file-code"></i> GitHub XML文件下载管理器</h3>
+                <h3><i class="fas fa-file-code"></i> 下载漫画类解析器</h3>
+                
             </div>
         </header>
         
         <div class="main-content">
             <div class="card">
                 <div class="card-header">
-                    <h2><i class="fas fa-list"></i> 解析器列表</h2>
-                    <div class="header-actions">
-                        <button class="btn btn-primary" id="scanBtn"><i class="fas fa-sync-alt"></i> 扫描目录</button>
-                    </div>
+                    <h4><i class="fas fa-list"></i> 解析器列表</h4>
+                    <button class="btn btn-primary" id="scanBtn"><i class="fas fa-sync-alt"></i> 扫描云端资源</button>
                 </div>
                 
                 <div class="controls">
@@ -514,7 +539,7 @@
                 <div class="file-list" id="fileList">
                     <div class="empty-state">
                         <i class="fas fa-cloud-download-alt"></i>
-                        <p>点击"扫描目录"按钮从GitHub加载XML文件列表</p>
+                        <p>点击"扫描云端资源"按钮，从云端加载漫画类解析器列表</p>
                     </div>
                 </div>
             </div>
@@ -540,8 +565,8 @@
             </div>
             
             <div class="worker-info">
-                <h3><i class="fas fa-server"></i> Cloudflare Worker 信息</h3>
-                <div class="worker-url" id="workerUrl">https://xml.44477444.xyz/?path=resource/catshare/resolver/comic</div>
+                <h3><i class="fas fa-server"></i>请手动把解析器移动到下面的文件夹内</h3>
+                <div class="worker-url" id="workerUrl">设备根目录/Catshare/resolver/comic</div>
             </div>
         </div>
     </div>
@@ -551,58 +576,6 @@
     <script>
         // Cloudflare Worker URL
         const WORKER_URL = 'https://xml.44477444.xyz/?path=resource/catshare/resolver/comic';
-        
-        // 模拟文件数据
-        const MOCK_FILE_DATA = [
-            {
-                name: "comic1.xml",
-                path: "resource/catshare/resolver/comic/comic1.xml",
-                size: 12,
-                download_url: "https://example.com/comic1.xml"
-            },
-            {
-                name: "comic2.xml",
-                path: "resource/catshare/resolver/comic/comic2.xml",
-                size: 8,
-                download_url: "https://example.com/comic2.xml"
-            },
-            {
-                name: "comic3.xml",
-                path: "resource/catshare/resolver/comic/comic3.xml",
-                size: 15,
-                download_url: "https://example.com/comic3.xml"
-            },
-            {
-                name: "comic4.xml",
-                path: "resource/catshare/resolver/comic/comic4.xml",
-                size: 20,
-                download_url: "https://example.com/comic4.xml"
-            },
-            {
-                name: "comic5.xml",
-                path: "resource/catshare/resolver/comic/comic5.xml",
-                size: 10,
-                download_url: "https://example.com/comic5.xml"
-            },
-            {
-                name: "comic6.xml",
-                path: "resource/catshare/resolver/comic/comic6.xml",
-                size: 18,
-                download_url: "https://example.com/comic6.xml"
-            },
-            {
-                name: "comic7.xml",
-                path: "resource/catshare/resolver/comic/comic7.xml",
-                size: 14,
-                download_url: "https://example.com/comic7.xml"
-            },
-            {
-                name: "comic8.xml",
-                path: "resource/catshare/resolver/comic/comic8.xml",
-                size: 22,
-                download_url: "https://example.com/comic8.xml"
-            }
-        ];
         
         // DOM 元素
         const fileListElement = document.getElementById('fileList');
@@ -626,6 +599,11 @@
         let selectedFiles = new Set();
         let fileData = [];
         
+        // 检测是否为移动设备
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+        
         // 初始化
         function init() {
             setupEventListeners();
@@ -648,9 +626,7 @@
                     <div class="file-header">
                         <input type="checkbox" id="file-${file.name}" ${selectedFiles.has(file.name) ? 'checked' : ''}>
                         <i class="fas fa-file-code file-icon"></i>
-                        <div class="file-details">
-                            <div class="file-name">${file.name}</div>
-                        </div>
+                        <div class="file-name">${file.name}</div>
                         <div class="file-size">${file.size} KB</div>
                     </div>
                     <div class="file-path">${file.path}</div>
@@ -724,11 +700,22 @@
             showNotification('正在从GitHub加载文件列表...', 'info');
             
             try {
-                // 模拟网络请求延迟
-                await new Promise(resolve => setTimeout(resolve, 1500));
+                // 调用Cloudflare Worker获取文件列表
+                const response = await fetch(WORKER_URL);
                 
-                // 使用模拟数据
-                fileData = MOCK_FILE_DATA;
+                if (!response.ok) {
+                    throw new Error(`获取文件列表失败: ${response.status} ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                
+                // 检查是否有错误
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+                
+                // 更新文件数据
+                fileData = data;
                 selectedFiles.clear();
                 selectAllCheckbox.checked = false;
                 renderFileList(fileData);
@@ -739,13 +726,40 @@
             }
         }
         
-        // 下载单个文件（模拟）
+        // 下载单个文件（使用Blob方式强制下载）
         async function downloadFile(file) {
-            return new Promise(async (resolve) => {
-                // 模拟下载延迟
-                const delay = 300 + Math.random() * 700;
-                await new Promise(resolve => setTimeout(resolve, delay));
-                resolve();
+            return new Promise(async (resolve, reject) => {
+                try {
+                    // 获取文件内容
+                    const response = await fetch(file.download_url);
+                    if (!response.ok) {
+                        throw new Error(`下载失败: ${response.status} ${response.statusText}`);
+                    }
+                    
+                    // 将响应数据转换为Blob
+                    const blob = await response.blob();
+                    
+                    // 创建对象URL
+                    const blobUrl = URL.createObjectURL(blob);
+                    
+                    // 创建下载链接并触发下载
+                    const a = document.createElement('a');
+                    a.href = blobUrl;
+                    a.download = file.name;
+                    a.style.display = 'none';
+                    document.body.appendChild(a);
+                    a.click();
+                    
+                    // 释放对象URL
+                    setTimeout(() => {
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(blobUrl);
+                        resolve();
+                    }, 100);
+                    
+                } catch (error) {
+                    reject(error);
+                }
             });
         }
         
@@ -755,10 +769,7 @@
                 showNotification('请先选择要下载的文件', 'error');
                 return;
             }
-            
-            // 显示下载开始提示
-            showNotification('开始下载所选文件...', 'info', 2000);
-            
+			
             // 显示进度条
             progressContainer.style.display = 'block';
             progressBar.style.width = '0%';
@@ -801,6 +812,11 @@
             setTimeout(() => {
                 progressContainer.style.display = 'none';
                 showNotification(`成功下载 ${successCount}/${totalFiles} 个文件！`, 'success');
+                
+                // 如果是移动设备，显示文件移动提示
+                if (isMobileDevice()) {
+                    showNotification('请将文件移动到：根目录/Catshare/resolver/comic', 'info', 5000);
+                }
             }, 500);
         }
         
