@@ -724,41 +724,44 @@
         }
         
         // 下载单个文件（使用Blob方式强制下载）
-        async function downloadFile(file) {
-            return new Promise(async (resolve, reject) => {
-                try {
-                    // 获取文件内容
-                    const response = await fetch(file.download_url);
-                    if (!response.ok) {
-                        throw new Error(`下载失败: ${response.status} ${response.statusText}`);
-                    }
-                    
-                    // 将响应数据转换为Blob
-                    const blob = await response.blob();
-                    
-                    // 创建对象URL
-                    const blobUrl = URL.createObjectURL(blob);
-                    
-                    // 创建下载链接并触发下载
-                    const a = document.createElement('a');
-                    a.href = blobUrl;
-                    a.download = file.name;
-                    a.style.display = 'none';
-                    document.body.appendChild(a);
-                    a.click();
-                    
-                    // 释放对象URL
-                    setTimeout(() => {
-                        document.body.removeChild(a);
-                        URL.revokeObjectURL(blobUrl);
-                        resolve();
-                    }, 100);
-                    
-                } catch (error) {
-                    reject(error);
-                }
-            });
-        }
+		async function downloadFile(file) {
+			return new Promise(async (resolve, reject) => {
+				try {
+					// 添加反代接口前缀
+					const proxyUrl = 'https://proxy.44477444.xyz/?url=' + encodeURIComponent(file.download_url);
+					
+					// 获取文件内容（通过反代）
+					const response = await fetch(proxyUrl);
+					if (!response.ok) {
+						throw new Error(`下载失败: ${response.status} ${response.statusText}`);
+					}
+					
+					// 将响应数据转换为Blob
+					const blob = await response.blob();
+					
+					// 创建对象URL
+					const blobUrl = URL.createObjectURL(blob);
+					
+					// 创建下载链接并触发下载
+					const a = document.createElement('a');
+					a.href = blobUrl;
+					a.download = file.name;
+					a.style.display = 'none';
+					document.body.appendChild(a);
+					a.click();
+					
+					// 释放对象URL
+					setTimeout(() => {
+						document.body.removeChild(a);
+						URL.revokeObjectURL(blobUrl);
+						resolve();
+					}, 100);
+					
+				} catch (error) {
+					reject(error);
+				}
+			});
+		}
         
         // 下载所有选中的文件
         async function downloadFiles() {
