@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloudflare XML 文件下载器</title>
+    <title>GitHub XML文件下载管理器</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,66 +14,74 @@
         }
         
         body {
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            background: linear-gradient(135deg, #1a2980, #26d0ce);
             color: #333;
             min-height: 100vh;
             padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         .container {
+            width: 100%;
             max-width: 1200px;
-            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
         }
         
         header {
-            text-align: center;
-            padding: 30px 0;
+            background: linear-gradient(to right, #1a2980, #26d0ce);
             color: white;
-            animation: fadeIn 1s ease;
+            padding: 30px 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         header h1 {
             font-size: 2.8rem;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
         }
         
         header p {
             font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
             opacity: 0.9;
+            margin-bottom: 20px;
         }
         
         .path-info {
             background: rgba(255, 255, 255, 0.2);
             padding: 15px;
             border-radius: 10px;
-            margin: 20px auto;
-            max-width: 800px;
             font-family: monospace;
             word-break: break-all;
             text-align: center;
+            font-size: 1.1rem;
+            margin-top: 15px;
         }
         
         .main-content {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            margin-bottom: 40px;
+            padding: 30px;
         }
         
         .card {
-            background: rgba(255, 255, 255, 0.95);
+            background: white;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
             padding: 25px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            margin-bottom: 30px;
         }
         
         .card-header {
@@ -81,34 +89,39 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
-            border-bottom: 2px solid #eee;
             padding-bottom: 15px;
+            border-bottom: 2px solid #f0f4ff;
         }
         
         .card-header h2 {
             color: #2c3e50;
             font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
         .search-box {
             display: flex;
             gap: 10px;
-            max-width: 400px;
+            max-width: 500px;
             width: 100%;
         }
         
         .search-box input {
             flex: 1;
-            padding: 12px 15px;
-            border: 2px solid #ddd;
+            padding: 14px 20px;
+            border: 2px solid #e0e7ff;
             border-radius: 50px;
             font-size: 1rem;
-            transition: border-color 0.3s;
+            transition: all 0.3s;
+            background: #f8fbff;
         }
         
         .search-box input:focus {
             outline: none;
             border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
         }
         
         .controls {
@@ -129,54 +142,67 @@
         .select-all label {
             font-weight: 600;
             color: #2c3e50;
+            font-size: 1.1rem;
         }
         
         .file-info {
             background: #e3f2fd;
-            padding: 12px 20px;
-            border-radius: 10px;
+            padding: 14px 22px;
+            border-radius: 50px;
             font-weight: 600;
             color: #1976d2;
             display: flex;
             align-items: center;
             gap: 8px;
+            font-size: 1.1rem;
         }
         
         .file-list {
             max-height: 500px;
             overflow-y: auto;
-            border: 1px solid #eee;
-            border-radius: 10px;
+            border: 2px solid #f0f4ff;
+            border-radius: 12px;
             padding: 10px;
+            background: #f8fbff;
         }
         
         .file-item {
             display: flex;
             align-items: center;
-            padding: 15px;
+            padding: 18px;
             border-bottom: 1px solid #f0f0f0;
-            transition: background-color 0.2s;
+            transition: all 0.3s;
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
         
         .file-item:last-child {
             border-bottom: none;
+            margin-bottom: 0;
         }
         
         .file-item:hover {
-            background-color: #f9f9f9;
+            background-color: #f5f9ff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
         
         .file-item input[type="checkbox"] {
-            margin-right: 15px;
-            width: 20px;
-            height: 20px;
+            margin-right: 18px;
+            width: 22px;
+            height: 22px;
             cursor: pointer;
+            accent-color: #3498db;
         }
         
         .file-icon {
-            margin-right: 15px;
-            color: #e74c3c;
-            font-size: 1.8rem;
+            margin-right: 18px;
+            color: #1a2980;
+            font-size: 2rem;
+            min-width: 40px;
+            text-align: center;
         }
         
         .file-details {
@@ -184,24 +210,29 @@
         }
         
         .file-name {
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 6px;
             color: #2c3e50;
         }
         
         .file-path {
-            font-size: 0.9rem;
-            color: #7f8c8d;
+            font-size: 0.95rem;
+            color: #5a6b8c;
             font-family: monospace;
             word-break: break-all;
+            line-height: 1.5;
         }
         
         .file-size {
-            color: #7f8c8d;
-            font-weight: 500;
-            min-width: 80px;
+            color: #5a6b8c;
+            font-weight: 600;
+            min-width: 100px;
             text-align: right;
+            font-size: 1.1rem;
+            padding: 8px 12px;
+            background: #f0f4ff;
+            border-radius: 8px;
         }
         
         .actions {
@@ -212,97 +243,108 @@
         }
         
         .btn {
-            padding: 16px 35px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         
         .btn-primary {
-            background: linear-gradient(to right, #3498db, #1a5f9e);
+            background: linear-gradient(to right, #1a2980, #26d0ce);
             color: white;
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+            box-shadow: 0 6px 20px rgba(26, 41, 128, 0.3);
         }
         
         .btn-primary:hover {
-            background: linear-gradient(to right, #2980b9, #154d7c);
-            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
-            transform: translateY(-2px);
+            background: linear-gradient(to right, #15236d, #1fb3b0);
+            box-shadow: 0 8px 25px rgba(26, 41, 128, 0.4);
+            transform: translateY(-3px);
         }
         
         .btn-secondary {
             background: linear-gradient(to right, #95a5a6, #7f8c8d);
             color: white;
+            box-shadow: 0 6px 20px rgba(149, 165, 166, 0.3);
         }
         
         .btn-secondary:hover {
             background: linear-gradient(to right, #7f8c8d, #6c7a7d);
-            transform: translateY(-2px);
-        }
-        
-        .btn-success {
-            background: linear-gradient(to right, #2ecc71, #27ae60);
-            color: white;
-            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
-        }
-        
-        .btn-success:hover {
-            background: linear-gradient(to right, #27ae60, #219653);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
         
         .progress-container {
             margin-top: 30px;
             text-align: center;
             display: none;
+            background: #f8fbff;
+            padding: 25px;
+            border-radius: 15px;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: #1a2980;
         }
         
         .progress-bar {
-            height: 12px;
-            background: #e0e0e0;
+            height: 18px;
+            background: #e0e7ff;
             border-radius: 10px;
             margin: 15px 0;
             overflow: hidden;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
         }
         
         .progress {
             height: 100%;
-            background: linear-gradient(to right, #2ecc71, #27ae60);
+            background: linear-gradient(to right, #1a2980, #26d0ce);
             width: 0%;
             transition: width 0.5s ease;
+            border-radius: 10px;
         }
         
         .progress-text {
-            font-weight: 600;
-            color: #27ae60;
+            font-weight: 700;
+            color: #1a2980;
             margin-bottom: 10px;
+            font-size: 1.1rem;
         }
         
         .notification {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 25px;
-            border-radius: 10px;
+            top: 30px;
+            right: 30px;
+            padding: 20px 30px;
+            border-radius: 15px;
             color: white;
             font-weight: 600;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
             display: none;
             z-index: 1000;
+            max-width: 400px;
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
         
         .success {
-            background: linear-gradient(to right, #2ecc71, #27ae60);
+            background: linear-gradient(to right, #00b09b, #96c93d);
         }
         
         .error {
-            background: linear-gradient(to right, #e74c3c, #c0392b);
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
         }
         
         .info {
@@ -311,43 +353,76 @@
         
         .empty-state {
             text-align: center;
-            padding: 40px;
-            color: #7f8c8d;
+            padding: 50px;
+            color: #5a6b8c;
         }
         
         .empty-state i {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            color: #bdc3c7;
+            font-size: 5rem;
+            margin-bottom: 25px;
+            color: #c5d0e6;
         }
         
         .empty-state p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .worker-info {
+            background: #f0f4ff;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            font-size: 0.95rem;
         }
         
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        .worker-info h3 {
+            color: #1a2980;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
-        .pulse {
-            animation: pulse 2s infinite;
+        .worker-url {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: monospace;
+            word-break: break-all;
+            margin-top: 10px;
+            border: 1px dashed #c5d0e6;
         }
         
         @media (max-width: 768px) {
-            .controls {
+            .container {
+                border-radius: 0;
+                margin: 0;
+            }
+            
+            header {
+                padding: 25px 20px;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .card-header {
                 flex-direction: column;
                 align-items: flex-start;
+                gap: 20px;
             }
             
             .search-box {
                 max-width: 100%;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: flex-start;
             }
             
             .file-item {
@@ -357,12 +432,12 @@
             
             .file-size {
                 align-self: flex-end;
-                margin-top: 10px;
+                margin-top: 15px;
             }
             
             .actions {
                 flex-direction: column;
-                gap: 10px;
+                gap: 15px;
             }
             
             .btn {
@@ -375,20 +450,22 @@
 <body>
     <div class="container">
         <header>
-            <h1><i class="fas fa-cloud-download-alt"></i> Cloudflare XML 文件下载器</h1>
-            <p>扫描并下载 GitHub 项目中的 XML 文件</p>
-            <div class="path-info">
-                <i class="fas fa-folder"></i> resource/catshare/resolver/comic
+            <div class="header-content">
+                <h1><i class="fas fa-file-code"></i> GitHub XML文件下载管理器</h1>
+                <p>通过Cloudflare Worker获取并管理GitHub仓库中的XML文件</p>
+                <div class="path-info">
+                    <i class="fas fa-folder"></i> resource/catshare/resolver/comic
+                </div>
             </div>
         </header>
         
         <div class="main-content">
             <div class="card">
                 <div class="card-header">
-                    <h2>XML 文件列表</h2>
+                    <h2><i class="fas fa-list"></i> XML 文件列表</h2>
                     <div class="search-box">
                         <input type="text" id="searchInput" placeholder="搜索XML文件...">
-                        <button class="btn btn-success" id="scanBtn"><i class="fas fa-sync-alt"></i> 扫描目录</button>
+                        <button class="btn btn-primary" id="scanBtn"><i class="fas fa-sync-alt"></i> 扫描目录</button>
                     </div>
                 </div>
                 
@@ -404,16 +481,15 @@
                 </div>
                 
                 <div class="file-list" id="fileList">
-                    <!-- 文件列表将通过JavaScript动态生成 -->
                     <div class="empty-state">
-                        <i class="fas fa-search"></i>
-                        <p>点击"扫描目录"按钮加载XML文件列表</p>
+                        <i class="fas fa-cloud-download-alt"></i>
+                        <p>点击"扫描目录"按钮从GitHub加载XML文件列表</p>
                     </div>
                 </div>
             </div>
             
             <div class="actions">
-                <button class="btn btn-primary pulse" id="downloadBtn">
+                <button class="btn btn-primary" id="downloadBtn">
                     <i class="fas fa-download"></i> 下载选中文件
                 </button>
                 <button class="btn btn-secondary" id="clearBtn">
@@ -421,14 +497,20 @@
                 </button>
             </div>
             
-            <div class="card">
-                <div class="progress-container" id="progressContainer">
+            <div class="progress-container" id="progressContainer">
+                <div class="progress-header">
                     <div class="progress-text">准备下载...</div>
-                    <div class="progress-bar">
-                        <div class="progress" id="progressBar"></div>
-                    </div>
                     <div id="progressStatus">0%</div>
                 </div>
+                <div class="progress-bar">
+                    <div class="progress" id="progressBar"></div>
+                </div>
+                <div id="currentFile" class="progress-text">等待开始...</div>
+            </div>
+            
+            <div class="worker-info">
+                <h3><i class="fas fa-server"></i> Cloudflare Worker 信息</h3>
+                <div class="worker-url" id="workerUrl">https://xml.44477444.xyz/?path=resource/catshare/resolver/comic</div>
             </div>
         </div>
     </div>
@@ -436,19 +518,8 @@
     <div class="notification" id="notification"></div>
 
     <script>
-        // 模拟数据 - 实际项目中需要替换为从GitHub API获取真实数据
-        const mockFiles = [
-            { id: 1, name: "comic_config.xml", path: "resource/catshare/resolver/comic/comic_config.xml", size: 42 },
-            { id: 2, name: "characters.xml", path: "resource/catshare/resolver/comic/characters.xml", size: 87 },
-            { id: 3, name: "chapters_vol1.xml", path: "resource/catshare/resolver/comic/chapters_vol1.xml", size: 156 },
-            { id: 4, name: "chapters_vol2.xml", path: "resource/catshare/resolver/comic/chapters_vol2.xml", size: 143 },
-            { id: 5, name: "artwork_metadata.xml", path: "resource/catshare/resolver/comic/artwork_metadata.xml", size: 231 },
-            { id: 6, name: "authors.xml", path: "resource/catshare/resolver/comic/authors.xml", size: 65 },
-            { id: 7, name: "publishers.xml", path: "resource/catshare/resolver/comic/publishers.xml", size: 58 },
-            { id: 8, name: "collections.xml", path: "resource/catshare/resolver/comic/collections.xml", size: 98 },
-            { id: 9, name: "translations.xml", path: "resource/catshare/resolver/comic/translations.xml", size: 124 },
-            { id: 10, name: "editions.xml", path: "resource/catshare/resolver/comic/editions.xml", size: 76 }
-        ];
+        // Cloudflare Worker URL
+        const WORKER_URL = 'https://xml.44477444.xyz/?path=resource/catshare/resolver/comic';
         
         // DOM 元素
         const fileListElement = document.getElementById('fileList');
@@ -462,7 +533,12 @@
         const progressContainer = document.getElementById('progressContainer');
         const progressBar = document.getElementById('progressBar');
         const progressStatus = document.getElementById('progressStatus');
+        const currentFileElement = document.getElementById('currentFile');
         const notification = document.getElementById('notification');
+        const workerUrlElement = document.getElementById('workerUrl');
+        
+        // 设置Worker URL
+        workerUrlElement.textContent = WORKER_URL;
         
         // 当前选中的文件
         let selectedFiles = new Set();
@@ -479,15 +555,15 @@
                 fileListElement.innerHTML = `
                     <div class="empty-state">
                         <i class="fas fa-folder-open"></i>
-                        <p>未找到任何 XML 文件</p>
+                        <p>未在指定路径下找到任何 XML 文件</p>
                     </div>
                 `;
                 return;
             }
             
             fileListElement.innerHTML = files.map(file => `
-                <div class="file-item" data-id="${file.id}">
-                    <input type="checkbox" id="file-${file.id}" ${selectedFiles.has(file.id) ? 'checked' : ''}>
+                <div class="file-item" data-id="${file.name}">
+                    <input type="checkbox" id="file-${file.name}" ${selectedFiles.has(file.name) ? 'checked' : ''}>
                     <i class="fas fa-file-code file-icon"></i>
                     <div class="file-details">
                         <div class="file-name">${file.name}</div>
@@ -507,12 +583,12 @@
         
         // 处理文件选择
         function handleFileSelection(e) {
-            const fileId = parseInt(e.target.closest('.file-item').dataset.id);
+            const fileName = e.target.closest('.file-item').dataset.id;
             
             if (e.target.checked) {
-                selectedFiles.add(fileId);
+                selectedFiles.add(fileName);
             } else {
-                selectedFiles.delete(fileId);
+                selectedFiles.delete(fileName);
             }
             
             // 更新全选状态
@@ -541,7 +617,7 @@
         function updateSelectionInfo() {
             const selectedCount = selectedFiles.size;
             const totalSize = fileData
-                .filter(file => selectedFiles.has(file.id))
+                .filter(file => selectedFiles.has(file.name))
                 .reduce((sum, file) => sum + file.size, 0);
             
             selectedCountElement.textContent = selectedCount;
@@ -560,19 +636,38 @@
         }
         
         // 扫描文件
-        function scanFiles() {
-            showNotification('正在扫描目录...', 'info');
-            // 模拟扫描延迟
-            setTimeout(() => {
-                // 实际项目中这里应调用GitHub API
-                fileData = [...mockFiles];
+        async function scanFiles() {
+            showNotification('正在从GitHub加载文件列表...', 'info');
+            
+            try {
+                // 调用Cloudflare Worker获取文件列表
+                const response = await fetch(WORKER_URL);
+                
+                if (!response.ok) {
+                    throw new Error(`获取文件列表失败: ${response.status} ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                
+                // 检查是否有错误
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+                
+                // 更新文件数据
+                fileData = data;
+                selectedFiles.clear();
+                selectAllCheckbox.checked = false;
                 renderFileList(fileData);
-                showNotification(`发现 ${fileData.length} 个XML文件`, 'success');
-            }, 1500);
+                showNotification(`成功加载 ${fileData.length} 个XML文件`, 'success');
+            } catch (error) {
+                console.error('加载文件时出错:', error);
+                showNotification(`错误: ${error.message}`, 'error');
+            }
         }
         
-        // 模拟下载进度
-        function simulateDownload() {
+        // 下载文件
+        async function downloadFiles() {
             if (selectedFiles.size === 0) {
                 showNotification('请先选择要下载的文件', 'error');
                 return;
@@ -582,24 +677,48 @@
             progressContainer.style.display = 'block';
             progressBar.style.width = '0%';
             progressStatus.textContent = '0%';
+            currentFileElement.textContent = '等待开始...';
             
-            let progress = 0;
-            const interval = setInterval(() => {
-                progress += Math.floor(Math.random() * 10) + 1;
-                if (progress >= 100) {
-                    progress = 100;
-                    clearInterval(interval);
+            // 获取选中的文件
+            const filesToDownload = fileData.filter(file => selectedFiles.has(file.name));
+            const totalFiles = filesToDownload.length;
+            let downloaded = 0;
+            
+            // 逐个下载文件
+            for (const file of filesToDownload) {
+                try {
+                    // 更新当前文件信息
+                    currentFileElement.textContent = `正在下载: ${file.name}`;
                     
-                    // 下载完成
-                    setTimeout(() => {
-                        progressContainer.style.display = 'none';
-                        showNotification(`成功下载 ${selectedFiles.size} 个文件！`, 'success');
-                    }, 500);
+                    // 创建下载链接
+                    const a = document.createElement('a');
+                    a.href = file.download_url;
+                    a.download = file.name;
+                    a.style.display = 'none';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    
+                    // 等待一小段时间以确保下载开始
+                    await new Promise(resolve => setTimeout(resolve, 300));
+                    
+                    // 更新进度
+                    downloaded++;
+                    const progress = Math.floor((downloaded / totalFiles) * 100);
+                    progressBar.style.width = `${progress}%`;
+                    progressStatus.textContent = `${progress}%`;
+                    
+                } catch (error) {
+                    console.error(`下载文件 ${file.name} 失败:`, error);
+                    showNotification(`下载失败: ${file.name}`, 'error');
                 }
-                
-                progressBar.style.width = `${progress}%`;
-                progressStatus.textContent = `${progress}%`;
-            }, 100);
+            }
+            
+            // 完成下载
+            setTimeout(() => {
+                progressContainer.style.display = 'none';
+                showNotification(`成功下载 ${totalFiles} 个文件！`, 'success');
+            }, 500);
         }
         
         // 设置事件监听器
@@ -608,7 +727,7 @@
             selectAllCheckbox.addEventListener('change', function() {
                 if (this.checked) {
                     // 全选
-                    fileData.forEach(file => selectedFiles.add(file.id));
+                    fileData.forEach(file => selectedFiles.add(file.name));
                 } else {
                     // 取消全选
                     selectedFiles.clear();
@@ -616,7 +735,7 @@
                 
                 // 更新UI
                 fileData.forEach(file => {
-                    const checkbox = document.getElementById(`file-${file.id}`);
+                    const checkbox = document.getElementById(`file-${file.name}`);
                     if (checkbox) checkbox.checked = this.checked;
                 });
                 
@@ -624,7 +743,7 @@
             });
             
             // 下载按钮
-            downloadBtn.addEventListener('click', simulateDownload);
+            downloadBtn.addEventListener('click', downloadFiles);
             
             // 清除选择
             clearBtn.addEventListener('click', function() {
