@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML 文件下载管理器</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            color: white;
+            animation: fadeIn 1s ease;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+        }
+        
+        .card-header h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+        }
+        
+        .search-box {
+            display: flex;
+            gap: 10px;
+            max-width: 400px;
+            width: 100%;
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .select-all {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .select-all label {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .file-info {
+            background: #e3f2fd;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            color: #1976d2;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .file-list {
+            max-height: 500px;
+            overflow-y: auto;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        
+        .file-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.2s;
+        }
+        
+        .file-item:last-child {
+            border-bottom: none;
+        }
+        
+        .file-item:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .file-item input[type="checkbox"] {
+            margin-right: 15px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        
+        .file-icon {
+            margin-right: 15px;
+            color: #e74c3c;
+            font-size: 1.8rem;
+        }
+        
+        .file-details {
+            flex: 1;
+        }
+        
+        .file-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .file-path {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            font-family: monospace;
+            word-break: break-all;
+        }
+        
+        .file-size {
+            color: #7f8c8d;
+            font-weight: 500;
+            min-width: 80px;
+            text-align: right;
+        }
+        
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .btn {
+            padding: 16px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to right, #3498db, #1a5f9e);
+            color: white;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(to right, #2980b9, #154d7c);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(to right, #95a5a6, #7f8c8d);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(to right, #7f8c8d, #6c7a7d);
+            transform: translateY(-2px);
+        }
+        
+        .progress-container {
+            margin-top: 30px;
+            text-align: center;
+            display: none;
+        }
+        
+        .progress-bar {
+            height: 12px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(to right, #2ecc71, #27ae60);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+        
+        .progress-text {
+            font-weight: 600;
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 1000;
+        }
+        
+        .success {
+            background: linear-gradient(to right, #2ecc71, #27ae60);
+        }
+        
+        .error {
+            background: linear-gradient(to right, #e74c3c, #c0392b);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #7f8c8d;
+        }
+        
+        .empty-state i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #bdc3c7;
+        }
+        
+        .empty-state p {
+            font-size: 1.2rem;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @media (max-width: 768px) {
+            .controls {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .search-box {
+                max-width: 100%;
+            }
+            
+            .file-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .file-size {
+                align-self: flex-end;
+                margin-top: 10px;
+            }
+            
+            .actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-file-code"></i> XML 文件下载管理器</h1>
+            <p>扫描并管理 resource/catshare/resolver/comic 目录下的所有XML文件</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2>XML 文件列表</h2>
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="搜索XML文件...">
+                        <button class="btn btn-secondary" id="scanBtn"><i class="fas fa-sync-alt"></i> 重新扫描</button>
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <div class="select-all">
+                        <input type="checkbox" id="selectAll">
+                        <label for="selectAll">全选/取消全选</label>
+                    </div>
+                    <div class="file-info">
+                        <i class="fas fa-check-circle"></i>
+                        <span id="selectedCount">0</span> 个文件被选中，总计 <span id="totalSize">0 KB</span>
+                    </div>
+                </div>
+                
+                <div class="file-list" id="fileList">
+                    <!-- 文件列表将通过JavaScript动态生成 -->
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="actions">
+                    <button class="btn btn-primary pulse" id="downloadBtn">
+                        <i class="fas fa-download"></i> 下载选中文件
+                    </button>
+                    <button class="btn btn-secondary" id="clearBtn">
+                        <i class="fas fa-trash-alt"></i> 清除选择
+                    </button>
+                </div>
+                
+                <div class="progress-container" id="progressContainer">
+                    <div class="progress-text">准备下载...</div>
+                    <div class="progress-bar">
+                        <div class="progress" id="progressBar"></div>
+                    </div>
+                    <div id="progressStatus">0%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="notification" id="notification"></div>
+
+    <script>
+        // 模拟数据 - 实际项目中需要替换为从服务器获取真实数据
+        const mockFiles = [
+            { id: 1, name: "comic_config.xml", path: "resource/catshare/resolver/comic/comic_config.xml", size: 42 },
+            { id: 2, name: "characters.xml", path: "resource/catshare/resolver/comic/characters.xml", size: 87 },
+            { id: 3, name: "chapters_vol1.xml", path: "resource/catshare/resolver/comic/chapters_vol1.xml", size: 156 },
+            { id: 4, name: "chapters_vol2.xml", path: "resource/catshare/resolver/comic/chapters_vol2.xml", size: 143 },
+            { id: 5, name: "artwork_metadata.xml", path: "resource/catshare/resolver/comic/artwork_metadata.xml", size: 231 }
+        ];
+        
+        // DOM 元素
+        const fileListElement = document.getElementById('fileList');
+        const selectAllCheckbox = document.getElementById('selectAll');
+        const selectedCountElement = document.getElementById('selectedCount');
+        const totalSizeElement = document.getElementById('totalSize');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const scanBtn = document.getElementById('scanBtn');
+        const searchInput = document.getElementById('searchInput');
+        const progressContainer = document.getElementById('progressContainer');
+        const progressBar = document.getElementById('progressBar');
+        const progressStatus = document.getElementById('progressStatus');
+        const notification = document.getElementById('notification');
+        
+        // 当前选中的文件
+        let selectedFiles = new Set();
+        
+        // 初始化
+        function init() {
+            renderFileList(mockFiles);
+            setupEventListeners();
+        }
+        
+        // 渲染文件列表
+        function renderFileList(files) {
+            if (files.length === 0) {
+                fileListElement.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-folder-open"></i>
+                        <p>未找到任何 XML 文件</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            fileListElement.innerHTML = files.map(file => `
+                <div class="file-item" data-id="${file.id}">
+                    <input type="checkbox" id="file-${file.id}" ${selectedFiles.has(file.id) ? 'checked' : ''}>
+                    <i class="fas fa-file-code file-icon"></i>
+                    <div class="file-details">
+                        <div class="file-name">${file.name}</div>
+                        <div class="file-path">${file.path}</div>
+                    </div>
+                    <div class="file-size">${file.size} KB</div>
+                </div>
+            `).join('');
+            
+            // 添加事件监听器
+            document.querySelectorAll('.file-item input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', handleFileSelection);
+            });
+            
+            updateSelectionInfo();
+        }
+        
+        // 处理文件选择
+        function handleFileSelection(e) {
+            const fileId = parseInt(e.target.closest('.file-item').dataset.id);
+            
+            if (e.target.checked) {
+                selectedFiles.add(fileId);
+            } else {
+                selectedFiles.delete(fileId);
+            }
+            
+            // 更新全选状态
+            updateSelectAllState();
+            updateSelectionInfo();
+        }
+        
+        // 更新全选复选框状态
+        function updateSelectAllState() {
+            const totalFiles = mockFiles.length;
+            const selectedCount = selectedFiles.size;
+            
+            if (selectedCount === totalFiles) {
+                selectAllCheckbox.checked = true;
+                selectAllCheckbox.indeterminate = false;
+            } else if (selectedCount > 0) {
+                selectAllCheckbox.checked = false;
+                selectAllCheckbox.indeterminate = true;
+            } else {
+                selectAllCheckbox.checked = false;
+                selectAllCheckbox.indeterminate = false;
+            }
+        }
+        
+        // 更新选择信息
+        function updateSelectionInfo() {
+            const selectedCount = selectedFiles.size;
+            const totalSize = mockFiles
+                .filter(file => selectedFiles.has(file.id))
+                .reduce((sum, file) => sum + file.size, 0);
+            
+            selectedCountElement.textContent = selectedCount;
+            totalSizeElement.textContent = `${totalSize} KB`;
+        }
+        
+        // 显示通知
+        function showNotification(message, isSuccess = true) {
+            notification.textContent = message;
+            notification.className = `notification ${isSuccess ? 'success' : 'error'}`;
+            notification.style.display = 'block';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+        
+        // 模拟下载进度
+        function simulateDownload() {
+            if (selectedFiles.size === 0) {
+                showNotification('请先选择要下载的文件', false);
+                return;
+            }
+            
+            // 显示进度条
+            progressContainer.style.display = 'block';
+            progressBar.style.width = '0%';
+            progressStatus.textContent = '0%';
+            
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.floor(Math.random() * 10) + 1;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    
+                    // 下载完成
+                    setTimeout(() => {
+                        progressContainer.style.display = 'none';
+                        showNotification(`成功下载 ${selectedFiles.size} 个文件！`);
+                    }, 500);
+                }
+                
+                progressBar.style.width = `${progress}%`;
+                progressStatus.textContent = `${progress}%`;
+            }, 100);
+        }
+        
+        // 设置事件监听器
+        function setupEventListeners() {
+            // 全选/取消全选
+            selectAllCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    // 全选
+                    mockFiles.forEach(file => selectedFiles.add(file.id));
+                } else {
+                    // 取消全选
+                    selectedFiles.clear();
+                }
+                
+                // 更新UI
+                mockFiles.forEach(file => {
+                    const checkbox = document.getElementById(`file-${file.id}`);
+                    if (checkbox) checkbox.checked = this.checked;
+                });
+                
+                updateSelectionInfo();
+            });
+            
+            // 下载按钮
+            downloadBtn.addEventListener('click', simulateDownload);
+            
+            // 清除选择
+            clearBtn.addEventListener('click', function() {
+                selectedFiles.clear();
+                selectAllCheckbox.checked = false;
+                selectAllCheckbox.indeterminate = false;
+                
+                // 更新UI
+                document.querySelectorAll('.file-item input[type="checkbox"]').forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+                
+                updateSelectionInfo();
+            });
+            
+            // 重新扫描
+            scanBtn.addEventListener('click', function() {
+                showNotification('正在扫描目录...', true);
+                // 模拟扫描延迟
+                setTimeout(() => {
+                    renderFileList(mockFiles);
+                    showNotification(`发现 ${mockFiles.length} 个XML文件`, true);
+                }, 800);
+            });
+            
+            // 搜索功能
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const filteredFiles = mockFiles.filter(file => 
+                    file.name.toLowerCase().includes(searchTerm) || 
+                    file.path.toLowerCase().includes(searchTerm)
+                );
+                renderFileList(filteredFiles);
+            });
+        }
+        
+        // 初始化应用
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
