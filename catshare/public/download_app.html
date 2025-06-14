@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小猫互传APP下载</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0d1117, #161b22, #0d1117);
+            color: #f0f6fc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(22, 27, 34, 0.8);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #30363d;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* GitHub风格装饰元素 */
+        .deco-corner {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-top: 1px solid #30363d;
+            border-right: 1px solid #30363d;
+            top: 0;
+            right: 0;
+            border-radius: 0 12px 0 0;
+        }
+        
+        /* 顶部区域 - GitHub风格 */
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #30363d;
+            gap: 25px;
+        }
+        
+        .app-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            position: relative;
+            flex-shrink: 0;
+        }
+        
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+            background: #fff;
+            padding: 1px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .title-container {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .app-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #f0f6fc;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .app-name span {
+            background: linear-gradient(45deg, #58a6ff, #1f6feb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            padding: 5px 0;
+        }
+        
+        .app-tagline {
+            font-size: 1.3rem;
+            opacity: 0.8;
+            margin-top: 8px;
+            color: #8b949e;
+            max-width: 600px;
+            line-height: 1.5;
+        }
+        
+        /* 主体内容 */
+        .content {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .description {
+            flex: 1;
+            padding: 10px;
+            background: #161b22;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+        }
+        
+        .description h2 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #58a6ff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #30363d;
+        }
+        
+        .description p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #c9d1d9;
+        }
+        
+        .features {
+            margin-top: 25px;
+            padding-left: 20px;
+        }
+        
+        .features li {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 30px;
+            color: #c9d1d9;
+        }
+        
+        .features li:before {
+            content: "•";
+            color: #58a6ff;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        
+        .download-section {
+            flex: 0 0 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            background: #161b22;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #30363d;
+        }
+        
+        .download-btn {
+            background: #238636;
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin: 25px 0;
+            text-decoration: none;
+        }
+        
+        .download-btn:hover {
+            background: #2ea043;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+        }
+        
+        .download-btn:active {
+            transform: translateY(0);
+        }
+        
+        .download-info {
+            margin-top: 20px;
+            color: #8b949e;
+            font-size: 0.9rem;
+            max-width: 250px;
+            line-height: 1.6;
+        }
+        
+        .github-style {
+            display: inline-block;
+            background: rgba(88, 166, 255, 0.1);
+            color: #58a6ff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            margin: 15px 0;
+            font-size: 0.9rem;
+            border: 1px solid #30363d;
+        }
+        
+        .stats {
+            display: flex;
+            gap: 30px;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(88, 166, 255, 0.05);
+            border-radius: 6px;
+            border: 1px solid #30363d;
+        }
+        
+        .stat {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #58a6ff;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #8b949e;
+            margin-top: 5px;
+        }
+        
+        /* 底部区域 */
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #30363d;
+            color: #8b949e;
+            font-size: 0.9rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .footer a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            
+            .header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .title-container {
+                align-items: center;
+            }
+            
+            .download-section {
+                width: 100%;
+            }
+            
+            .app-name {
+                font-size: 2.2rem;
+            }
+            
+            .app-tagline {
+                font-size: 1.1rem;
+            }
+            
+            .app-icon {
+                width: 70px;
+                height: 70px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .app-icon img {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="deco-corner"></div>
+        
+        <div class="header">
+            <div class="app-icon">
+                <img src="https://s3.bmp.ovh/imgs/2025/06/14/0a72719c283705bf.png" alt="小猫互传图标">
+            </div>
+            <div class="title-container">
+                <h1 class="app-name"><span>小猫互传</span></h1>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="description">
+                <h2><i class="fas fa-info-circle"></i> 应用介绍</h2>
+                <p>小猫互传的本质是一款免费的多功能自定义浏览器，一切数据均来自于网络站点，软件本身并不储存转发任何数据，也不会收集用户的任何个人信息。用户的任何个人行为，均与软件本身无关。</p>
+                <p>若在使用时遇到BUG，用户可以加入测试群，向我本人反馈情况；在条件允许的情况下，我会尽可能的解决的。</p>
+            </div>
+            
+            <div class="download-section">
+                <p>当前版本：v1.49.1</p>
+                <a href="https://c1026.dmpdmp.com/10689778a5c6bd83158ec5fe73ac5596/684d2841/2025/03/31/68258fb10094a3744fa2e21af64b3e6f.rar?fn=app-debug.rar" class="download-btn">
+                    <i class="fas fa-download"></i> 下载APP
+                </a>
+                
+                <p class="download-info">支持Android11.0及以上系统<br>兼容大多数主流设备</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 小猫互传 版权所有</p>
+            <p>技术支持：QQ群 970776651</p>
+        </div>
+    </div>
+
+    <script>
+        // 添加下载按钮动画效果
+        const downloadBtn = document.querySelector('.download-btn');
+        
+        downloadBtn.addEventListener('click', function(e) {
+            // 添加点击动画效果
+            const originalHTML = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 下载中...';
+            this.style.opacity = '0.9';
+            
+            // 模拟下载过程
+            setTimeout(() => {
+                this.innerHTML = '<i class="fas fa-check"></i> 下载完成！';
+                this.style.background = '#3fb950';
+                
+                // 2秒后恢复原状
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-download"></i> 下载APP';
+                    this.style.background = '#238636';
+                    this.style.opacity = '1';
+                }, 2000);
+            }, 1500);
+        });
+        
+        // 添加图标悬停效果
+        const appIcon = document.querySelector('.app-icon img');
+        appIcon.addEventListener('mouseover', () => {
+            appIcon.style.transform = 'scale(1.1)';
+        });
+        
+        appIcon.addEventListener('mouseout', () => {
+            appIcon.style.transform = 'scale(1)';
+        });
+    </script>
+</body>
+</html>
