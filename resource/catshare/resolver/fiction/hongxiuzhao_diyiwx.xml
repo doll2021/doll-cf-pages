@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resolvers>
+    <resolver>
+        
+        <!--解析器的基本信息-->
+        <basicInfo>
+            <name>hongxiuzhao</name>
+            <version>20230201_producer</version>
+            <baseUrl>https://hongxiuzhao.net</baseUrl>
+            <startUrl>https://hongxiuzhao.net/category/0/1/2/0{Cookie*cf_clearance=XQehxGKbZzZrTPPbVuMAgXxMMaKk=}</startUrl>
+            <type>fiction</type>
+            <template>103</template>
+            <access>Get</access>
+            <charset>UTF-8</charset>
+            <header>null</header>
+            <order>asc</order>
+        </basicInfo>
+        
+        <!--查询规则-->
+        <searchRule>
+            <action>https://hongxiuzhao.net/search.aspx?key=</action>
+            <method>Get</method>
+            <inputName>null</inputName>
+            <inputFormatParam>null</inputFormatParam>
+            <level>3</level>
+            <targetLevel>1</targetLevel>
+            <extraParam>{Cookie*cf_clearance=XQehxGKbZzZrTPPbVuMAgXxMMaKk=}</extraParam>
+            <isJoint>yes</isJoint>
+            <captchaInfo>null</captchaInfo>
+        </searchRule>
+        
+        <!--跳转规则-->
+        <jumpRule>
+            <method>stringReplace</method>
+            <parameter>pid=|/category/0/|/category/1/|/category/2/|/category/3/|/category/4/|/category/5/|/category/6/|/category/7/|/category/8/|/category/9/</parameter>
+            <regular>https://hongxiuzhao.net.*</regular>
+            <offset>null</offset>
+            <startPage>null</startPage>
+        </jumpRule>
+        
+        <!--底层导航栏-->
+        <menuBar>
+            <menu>
+                <text>首页</text>
+                <url>https://hongxiuzhao.net/category/0/1/2/0{Cookie*cf_clearance=XQehxGKbZzZrTPPbVuMAgXxMMaKk=}</url>
+                <level>1</level>
+                <css>1</css>
+                <baseUrl>null</baseUrl>
+                <regular>null</regular>
+                <subset></subset>
+            </menu>
+            <menu>
+                <text>blank</text>
+                <url>null</url>
+                <level>1</level>
+                <css>1</css>
+                <baseUrl>null</baseUrl>
+                <regular>null</regular>
+                <subset></subset>
+            </menu>
+            <menu>
+                <text>分类</text>
+                <url>null</url>
+                <level>1</level>
+                <css>1</css>
+                <baseUrl>null</baseUrl>
+                <regular>null</regular>
+                <subset>
+                    <submenu>
+                        <text>校园</text>
+                        <url>https://hongxiuzhao.net/category/4/1/2/0{Cookie*cf_clearance=XQehxGKbZzZrTPPbVuMAgXxMMaKk=}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>社会</text>
+                        <url>https://hongxiuzhao.net/category/1/1/2/0{Cookie*cf_clearance=XQehxGKbZzZrTPPbVuMAgXxMMaKk=}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>腐小说</text>
+                        <url>https://hongxiuzhao.net/category/3/1/2/0{Cookie*cf_clearance=XQehxGKbZzZrTPPbVuMAgXxMMaKk=}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>古典</text>
+                        <url>https://hongxiuzhao.net/category/2/1/2/0{Cookie*cf_clearance=XQehxGKbZzZrTPPbVuMAgXxMMaKk=}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>伦理</text>
+                        <url>https://hongxiuzhao.net/category/5/1/2/0{Cookie*cf_clearance=XQehxGKbZzZrTPPbVuMAgXxMMaKk=}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>言情</text>
+                        <url>https://hongxiuzhao.net/category/6/1/2/0{Cookie*cf_clearance=XQehxGKbZzZrTPPbVuMAgXxMMaKk=}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>调教</text>
+                        <url>https://hongxiuzhao.net/category/7/1/2/0{Cookie*cf_clearance=XQehxGKbZzZrTPPbVuMAgXxMMaKk=}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>肉文</text>
+                        <url>https://hongxiuzhao.net/category/8/1/2/0{Cookie*cf_clearance=XQehxGKbZzZrTPPbVuMAgXxMMaKk=}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>其它</text>
+                        <url>https://hongxiuzhao.net/category/9/1/2/0{Cookie*cf_clearance=XQehxGKbZzZrTPPbVuMAgXxMMaKk=}</url>
+                        <level>2</level>
+                    </submenu>
+                </subset>
+            </menu>
+        </menuBar>
+        
+        <!--模块映射规则-->
+        <mapRule>
+            <!--第一层模块-->
+            <module>
+                <level>1</level>
+                <css>1</css>
+                <widget>1</widget>
+                <path>inner b-a*0|ul*999|(title*0|a*0|@+author*0|@+summery*0|@,title*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Cookie*cf_clearance=XQehxGKbZzZrTPPbVuMAgXxMMaKk=},cover*0|_TEXT*0|[_CONST_]*https://s3.bmp.ovh/imgs/2024/02/07/1634f3a38013fa66.png)</path>
+                <tag>iconLinkList</tag>
+                <type>2</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>1</css>
+                <widget>-1</widget>
+                <path>inner m-page*0|crt*0|@</path>
+                <tag>currentNumber</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>1</css>
+                <widget>-2</widget>
+                <path>inner m-page*0|nums*-1|a*-1|@</path>
+                <tag>totalNumber</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>1</css>
+                <widget>-999</widget>
+                <path>JUMP</path>
+                <tag>previousPage</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>1</css>
+                <widget>-999</widget>
+                <path>JUMP</path>
+                <tag>nextPage</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <!--第二层模块-->
+            <module>
+                <level>2</level>
+                <css>1</css>
+                <widget>2</widget>
+                <path>m-bookdetail clear-float*0|f-fl clear-float m-info*0|h1*0|@</path>
+                <tag>title</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>2</level>
+                <css>1</css>
+                <widget>3</widget>
+                <path>m-bookdetail clear-float*0|cover f-fl*0|img*0|@src|_TEXT*0|[_CONST_]*https://s3.bmp.ovh/imgs/2024/02/07/1634f3a38013fa66.png</path>
+                <tag>cover</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>2</level>
+                <css>1</css>
+                <widget>4</widget>
+                <path>m-bookdetail clear-float*0|f-fl clear-float m-info*0|p*0|@+m-bookdetail clear-float*0|f-fl clear-float m-info*0|p*1|@+m-bookdetail clear-float*0|f-fl clear-float m-info*0|summery*0|@</path>
+                <tag>intro</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>2</level>
+                <css>1</css>
+                <widget>-999</widget>
+                <path>null</path>
+                <tag>indexWebsite</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>2</level>
+                <css>1</css>
+                <widget>1</widget>
+                <path>inner yd-chapter*0|m-chapters*0|ul*0|li*999|(a*0|@,a*0|@href|_TEXT*0|[_ADD-R_]*{Cookie*cf_clearance=XQehxGKbZzZrTPPbVuMAgXxMMaKk=})</path>
+                <tag>textLinkList</tag>
+                <type>2</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <!--自定义模块【名字要相互区别，不能够有重复】-->
+            <module>
+                <level>-1</level>
+                <css>1</css>
+                <widget>-999</widget>
+                <path>null</path>
+                <tag>null</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+        </mapRule>
+        
+        <!--资源的分布规则-->
+        <resRule>
+            <resType>text</resType>
+            <resPath>article-content*0|_TEXT*0|[_REPL_]&lt;p&gt;&lt;/p&gt;*</resPath>
+            <imageIncrease>null</imageIncrease>
+            <pageIncrease>null</pageIncrease>
+            <forceParsing>null</forceParsing>
+            <checkTextPath>null</checkTextPath>
+            <checkTextRegular>null</checkTextRegular>
+            <hrefPath>null</hrefPath>
+            <startFormatParam>[_CUT-L_]*--&gt;为防失联，点此收藏永久网址&lt;--</startFormatParam>
+            <endFormatParam>[_CUT-R_]*近期有书友反映部分国产手机自带浏览器已屏蔽本站，推荐大家使用谷歌浏览器(Chrome)，火狐浏览器(Firefox)，微软Edge，苹果Safari等知名浏览器</endFormatParam>
+            <fontError>hxz</fontError>
+            <playManager>null</playManager>
+        </resRule>
+        
+        <!--强制解析规则【可在自定义模块内加入额外参数；如果所有节点均为空，则说明站点不需要强制解析】-->
+        <forceParseRule>
+            <parseType>null</parseType>
+            <device>null</device>
+            <imageInnerHeader>null</imageInnerHeader>
+            <urlFormatParam>null</urlFormatParam>
+            <imageFormatParam>null</imageFormatParam>
+            <dataFormatParam>null</dataFormatParam>
+            <runJS>null</runJS>
+            <imageType>null</imageType>
+            <number>null</number>
+            <pagePath>null</pagePath>
+            <resPath>null</resPath>
+            <resFormatParam>null</resFormatParam>
+            <xhrRegular>null</xhrRegular>
+            <scriptRegular>null</scriptRegular>
+            <imageRegular>null</imageRegular>
+        </forceParseRule>
+    </resolver>
+</resolvers>
