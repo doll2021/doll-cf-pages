@@ -147,14 +147,14 @@
             overflow-y: auto;
             border: 2px solid #f0f4ff;
             border-radius: 12px;
-            padding: 8px;
+            padding: 1px;
             background: #f8fbff;
         }
         
         .file-item {
             display: flex;
             flex-direction: column;
-            padding: 14px;
+            padding: 6px;
             border-bottom: 1px solid #f0f0f0;
             transition: all 0.3s;
             background: white;
@@ -182,7 +182,7 @@
         }
         
         .file-item input[type="checkbox"] {
-            margin-right: 12px;
+            margin-right: 2px;
             width: 18px;
             height: 18px;
             cursor: pointer;
@@ -190,10 +190,10 @@
         }
         
         .file-icon {
-            margin-right: 12px;
+            margin-right: 2px;
             color: #1a2980;
             font-size: 1.6rem;
-            min-width: 30px;
+            min-width: 20px;
             text-align: center;
         }
         
@@ -210,6 +210,16 @@
             text-overflow: ellipsis;
             max-width: 70%;
         }
+		
+		.file-name-xml-name {
+            font-weight: 700;
+            font-size: 0.94rem;
+            color: #2c3e50;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 80%;
+        }
         
         .file-path {
             font-size: 0.85rem;
@@ -224,15 +234,15 @@
         .file-size {
             color: #5a6b8c;
             font-weight: 600;
-            min-width: 70px;
+            min-width: 40px;
             text-align: right;
             font-size: 0.95rem;
-            padding: 6px 10px;
+            padding: 6px 3px;
             background: #f0f4ff;
             border-radius: 6px;
             position: absolute;
-            top: 14px;
-            right: 14px;
+            top: 1px;
+            right: 4px;
         }
         
         .actions {
@@ -623,7 +633,7 @@
                     <div class="file-header">
                         <input type="checkbox" id="file-${file.name}" ${selectedFiles.has(file.name) ? 'checked' : ''}>
                         <i class="fas fa-file-code file-icon"></i>
-                        <div class="file-name">${file.name}</div>
+                        <div class="file-name-xml-name">${file.name}</div>
                         <div class="file-size">${file.size} KB</div>
                     </div>
                     <div class="file-path">${file.path}</div>
