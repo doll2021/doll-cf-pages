@@ -648,7 +648,7 @@
                     
                     // 准备请求数据
                     const requestData = {
-                        message: `添加文件: ${filenameInput.value} 到 /resource/catshare/resolver/comic`,
+                        message: `添加文件: ${filenameInput.value} 到 /resource/catshare/resolver/fiction`,
                         content: fileContent.split(',')[1], // 移除Base64前缀
                         branch: FIXED_BRANCH
                     };
@@ -656,7 +656,7 @@
                     // 如果文件已存在，添加SHA值
                     if (existingSha) {
                         requestData.sha = existingSha;
-                        requestData.message = `更新文件: ${filenameInput.value} 在 /resource/catshare/resolver/comic`; // 更新消息
+                        requestData.message = `更新文件: ${filenameInput.value} 在 /resource/catshare/resolver/fiction`; // 更新消息
                     }
                     
                     // 发送上传请求
