@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>清理小说类解析器</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2980, #26d0ce);
+            color: #333;
+            min-height: 100vh;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(to right, #1a2980, #26d0ce);
+            color: white;
+            padding: 20px 25px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        
+        header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        
+        .path-info {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px;
+            border-radius: 8px;
+            font-family: monospace;
+            word-break: break-all;
+            text-align: center;
+            font-size: 0.95rem;
+            margin-top: 12px;
+        }
+        
+        .main-content {
+            padding: 20px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f0f4ff;
+        }
+        
+        .card-header h2 {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .search-box {
+            display: flex;
+            gap: 8px;
+            max-width: 100%;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .select-all {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .select-all label {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 0.95rem;
+        }
+        
+        .file-info {
+            background: #e3f2fd;
+            padding: 10px 16px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #1976d2;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.95rem;
+        }
+        
+        .file-list {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 2px solid #f0f4ff;
+            border-radius: 12px;
+            padding: 1px;
+            background: #f8fbff;
+        }
+        
+        .file-item {
+            display: flex;
+            flex-direction: column;
+            padding: 6px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s;
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .file-header {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .file-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .file-item:hover {
+            background-color: #f5f9ff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .file-item input[type="checkbox"] {
+            margin-right: 8px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #3498db;
+        }
+        
+        .file-icon {
+            margin-right: 2px;
+            color: #1a2980;
+            font-size: 1.6rem;
+            min-width: 20px;
+            text-align: center;
+        }
+        
+        .file-details {
+            flex: 1;
+        }
+        
+        .file-name {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #2c3e50;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 70%;
+        }
+		
+		.file-name-xml-name {
+            font-weight: 700;
+            font-size: 0.94rem;
+            color: #2c3e50;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 80%;
+        }
+        
+        .file-path {
+            font-size: 0.85rem;
+            color: #5a6b8c;
+            font-family: monospace;
+            word-break: break-all;
+            line-height: 1.5;
+            margin-top: 8px;
+            padding-left: 42px;
+        }
+        
+        .file-size {
+            color: #5a6b8c;
+            font-weight: 600;
+            min-width: 40px;
+            text-align: right;
+            font-size: 0.95rem;
+            padding: 6px 3px;
+            background: #f0f4ff;
+            border-radius: 6px;
+            position: absolute;
+            top: 1px;
+            right: 4px;
+        }
+        
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .btn {
+            padding: 14px 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to right, #1a2980, #26d0ce);
+            color: white;
+            box-shadow: 0 4px 15px rgba(26, 41, 128, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(to right, #15236d, #1fb3b0);
+            box-shadow: 0 6px 20px rgba(26, 41, 128, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(to right, #95a5a6, #7f8c8d);
+            color: white;
+            box-shadow: 0 4px 15px rgba(149, 165, 166, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(to right, #7f8c8d, #6c7a7d);
+            transform: translateY(-2px);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 65, 108, 0.3);
+        }
+        
+        .btn-danger:hover {
+            background: linear-gradient(to right, #e03a61, #e04427);
+            box-shadow: 0 6px 20px rgba(255, 65, 108, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .progress-container {
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+            background: #f8fbff;
+            padding: 20px;
+            border-radius: 12px;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: #1a2980;
+            font-size: 0.95rem;
+        }
+        
+        .progress-bar {
+            height: 14px;
+            background: #e0e7ff;
+            border-radius: 8px;
+            margin: 12px 0;
+            overflow: hidden;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(to right, #1a2980, #26d0ce);
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 8px;
+        }
+        
+        .progress-text {
+            font-weight: 700;
+            color: #1a2980;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 1000;
+            max-width: 320px;
+            animation: slideIn 0.5s ease;
+            font-size: 0.9rem;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .success {
+            background: linear-gradient(to right, #00b09b, #96c93d);
+        }
+        
+        .error {
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+        }
+        
+        .info {
+            background: linear-gradient(to right, #3498db, #1a5f9e);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 30px;
+            color: #5a6b8c;
+        }
+        
+        .empty-state i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #c5d0e6;
+        }
+        
+        .empty-state p {
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        
+        .worker-info {
+            background: #f0f4ff;
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 15px;
+            font-size: 0.85rem;
+        }
+        
+        .worker-info h3 {
+            color: #1a2980;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.05rem;
+        }
+        
+        .worker-url {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            font-family: monospace;
+            word-break: break-all;
+            margin-top: 8px;
+            border: 1px dashed #c5d0e6;
+            font-size: 0.85rem;
+        }
+        
+        .mobile-path-info {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: none;
+        }
+        
+        .mobile-path-info h3 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #5a3e00;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+        
+        .mobile-path-info ul {
+            padding-left: 18px;
+            font-size: 0.9rem;
+        }
+        
+        .mobile-path-info li {
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+        
+        .mobile-path-info .path-indicator {
+            background: #fff3cd;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            display: inline-block;
+            margin-top: 4px;
+            font-size: 0.85rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                border-radius: 12px;
+            }
+            
+            header {
+                padding: 18px 15px;
+            }
+            
+            header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .actions {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 12px 20px;
+            }
+            
+            .mobile-path-info {
+                display: block;
+            }
+            
+            .file-name {
+                max-width: 60%;
+            }
+            
+            .file-path {
+                padding-left: 38px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                border-radius: 12px;
+            }
+            
+            .main-content {
+                padding: 15px;
+            }
+            
+            .card {
+                padding: 15px;
+            }
+            
+            .file-name {
+                max-width: 50%;
+            }
+        }
+        
+        /* 新增的删除确认对话框样式 */
+        .confirm-dialog {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .confirm-dialog.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .dialog-content {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .dialog-content h3 {
+            color: #ff416c;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .dialog-content p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #444;
+        }
+        
+        .dialog-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .dialog-btn {
+            padding: 12px 25px;
+            font-weight: 600;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        .dialog-btn.cancel {
+            background: #95a5a6;
+            color: white;
+        }
+        
+        .dialog-btn.confirm {
+            background: #ff416c;
+            color: white;
+        }
+        
+        .dialog-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h3><i class="fas fa-file-code"></i> 清理小说类解析器</h3>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div class="card">
+                <div class="card-header">
+                    <h4><i class="fas fa-list"></i> 解析器列表</h4>
+                    <button class="btn btn-primary" id="scanBtn"><i class="fas fa-sync-alt"></i> 扫描云端资源</button>
+                </div>
+                
+                <div class="controls">
+                    <div class="select-all">
+                        <input type="checkbox" id="selectAll">
+                        <label for="selectAll">全选/取消全选</label>
+                    </div>
+                    <div class="file-info">
+                        <i class="fas fa-check-circle"></i>
+                        <span id="selectedCount">0</span> 个文件被选中
+                    </div>
+                </div>
+                
+                <div class="file-list" id="fileList">
+                    <div class="empty-state">
+                        <i class="fas fa-cloud-download-alt"></i>
+                        <p>点击"扫描云端资源"按钮，从云端加载小说类解析器列表</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="actions">
+                <button class="btn btn-danger" id="deleteBtn">
+                    <i class="fas fa-trash-alt"></i> 删除选中文件
+                </button>
+                <button class="btn btn-secondary" id="clearBtn">
+                    <i class="fas fa-times-circle"></i> 清除选择
+                </button>
+            </div>
+            
+            <div class="progress-container" id="progressContainer">
+                <div class="progress-header">
+                    <div class="progress-text">准备删除...</div>
+                    <div id="progressStatus">0%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" id="progressBar"></div>
+                </div>
+                <div id="currentFile" class="progress-text">等待开始...</div>
+            </div>
+            
+            <div class="worker-info">
+                <h3><i class="fas fa-exclamation-triangle"></i> 重要提示</h3>
+                <p>删除操作会永久移除云端文件，请谨慎操作！</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 删除确认对话框 -->
+    <div class="confirm-dialog" id="confirmDialog">
+        <div class="dialog-content">
+            <h3><i class="fas fa-exclamation-triangle"></i> 确认删除</h3>
+            <p id="confirmMessage">您确定要删除选中的文件吗？此操作不可撤销！</p>
+            <div class="dialog-actions">
+                <button class="dialog-btn cancel" id="cancelDelete">取消</button>
+                <button class="dialog-btn confirm" id="confirmDelete">确认删除</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="notification" id="notification"></div>
+
+    <script>
+        // Cloudflare Worker URL - 获取文件列表
+        const LIST_WORKER_URL = 'https://xml.44477444.xyz/?path=resource/catshare/resolver/fiction';
+        
+        // 删除Worker URL - 删除文件
+        const DELETE_WORKER_URL = 'https://delete-xml.44477444.xyz';
+        
+        // DOM 元素
+        const fileListElement = document.getElementById('fileList');
+        const selectAllCheckbox = document.getElementById('selectAll');
+        const selectedCountElement = document.getElementById('selectedCount');
+        const deleteBtn = document.getElementById('deleteBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const scanBtn = document.getElementById('scanBtn');
+        const progressContainer = document.getElementById('progressContainer');
+        const progressBar = document.getElementById('progressBar');
+        const progressStatus = document.getElementById('progressStatus');
+        const currentFileElement = document.getElementById('currentFile');
+        const notification = document.getElementById('notification');
+        const confirmDialog = document.getElementById('confirmDialog');
+        const confirmMessage = document.getElementById('confirmMessage');
+        const cancelDeleteBtn = document.getElementById('cancelDelete');
+        const confirmDeleteBtn = document.getElementById('confirmDelete');
+        
+        // 当前选中的文件
+        let selectedFiles = new Set();
+        let fileData = [];
+        
+        // 初始化
+        function init() {
+            setupEventListeners();
+        }
+        
+        // 渲染文件列表
+        function renderFileList(files) {
+            if (files.length === 0) {
+                fileListElement.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-folder-open"></i>
+                        <p>未在指定路径下找到任何 XML 文件</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            fileListElement.innerHTML = files.map(file => `
+                <div class="file-item" data-id="${file.name}">
+                    <div class="file-header">
+                        <input type="checkbox" id="file-${file.name}" ${selectedFiles.has(file.name) ? 'checked' : ''}>
+                        <i class="fas fa-file-code file-icon"></i>
+                        <div class="file-name-xml-name">${file.name}</div>
+                        <div class="file-size">${file.size} KB</div>
+                    </div>
+                    <div class="file-path">${file.path}</div>
+                </div>
+            `).join('');
+            
+            // 添加事件监听器
+            document.querySelectorAll('.file-item input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', handleFileSelection);
+            });
+            
+            updateSelectionInfo();
+        }
+        
+        // 处理文件选择
+        function handleFileSelection(e) {
+            const fileName = e.target.closest('.file-item').dataset.id;
+            
+            if (e.target.checked) {
+                selectedFiles.add(fileName);
+            } else {
+                selectedFiles.delete(fileName);
+            }
+            
+            // 更新全选状态
+            updateSelectAllState();
+            updateSelectionInfo();
+        }
+        
+        // 更新全选复选框状态
+        function updateSelectAllState() {
+            const totalFiles = fileData.length;
+            const selectedCount = selectedFiles.size;
+            
+            if (selectedCount === totalFiles) {
+                selectAllCheckbox.checked = true;
+                selectAllCheckbox.indeterminate = false;
+            } else if (selectedCount > 0) {
+                selectAllCheckbox.checked = false;
+                selectAllCheckbox.indeterminate = true;
+            } else {
+                selectAllCheckbox.checked = false;
+                selectAllCheckbox.indeterminate = false;
+            }
+        }
+        
+        // 更新选择信息
+        function updateSelectionInfo() {
+            const selectedCount = selectedFiles.size;
+            selectedCountElement.textContent = selectedCount;
+        }
+        
+        // 显示通知
+        function showNotification(message, type = "info", duration = 3000) {
+            notification.textContent = message;
+            notification.className = `notification ${type}`;
+            notification.style.display = 'block';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, duration);
+        }
+        
+        // 扫描文件
+        async function scanFiles() {
+            showNotification('正在从GitHub加载文件列表...', 'info');
+            
+            try {
+                // 调用Cloudflare Worker获取文件列表
+                const response = await fetch(LIST_WORKER_URL);
+                
+                if (!response.ok) {
+                    throw new Error(`获取文件列表失败: ${response.status} ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                
+                // 检查是否有错误
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+                
+                // 更新文件数据
+                fileData = data;
+                selectedFiles.clear();
+                selectAllCheckbox.checked = false;
+                renderFileList(fileData);
+                showNotification(`成功加载 ${fileData.length} 个XML文件`, 'success');
+            } catch (error) {
+                console.error('加载文件时出错:', error);
+                showNotification(`错误: ${error.message}`, 'error');
+            }
+        }
+        
+        // 删除文件（使用GitHub API）
+        async function deleteFile(file) {
+            try {
+                // 构建删除URL
+                const deleteUrl = `${DELETE_WORKER_URL}?path=${encodeURIComponent(file.path)}&sha=${encodeURIComponent(file.sha)}`;
+                
+                // 调用删除Worker
+                const response = await fetch(deleteUrl);
+                
+                if (!response.ok) {
+                    throw new Error(`删除失败: ${response.status} ${response.statusText}`);
+                }
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    return true;
+                } else {
+                    throw new Error(result.message || '未知错误');
+                }
+            } catch (error) {
+                console.error(`删除文件 ${file.name} 失败:`, error);
+                throw error;
+            }
+        }
+        
+        // 删除所有选中的文件
+        async function deleteFiles() {
+            if (selectedFiles.size === 0) {
+                showNotification('请先选择要删除的文件', 'error');
+                return;
+            }
+            
+            // 显示确认对话框
+            const filesToDelete = fileData.filter(file => selectedFiles.has(file.name));
+            const fileCount = filesToDelete.length;
+            confirmMessage.textContent = `您确定要删除选中的 ${fileCount} 个文件吗？此操作不可撤销！`;
+            confirmDialog.classList.add('active');
+            
+            // 等待用户确认
+            return new Promise((resolve) => {
+                confirmDeleteBtn.onclick = async () => {
+                    confirmDialog.classList.remove('active');
+                    
+                    // 显示进度条
+                    progressContainer.style.display = 'block';
+                    progressBar.style.width = '0%';
+                    progressStatus.textContent = '0%';
+                    currentFileElement.textContent = '等待开始...';
+                    
+                    const totalFiles = filesToDelete.length;
+                    let deleted = 0;
+                    let successCount = 0;
+                    
+                    // 逐个删除文件
+                    for (const file of filesToDelete) {
+                        try {
+                            // 更新当前文件信息
+                            currentFileElement.textContent = `正在删除: ${file.name}`;
+                            
+                            // 删除文件
+                            await deleteFile(file);
+                            
+                            // 更新进度
+                            deleted++;
+                            successCount++;
+                            const progress = Math.floor((deleted / totalFiles) * 100);
+                            progressBar.style.width = `${progress}%`;
+                            progressStatus.textContent = `${progress}%`;
+                            
+                            // 从UI中移除已删除的文件
+                            const fileElement = document.querySelector(`.file-item[data-id="${file.name}"]`);
+                            if (fileElement) {
+                                fileElement.remove();
+                            }
+                            
+                        } catch (error) {
+                            console.error(`删除文件 ${file.name} 失败:`, error);
+                            showNotification(`删除失败: ${file.name}`, 'error');
+                            deleted++;
+                            const progress = Math.floor((deleted / totalFiles) * 100);
+                            progressBar.style.width = `${progress}%`;
+                            progressStatus.textContent = `${progress}%`;
+                        }
+                    }
+                    
+                    // 完成删除
+                    setTimeout(() => {
+                        progressContainer.style.display = 'none';
+                        showNotification(`成功删除 ${successCount}/${totalFiles} 个文件！`, 'success');
+                        
+                        // 更新文件数据
+                        fileData = fileData.filter(file => !selectedFiles.has(file.name));
+                        selectedFiles.clear();
+                        updateSelectionInfo();
+                        updateSelectAllState();
+                    }, 500);
+                    
+                    resolve();
+                };
+                
+                cancelDeleteBtn.onclick = () => {
+                    confirmDialog.classList.remove('active');
+                    resolve();
+                };
+            });
+        }
+        
+        // 设置事件监听器
+        function setupEventListeners() {
+            // 全选/取消全选
+            selectAllCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    // 全选
+                    fileData.forEach(file => selectedFiles.add(file.name));
+                } else {
+                    // 取消全选
+                    selectedFiles.clear();
+                }
+                
+                // 更新UI
+                fileData.forEach(file => {
+                    const checkbox = document.getElementById(`file-${file.name}`);
+                    if (checkbox) checkbox.checked = this.checked;
+                });
+                
+                updateSelectionInfo();
+            });
+            
+            // 删除按钮
+            deleteBtn.addEventListener('click', deleteFiles);
+            
+            // 清除选择
+            clearBtn.addEventListener('click', function() {
+                selectedFiles.clear();
+                selectAllCheckbox.checked = false;
+                selectAllCheckbox.indeterminate = false;
+                
+                // 更新UI
+                document.querySelectorAll('.file-item input[type="checkbox"]').forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+                
+                updateSelectionInfo();
+            });
+            
+            // 扫描按钮
+            scanBtn.addEventListener('click', scanFiles);
+        }
+        
+        // 初始化应用
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
