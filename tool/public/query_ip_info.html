@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP信息查询工具</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #fff;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+        }
+        
+        header {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 25px;
+            text-align: center;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #00c9ff, #92fe9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .ip-display {
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .ip-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .info-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #4facfe;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-card p {
+            font-size: 1.3rem;
+            font-weight: 500;
+            word-break: break-all;
+            color: #fff;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+        }
+        
+        .controls {
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, #00c9ff, #92fe9d);
+            color: #000;
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #00c9ff;
+            animation: spin 1s ease-in-out infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 25px;
+            color: #aaa;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer a {
+            color: #4facfe;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 600px) {
+            .ip-info {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-network-wired"></i> IP信息查询工具</h1>
+            <p>实时获取并展示您的IP地址、地理位置和浏览器信息</p>
+        </header>
+        
+        <div class="ip-display">
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>正在获取您的IP信息...</p>
+            </div>
+            
+            <div class="ip-info" id="ipInfo" style="display: none;">
+                <div class="info-card">
+                    <h3><i class="fas fa-map-marker-alt"></i> IPv4地址</h3>
+                    <p id="ipv4">正在获取...</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3><i class="fas fa-map-marker-alt"></i> IPv6地址</h3>
+                    <p id="ipv6">正在获取...</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3><i class="fas fa-globe-asia"></i> 国家/地区</h3>
+                    <p id="country">正在获取...</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3><i class="fas fa-desktop"></i> 浏览器信息</h3>
+                    <p id="userAgent">正在获取...</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="btn btn-primary" id="refreshBtn">
+                <i class="fas fa-sync-alt"></i> 刷新信息
+            </button>
+            <button class="btn btn-secondary" id="copyBtn">
+                <i class="fas fa-copy"></i> 复制IP地址
+            </button>
+        </div>
+        
+        <div class="footer">
+            <p>数据来源: &copy;2025 IP信息查询工具</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ipv4El = document.getElementById('ipv4');
+            const ipv6El = document.getElementById('ipv6');
+            const countryEl = document.getElementById('country');
+            const userAgentEl = document.getElementById('userAgent');
+            const refreshBtn = document.getElementById('refreshBtn');
+            const copyBtn = document.getElementById('copyBtn');
+            const loadingEl = document.getElementById('loading');
+            const ipInfoEl = document.getElementById('ipInfo');
+            
+            // 获取IP信息
+            function fetchIPInfo() {
+                loadingEl.style.display = 'block';
+                ipInfoEl.style.display = 'none';
+                
+                fetch('https://ip.44477444.xyz/')
+                    .then(response => response.json())
+                    .then(data => {
+                        // 更新页面信息
+                        ipv4El.textContent = data.ipv4 || '未检测到IPv4地址';
+                        ipv6El.textContent = data.ipv6 || '未检测到IPv6地址';
+                        countryEl.textContent = data.country || '未知';
+                        userAgentEl.textContent = data.userAgent || '未知';
+                        
+                        // 隐藏加载动画，显示信息
+                        setTimeout(() => {
+                            loadingEl.style.display = 'none';
+                            ipInfoEl.style.display = 'grid';
+                        }, 500);
+                    })
+                    .catch(error => {
+                        console.error('获取IP信息失败:', error);
+                        loadingEl.innerHTML = `
+                            <div style="color: #ff6b6b; font-size: 3rem; margin-bottom: 20px;">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <p>无法获取IP信息，请检查网络连接后重试</p>
+                        `;
+                    });
+            }
+            
+            // 初始加载
+            fetchIPInfo();
+            
+            // 刷新按钮事件
+            refreshBtn.addEventListener('click', fetchIPInfo);
+            
+			// 复制IP地址按钮事件
+			copyBtn.addEventListener('click', function() {
+				const ipv4 = ipv4El.textContent;
+				const ipv6 = ipv6El.textContent;
+				let ipToCopy = null;
+
+				// 检查IPv4是否有效
+				if (ipv4 && ipv4 !== '正在获取...' && ipv4 !== '未检测到IPv4地址') {
+					ipToCopy = ipv4;
+				} 
+				// 如果IPv4无效，检查IPv6
+				else if (ipv6 && ipv6 !== '正在获取...' && ipv6 !== '未检测到IPv6地址') {
+					ipToCopy = ipv6;
+				}
+
+				if (ipToCopy) {
+					navigator.clipboard.writeText(ipToCopy)
+						.then(() => {
+							const originalText = copyBtn.innerHTML;
+							copyBtn.innerHTML = '<i class="fas fa-check"></i> 已复制';
+							setTimeout(() => {
+								copyBtn.innerHTML = originalText;
+							}, 2000);
+						})
+						.catch(err => {
+							console.error('复制失败:', err);
+							alert('复制失败，请手动复制IP地址');
+						});
+				} else {
+					alert('当前没有可复制的IP地址');
+				}
+			});
+        });
+    </script>
+</body>
+</html>
