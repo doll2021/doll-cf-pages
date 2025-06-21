@@ -732,7 +732,7 @@
                         
                         try {
                             // 保存图片到文件夹
-                            const fileName = `page_${pageNum}.jpg`;
+                            const fileName = `${pageNum}.jpg`;
                             const fileHandle = await folderHandle.getFileHandle(fileName, { create: true });
                             const writable = await fileHandle.createWritable();
                             await writable.write(blob);
