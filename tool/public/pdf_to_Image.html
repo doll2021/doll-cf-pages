@@ -426,6 +426,23 @@
             margin-top: 15px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
+        
+        /* 新增的按钮容器样式 */
+        .actions {
+            display: flex;
+            justify-content: center; /* 水平居中 */
+            gap: 15px; /* 按钮间距 */
+            margin-top: 20px;
+        }
+        
+        /* 重置按钮样式 */
+        #resetBtn {
+            background: linear-gradient(to right, var(--accent-color), #c0392b);
+        }
+        
+        #resetBtn::before {
+            background: linear-gradient(to right, #c0392b, var(--accent-color));
+        }
     </style>
 </head>
 <body>
@@ -483,7 +500,7 @@
                 <button class="btn" id="convertBtn" disabled>
                     <i class="fas fa-sync-alt"></i> 开始转换
                 </button>
-                <button class="btn" id="resetBtn" style="background:linear-gradient(to right, var(--accent-color), #c0392b); margin-left:10px;">
+                <button class="btn" id="resetBtn">
                     <i class="fas fa-redo"></i> 重置
                 </button>
             </div>
