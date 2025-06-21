@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF转图片工具</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-bg: #f8f9fa;
+            --dark-text: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2980, #26d0ce);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: var(--dark-text);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            background: linear-gradient(to right, var(--primary-color), #4a6491);
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            position: relative;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            background: rgba(74, 100, 145, 0.05);
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card i {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .fixed-settings {
+            background: #e8f4ff;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .settings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .setting-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+        }
+
+        .setting-item i {
+            font-size: 24px;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .setting-item p {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .setting-value {
+            color: var(--accent-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .upload-area {
+            border: 3px dashed var(--secondary-color);
+            border-radius: 15px;
+            padding: 40px 20px;
+            text-align: center;
+            background: #f0f7ff;
+            transition: all 0.3s;
+            cursor: pointer;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upload-area:hover {
+            background: #e1edff;
+        }
+
+        .upload-area i {
+            font-size: 60px;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .upload-area h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .upload-area p {
+            color: #5a6a8c;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+            transition: all 0.4s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(44, 62, 80, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .btn:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn:disabled::before {
+            display: none;
+        }
+
+        .file-info {
+            background: #edf2f7;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            display: none;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .file-info.show {
+            display: block;
+        }
+
+        .file-info p {
+            margin-bottom: 10px;
+            color: #4a5568;
+            font-size: 1.1rem;
+        }
+
+        .file-info p span {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .progress-container {
+            margin: 30px 0;
+        }
+
+        .progress-bar {
+            height: 12px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+            width: 0%;
+            transition: width 0.4s;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        .results {
+            display: none;
+            margin-top: 30px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .results.show {
+            display: block;
+        }
+
+        .results h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(44, 62, 80, 0.2);
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .error {
+            display: none;
+            background: #fff5f5;
+            border: 1px solid #fc8181;
+            color: #c53030;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-5px); }
+            40%, 80% { transform: translateX(5px); }
+        }
+
+        .error.show {
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #718096;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+
+        .instructions {
+            background: #e3f2fd;
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .instructions h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .instructions ol {
+            padding-left: 20px;
+        }
+
+        .instructions li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .quality-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-file-pdf"></i> PDF转JPEG图片工具</h1>
+        </header>
+        <div class="content">
+            <div class="instructions">
+                <h3><i class="fas fa-info-circle"></i> 使用说明</h3>
+                <ol>
+                    <li>选择需要转换的PDF文件</li>
+                    <li>点击"开始转换"按钮</li>
+                    <li>转换过程中，图片将自动保存到下载目录</li>
+                    <li>在下载目录中找到与PDF同名的文件夹查看所有图片</li>
+                </ol>
+            </div>
+            
+            <div class="upload-area" id="dropArea">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h2>拖放PDF文件到此处</h2>
+                <p>或点击下方按钮选择文件</p>
+                <input type="file" id="pdfFile" accept=".pdf" hidden>
+                <button class="btn" id="selectBtn">
+                    <i class="fas fa-file-pdf"></i> 选择PDF文件
+                </button>
+            </div>
+            
+            <div class="file-info" id="fileInfo">
+                <p>已选择文件: <span id="fileName">example.pdf</span></p>
+                <p>文件大小: <span id="fileSize">0 MB</span></p>
+                <p>状态: <span id="fileStatus">等待转换</span></p>
+                <p>输出格式: <span id="outputFormat">JPEG (100%质量)</span></p>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress" id="progressBar"></div>
+                </div>
+                <div class="progress-text" id="progressText">准备转换</div>
+            </div>
+            
+            <div class="error" id="errorMsg">
+                发生错误：无法加载PDF文件，请检查文件格式是否正确
+            </div>
+            
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>正在处理PDF文件，请稍候...</p>
+                <p id="processingStatus">初始化处理环境</p>
+                <p id="memoryStatus" style="font-size: 0.9rem; margin-top: 10px;"></p>
+            </div>
+            
+            <div class="actions">
+                <button class="btn" id="convertBtn" disabled>
+                    <i class="fas fa-sync-alt"></i> 开始转换
+                </button>
+                <button class="btn" id="resetBtn" style="background:linear-gradient(to right, var(--accent-color), #c0392b); margin-left:10px;">
+                    <i class="fas fa-redo"></i> 重置
+                </button>
+            </div>
+            
+            <div class="results" id="results">
+                <h2><i class="fas fa-check-circle"></i> 转换完成!</h2>
+                <div style="text-align:center; margin:20px 0;">
+                    <p>所有图片已保存到您的下载目录</p>
+                    <p>请检查 <strong id="folderPath">PDF文件名</strong> 文件夹</p>
+                    <p style="color: #27ae60; font-weight: 600; margin-top: 10px;">
+                        已转换 <span id="pageCount">0</span> 页 | 输出格式: JPEG 100%质量
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 PDF转JPEG工具 | 所有转换在浏览器本地完成，文件不会上传到服务器</p>
+        </footer>
+    </div>
+
+    <script>
+        // 设置PDF.js worker
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.min.js';
+
+        // 获取DOM元素
+        const dropArea = document.getElementById('dropArea');
+        const fileInput = document.getElementById('pdfFile');
+        const selectBtn = document.getElementById('selectBtn');
+        const convertBtn = document.getElementById('convertBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const fileInfo = document.getElementById('fileInfo');
+        const fileName = document.getElementById('fileName');
+        const fileSize = document.getElementById('fileSize');
+        const fileStatus = document.getElementById('fileStatus');
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+        const processingStatus = document.getElementById('processingStatus');
+        const memoryStatus = document.getElementById('memoryStatus');
+        const results = document.getElementById('results');
+        const loading = document.getElementById('loading');
+        const errorMsg = document.getElementById('errorMsg');
+        const folderPath = document.getElementById('folderPath');
+        const pageCount = document.getElementById('pageCount');
+        
+        // 固定设置
+        const FIXED_SETTINGS = {
+            format: 'jpeg',
+            quality: 1.0, // 100%质量
+            scale: 1.0,   // 无缩放
+            useOriginalDPI: true
+        };
+        
+        // 更新内存状态
+        function updateMemoryStatus() {
+            // @ts-ignore
+            const memory = performance.memory;
+            if (memory) {
+                const usedMB = (memory.usedJSHeapSize / (1024 * 1024)).toFixed(1);
+                const totalMB = (memory.totalJSHeapSize / (1024 * 1024)).toFixed(1);
+                memoryStatus.textContent = `内存使用: ${usedMB}MB / ${totalMB}MB`;
+            }
+        }
+        
+        let pdfDoc = null;
+        let currentFile = null;
+        let folderHandle = null;
+        let totalPages = 0;
+        
+        // 点击选择按钮触发文件选择
+        selectBtn.addEventListener('click', () => {
+            fileInput.click();
+        });
+        
+        // 文件选择处理
+        fileInput.addEventListener('change', handleFileSelect);
+        
+        // 拖放事件处理
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false);
+        });
+        
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, highlight, false);
+        });
+        
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, unhighlight, false);
+        });
+        
+        function highlight() {
+            dropArea.classList.add('drag-over');
+        }
+        
+        function unhighlight() {
+            dropArea.classList.remove('drag-over');
+        }
+        
+        dropArea.addEventListener('drop', handleDrop, false);
+        
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            
+            if (files.length && files[0].type === 'application/pdf') {
+                handleFile(files[0]);
+            } else {
+                showError('请选择有效的PDF文件');
+            }
+        }
+        
+        function handleFileSelect(e) {
+            const file = e.target.files[0];
+            if (file && file.type === 'application/pdf') {
+                handleFile(file);
+            } else {
+                showError('请选择有效的PDF文件');
+            }
+        }
+        
+        function handleFile(file) {
+            currentFile = file;
+            fileName.textContent = file.name;
+            const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
+            fileSize.textContent = fileSizeMB + ' MB';
+            fileStatus.textContent = '等待转换';
+            fileInfo.classList.add('show');
+            convertBtn.disabled = false;
+            resetUI();
+        }
+        
+        // 转换按钮事件
+        convertBtn.addEventListener('click', convertPdfToImages);
+        
+        // 重置按钮事件
+        resetBtn.addEventListener('click', resetAll);
+        
+        async function convertPdfToImages() {
+            if (!currentFile) return;
+            
+            // 重置UI
+            resetUI();
+            loading.classList.add('show');
+            errorMsg.classList.remove('show');
+            convertBtn.disabled = true;
+            processingStatus.textContent = '请求文件夹权限...';
+            
+            try {
+                // 请求文件夹权限
+                folderHandle = await window.showDirectoryPicker({
+                    startIn: 'downloads',
+                    id: 'pdfImagesFolder',
+                    mode: 'readwrite'
+                });
+                
+                // 创建PDF同名文件夹（去掉扩展名）
+                const folderName = currentFile.name.replace(/\.[^/.]+$/, "");
+                folderHandle = await folderHandle.getDirectoryHandle(folderName, { create: true });
+                folderPath.textContent = folderName;
+                
+                processingStatus.textContent = '开始处理PDF文件...';
+                
+                const fileReader = new FileReader();
+                
+                fileReader.onload = async function() {
+                    const typedarray = new Uint8Array(this.result);
+                    
+                    try {
+                        // 加载PDF文档
+                        pdfDoc = await pdfjsLib.getDocument(typedarray).promise;
+                        totalPages = pdfDoc.numPages;
+                        
+                        progressText.textContent = `开始转换: 共 ${totalPages} 页`;
+                        
+                        // 清空之前的图片
+                        fileStatus.textContent = '转换中...';
+                        
+                        // 逐页处理
+                        for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+                            await renderPage(pdfDoc, pageNum, totalPages);
+                        }
+                        
+                        // 转换完成
+                        progressText.textContent = `转换完成! 共 ${totalPages} 页`;
+                        results.classList.add('show');
+                        loading.classList.remove('show');
+                        convertBtn.disabled = true;
+                        fileStatus.textContent = '转换完成';
+                        pageCount.textContent = totalPages;
+                    } catch (error) {
+                        console.error('PDF处理错误:', error);
+                        showError('处理PDF文件时出错: ' + error.message);
+                        loading.classList.remove('show');
+                        convertBtn.disabled = false;
+                    }
+                };
+                
+                fileReader.readAsArrayBuffer(currentFile);
+            } catch (error) {
+                console.error('文件夹权限错误:', error);
+                showError('需要文件夹权限来保存图片: ' + error.message);
+                loading.classList.remove('show');
+                convertBtn.disabled = false;
+            }
+        }
+        
+        async function renderPage(pdf, pageNum, totalPages) {
+            processingStatus.textContent = `正在转换第 ${pageNum} 页 / 共 ${totalPages} 页`;
+            updateMemoryStatus();
+            
+            try {
+                const page = await pdf.getPage(pageNum);
+                
+                // 使用原始尺寸（不缩放）
+                const viewport = page.getViewport({ scale: FIXED_SETTINGS.scale });
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+                
+                const renderContext = {
+                    canvasContext: ctx,
+                    viewport: viewport
+                };
+                
+                await page.render(renderContext).promise;
+                
+                // 更新进度
+                const progressPercent = (pageNum / totalPages) * 100;
+                progressBar.style.width = `${progressPercent}%`;
+                progressText.textContent = `正在转换: ${pageNum}/${totalPages} 页`;
+                
+                // 将canvas转换为Blob (JPEG格式, 100%质量)
+                return new Promise((resolve) => {
+                    canvas.toBlob(async (blob) => {
+                        if (!blob) {
+                            resolve();
+                            return;
+                        }
+                        
+                        try {
+                            // 保存图片到文件夹
+                            const fileName = `page_${pageNum}.jpg`;
+                            const fileHandle = await folderHandle.getFileHandle(fileName, { create: true });
+                            const writable = await fileHandle.createWritable();
+                            await writable.write(blob);
+                            await writable.close();
+                            
+                            resolve();
+                        } catch (error) {
+                            console.error('保存图片错误:', error);
+                            showError('保存图片时出错: ' + error.message);
+                            resolve();
+                        }
+                    }, 'image/jpeg', FIXED_SETTINGS.quality);
+                });
+            } catch (error) {
+                console.error('页面渲染错误:', error);
+                showError('转换页面时出错: ' + error.message);
+            }
+        }
+        
+        function resetUI() {
+            progressBar.style.width = '0%';
+            progressText.textContent = '准备转换';
+            results.classList.remove('show');
+            errorMsg.classList.remove('show');
+            pageCount.textContent = "0";
+        }
+        
+        function resetAll() {
+            fileInput.value = '';
+            fileInfo.classList.remove('show');
+            convertBtn.disabled = true;
+            resetUI();
+            currentFile = null;
+            folderHandle = null;
+            totalPages = 0;
+        }
+        
+        function showError(message) {
+            errorMsg.textContent = `发生错误: ${message}`;
+            errorMsg.classList.add('show');
+        }
+        
+        // 初始内存状态更新
+        setInterval(updateMemoryStatus, 2000);
+    </script>
+</body>
+</html>
