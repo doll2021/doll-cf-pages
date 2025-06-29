@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resolvers>
+    <resolver>
+        
+        <!--解析器的基本信息-->
+        <basicInfo>
+            <name>bestprettygirl</name>
+            <version>20250629_producer</version>
+            <baseUrl>https://bestprettygirl.com</baseUrl>
+            <startUrl>https://bestprettygirl.com/category/cosplay/</startUrl>
+            <type>comic</type>
+            <template>2</template>
+            <access>Get</access>
+            <charset>UTF-8</charset>
+            <header>Referer*https://bestprettygirl.com</header>
+            <order>null</order>
+        </basicInfo>
+        
+        <!--查询规则-->
+        <searchRule>
+            <action>null</action>
+            <method>Get</method>
+            <inputName>null</inputName>
+            <inputFormatParam>null</inputFormatParam>
+            <level>null</level>
+            <targetLevel>1</targetLevel>
+            <extraParam>null</extraParam>
+            <isJoint>null</isJoint>
+            <captchaInfo>null</captchaInfo>
+        </searchRule>
+        
+        <!--跳转规则-->
+        <jumpRule>
+            <method>mantissaIncrease</method>
+            <parameter>null</parameter>
+            <regular>https://bestprettygirl.com.*</regular>
+            <offset>null</offset>
+            <startPage>/page/2/*/</startPage>
+        </jumpRule>
+        
+        <!--底层导航栏-->
+        <menuBar>
+            <menu>
+                <text>COS</text>
+                <url>https://bestprettygirl.com/category/cosplay/</url>
+                <level>1</level>
+                <css>1</css>
+                <baseUrl>null</baseUrl>
+                <regular>null</regular>
+                <subset></subset>
+            </menu>
+            <menu>
+                <text>blank</text>
+                <url>null</url>
+                <level>1</level>
+                <css>1</css>
+                <baseUrl>null</baseUrl>
+                <regular>null</regular>
+                <subset></subset>
+            </menu>
+            <menu>
+                <text>色图</text>
+                <url>null</url>
+                <level>1</level>
+                <css>1</css>
+                <baseUrl>null</baseUrl>
+                <regular>null</regular>
+                <subset>
+                    <submenu>
+                        <text>AI</text>
+                        <url>https://bestprettygirl.com/category/aimodel/</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>欧美</text>
+                        <url>https://bestprettygirl.com/category/eu-girls/</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>韩国</text>
+                        <url>https://bestprettygirl.com/category/korean/</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>日本</text>
+                        <url>https://bestprettygirl.com/category/japan/</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>中国</text>
+                        <url>https://bestprettygirl.com/category/china/</url>
+                        <level>2</level>
+                    </submenu>
+                </subset>
+            </menu>
+        </menuBar>
+        
+        <!--模块映射规则-->
+        <mapRule>
+            <!--第一层模块-->
+            <module>
+                <level>1</level>
+                <css>1</css>
+                <widget>1</widget>
+                <path>elementor-posts-container elementor-posts elementor-posts--skin-cards elementor-grid*0|elementor-post__card*999|(elementor-post__title*0|@,elementor-post__title*0|a*0|@href,@)</path>
+                <tag>iconLinkList</tag>
+                <type>2</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>1</css>
+                <widget>-1</widget>
+                <path>elementor-pagination*0|page-numbers current*0|@</path>
+                <tag>currentNumber</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>1</css>
+                <widget>-2</widget>
+                <path>elementor-pagination*0|a*-2|@href</path>
+                <tag>totalNumber</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>1</css>
+                <widget>-999</widget>
+                <path>elementor-pagination*0|page-numbers prev*0|@href</path>
+                <tag>previousPage</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>1</css>
+                <widget>-999</widget>
+                <path>elementor-pagination*0|page-numbers next*-1|@href</path>
+                <tag>nextPage</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <!--第二层模块-->
+            <module>
+                <level>2</level>
+                <css>1</css>
+                <widget>2</widget>
+                <path>elementor-heading-title elementor-size-large*0|@+elementor-icon-list-text elementor-post-info__item elementor-post-info__item--type-date*0|@</path>
+                <tag>title</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>2</level>
+                <css>1</css>
+                <widget>3</widget>
+                <path>elementor-widget-theme-post-content*0|elementor-widget-container*0|img*0|@src</path>
+                <tag>startImage</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+
+            <module>
+                <level>2</level>
+                <css>1</css>
+                <widget>-999</widget>
+                <path>null</path>
+                <tag>number</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>2</level>
+                <css>1</css>
+                <widget>-999</widget>
+                <path>elementor-widget-theme-post-content*0|elementor-widget-container*0|img*999|(@src)</path>
+                <tag>imageList</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+        </mapRule>
+        
+        <!--资源的分布规则-->
+        <resRule>
+            <resType>img</resType>
+            <resPath>null</resPath>
+            <imageIncrease>null</imageIncrease>
+            <pageIncrease>null</pageIncrease>
+            <forceParsing>null</forceParsing>
+            <checkTextPath>null</checkTextPath>
+            <checkTextRegular>null</checkTextRegular>
+            <hrefPath>null</hrefPath>
+            <startFormatParam>null</startFormatParam>
+            <endFormatParam>null</endFormatParam>
+            <fontError>null</fontError>
+            <playManager>null</playManager>
+        </resRule>
+        
+        <!--强制解析规则【可在自定义模块内加入额外参数；如果所有节点均为空，则说明站点不需要强制解析】-->
+        <forceParseRule>
+            <parseType>null</parseType>
+            <device>null</device>
+            <imageInnerHeader>null</imageInnerHeader>
+            <urlFormatParam>null</urlFormatParam>
+            <imageFormatParam>null</imageFormatParam>
+            <dataFormatParam>null</dataFormatParam>
+            <runJS>null</runJS>
+            <imageType>null</imageType>
+            <number>null</number>
+            <pagePath>null</pagePath>
+            <resPath>null</resPath>
+            <resFormatParam>null</resFormatParam>
+            <xhrRegular>null</xhrRegular>
+            <scriptRegular>null</scriptRegular>
+            <imageRegular>null</imageRegular>
+        </forceParseRule>
+    </resolver>
+</resolvers>
