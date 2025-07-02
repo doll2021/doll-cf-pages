@@ -5,7 +5,7 @@
         <!--解析器的基本信息-->
         <basicInfo>
             <name>jmcomic</name>
-            <version>20250608_producer</version>
+            <version>20250702_producer</version>
             <baseUrl>https://18comic-wantgo.club</baseUrl>
             <startUrl>https://18comic-wantgo.club/albums?page=1{Referer*https://18comic-wantgo.club}</startUrl>
             <type>comic</type>
@@ -34,7 +34,7 @@
             <method>mantissaIncrease</method>
             <parameter>null</parameter>
             <regular>https://18comic-wantgo.club.*</regular>
-            <offset>0</offset>
+            <offset>null</offset>
             <startPage>null</startPage>
         </jumpRule>
         
@@ -253,7 +253,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>2</widget>
-                <path>^book-name|@</path>
+                <path>_TEXT*0|[_MAYBE-CUT-L_]*html = base64DecodeUtf8|[_MAYBE-CUT-R_]*document.write|[_MAYBE-CUT-L_]*&quot;|[_MAYBE-CUT-R_]*&quot;|[_DECODE-BASE64_]*|_HTML*0|^book-name|@</path>
                 <tag>title</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -264,7 +264,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>3</widget>
-                <path>^album_photo_cover|thumb-overlay*0|thumb-overlay*0|img*0|@src</path>
+                <path>_TEXT*0|[_MAYBE-CUT-L_]*html = base64DecodeUtf8|[_MAYBE-CUT-R_]*document.write|[_MAYBE-CUT-L_]*&quot;|[_MAYBE-CUT-R_]*&quot;|[_DECODE-BASE64_]*|_HTML*0|^album_photo_cover|show_zoom*0|img*0|@src</path>
                 <tag>cover</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -275,7 +275,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>4</widget>
-                <path>col-lg-5*0|_GOBACK*1|col-lg-7*0|p-t-5 p-b-5*0|@+col-lg-5*0|_GOBACK*1|col-lg-7*0|tag-block*0|_REMOVE-C*btn-warning show-or-hidden-button|@+col-lg-5*0|_GOBACK*1|col-lg-7*0|tag-block*1|_REMOVE-C*btn-warning show-or-hidden-button|@+col-lg-5*0|_GOBACK*1|col-lg-7*0|tag-block*2|_REMOVE-C*btn-warning show-or-hidden-button|@+col-lg-5*0|_GOBACK*1|col-lg-7*0|tag-block*3|_REMOVE-C*btn-warning show-or-hidden-button|@+col-lg-5*0|_GOBACK*1|col-lg-7*0|p-t-5 p-b-5*2|@+col-lg-5*0|_GOBACK*1|col-lg-7*0|p-t-5 p-b-5*3|span*1|@</path>
+                <path>_TEXT*0|[_MAYBE-CUT-L_]*html = base64DecodeUtf8|[_MAYBE-CUT-R_]*document.write|[_MAYBE-CUT-L_]*&quot;|[_MAYBE-CUT-R_]*&quot;|[_DECODE-BASE64_]*|_HTML*0|col-lg-7*-1|p-t-5 p-b-5*0|@+_TEXT*0|[_MAYBE-CUT-L_]*html = base64DecodeUtf8|[_MAYBE-CUT-R_]*document.write|[_MAYBE-CUT-L_]*&quot;|[_MAYBE-CUT-R_]*&quot;|[_DECODE-BASE64_]*|_HTML*0|col-lg-7*-1|tag-block*0|_REMOVE-C*btn-warning show-or-hidden-button|@+_TEXT*0|[_MAYBE-CUT-L_]*html = base64DecodeUtf8|[_MAYBE-CUT-R_]*document.write|[_MAYBE-CUT-L_]*&quot;|[_MAYBE-CUT-R_]*&quot;|[_DECODE-BASE64_]*|_HTML*0|col-lg-7*-1|tag-block*2|_REMOVE-C*btn-warning show-or-hidden-button|@+_TEXT*0|[_MAYBE-CUT-L_]*html = base64DecodeUtf8|[_MAYBE-CUT-R_]*document.write|[_MAYBE-CUT-L_]*&quot;|[_MAYBE-CUT-R_]*&quot;|[_DECODE-BASE64_]*|_HTML*0|col-lg-7*-1|tag-block*3|_REMOVE-C*btn-warning show-or-hidden-button|@+_TEXT*0|[_MAYBE-CUT-L_]*html = base64DecodeUtf8|[_MAYBE-CUT-R_]*document.write|[_MAYBE-CUT-L_]*&quot;|[_MAYBE-CUT-R_]*&quot;|[_DECODE-BASE64_]*|_HTML*0|col-lg-7*-1|p-t-5 p-b-5*2|@+_TEXT*0|[_MAYBE-CUT-L_]*html = base64DecodeUtf8|[_MAYBE-CUT-R_]*document.write|[_MAYBE-CUT-L_]*&quot;|[_MAYBE-CUT-R_]*&quot;|[_DECODE-BASE64_]*|_HTML*0|col-lg-7*-1|p-t-5 p-b-5*4|@</path>
                 <tag>intro</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -286,18 +286,18 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>-999</widget>
-                <path>^pageselect|option*0|@</path>
+                <path>_TEXT*0|[_MAYBE-CUT-L_]*html = base64DecodeUtf8|[_MAYBE-CUT-R_]*document.write|[_MAYBE-CUT-L_]*&quot;|[_MAYBE-CUT-R_]*&quot;|[_DECODE-BASE64_]*|_HTML*0|absolute train-number*0|pagecount*0|@</path>
                 <tag>number</tag>
                 <type>0</type>
                 <checkText>null</checkText>
-                <offset>startWebsite</offset>
+                <offset>null</offset>
             </module>
             
             <module>
                 <level>2</level>
                 <css>1</css>
                 <widget>-999</widget>
-                <path>forum-open btn btn-primary*0|_GOTO*-1|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-wantgo.club}</path>
+                <path>_TEXT*0|[_MAYBE-CUT-L_]*html = base64DecodeUtf8|[_MAYBE-CUT-R_]*document.write|[_MAYBE-CUT-L_]*&quot;|[_MAYBE-CUT-R_]*&quot;|[_DECODE-BASE64_]*|_HTML*0|forum-open btn btn-primary*0|_GOTO*-1|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-wantgo.club}</path>
                 <tag>startWebsite</tag>
                 <type>0</type>
                 <checkText>null</checkText>
