@@ -6,25 +6,25 @@
         <basicInfo>
             <name>jmcomic</name>
             <version>20250702_producer</version>
-            <baseUrl>https://18comic-wantgo.club</baseUrl>
-            <startUrl>https://18comic-wantgo.club/albums?page=1{Referer*https://18comic-wantgo.club}</startUrl>
+            <baseUrl>https://18comic-ive.club</baseUrl>
+            <startUrl>https://18comic-ive.club/albums?page=1{Referer*https://18comic-ive.club}</startUrl>
             <type>comic</type>
             <template>1</template>
             <access>Get</access>
             <charset>UTF-8</charset>
-            <header>Referer*https://18comic-wantgo.club</header>
+            <header>Referer*https://18comic-ive.club</header>
             <order>null</order>
         </basicInfo>
         
         <!--查询规则-->
         <searchRule>
-            <action>https://18comic-wantgo.club/search/photos?search_query=</action>
+            <action>https://18comic-ive.club/search/photos?search_query=</action>
             <method>Get</method>
             <inputName>search_query</inputName>
             <inputFormatParam>null</inputFormatParam>
             <level>3</level>
             <targetLevel>1</targetLevel>
-            <extraParam>{Referer*https://18comic-wantgo.club}</extraParam>
+            <extraParam>{Referer*https://18comic-ive.club}</extraParam>
             <isJoint>no</isJoint>
             <captchaInfo>null</captchaInfo>
         </searchRule>
@@ -33,7 +33,7 @@
         <jumpRule>
             <method>mantissaIncrease</method>
             <parameter>null</parameter>
-            <regular>https://18comic-wantgo.club.*</regular>
+            <regular>https://18comic-ive.club.*</regular>
             <offset>null</offset>
             <startPage>null</startPage>
         </jumpRule>
@@ -42,7 +42,7 @@
         <menuBar>
             <menu>
                 <text>首页</text>
-                <url>https://18comic-wantgo.club/albums?page=1{Referer*https://18comic-wantgo.club}</url>
+                <url>https://18comic-ive.club/albums?page=1{Referer*https://18comic-ive.club}</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -51,7 +51,7 @@
             </menu>
             <menu>
                 <text>同人志</text>
-                <url>https://18comic-wantgo.club/albums/doujin?page=1{Referer*https://18comic-wantgo.club}</url>
+                <url>https://18comic-ive.club/albums/doujin?page=1{Referer*https://18comic-ive.club}</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -59,27 +59,27 @@
                 <subset>
                     <submenu>
                         <text>汉化</text>
-                        <url>https://18comic-wantgo.club/albums/doujin/sub/chinese?page=1{Referer*https://18comic-wantgo.club}</url>
+                        <url>https://18comic-ive.club/albums/doujin/sub/chinese?page=1{Referer*https://18comic-ive.club}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>日语</text>
-                        <url>https://18comic-wantgo.club/albums/doujin/sub/japanese?page=1{Referer*https://18comic-wantgo.club}</url>
+                        <url>https://18comic-ive.club/albums/doujin/sub/japanese?page=1{Referer*https://18comic-ive.club}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>CG</text>
-                        <url>https://18comic-wantgo.club/albums/doujin/sub/CG?page=1{Referer*https://18comic-wantgo.club}</url>
+                        <url>https://18comic-ive.club/albums/doujin/sub/CG?page=1{Referer*https://18comic-ive.club}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>3D</text>
-                        <url>https://18comic-wantgo.club/albums/another/sub/3d?page=1{Referer*https://18comic-wantgo.club}</url>
+                        <url>https://18comic-ive.club/albums/another/sub/3d?page=1{Referer*https://18comic-ive.club}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>COS</text>
-                        <url>https://18comic-wantgo.club/albums/another/sub/cosplay?page=1{Referer*https://18comic-wantgo.club}</url>
+                        <url>https://18comic-ive.club/albums/another/sub/cosplay?page=1{Referer*https://18comic-ive.club}</url>
                         <level>2</level>
                     </submenu>
                 </subset>
@@ -95,7 +95,7 @@
             </menu>
             <menu>
                 <text>单行本</text>
-                <url>https://18comic-wantgo.club/albums/single?page=1{Referer*https://18comic-wantgo.club}</url>
+                <url>https://18comic-ive.club/albums/single?page=1{Referer*https://18comic-ive.club}</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -103,19 +103,19 @@
                 <subset>
                     <submenu>
                         <text>汉化</text>
-                        <url>https://18comic-wantgo.club/albums/single/sub/chinese?page=1{Referer*https://18comic-wantgo.club}</url>
+                        <url>https://18comic-ive.club/albums/single/sub/chinese?page=1{Referer*https://18comic-ive.club}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>日语</text>
-                        <url>https://18comic-wantgo.club/albums/single/sub/japanese?page=1{Referer*https://18comic-wantgo.club}</url>
+                        <url>https://18comic-ive.club/albums/single/sub/japanese?page=1{Referer*https://18comic-ive.club}</url>
                         <level>2</level>
                     </submenu>
                 </subset>
             </menu>
             <menu>
                 <text>H杂志</text>
-                <url>https://18comic-wantgo.club/albums/short?page=1{Referer*https://18comic-wantgo.club}</url>
+                <url>https://18comic-ive.club/albums/short?page=1{Referer*https://18comic-ive.club}</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -123,12 +123,12 @@
                 <subset>
                     <submenu>
                         <text>汉化</text>
-                        <url>https://18comic-wantgo.club/albums/short/sub/chinese?page=1{Referer*https://18comic-wantgo.club}</url>
+                        <url>https://18comic-ive.club/albums/short/sub/chinese?page=1{Referer*https://18comic-ive.club}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>日语</text>
-                        <url>https://18comic-wantgo.club/albums/short/sub/japanese?page=1{Referer*https://18comic-wantgo.club}</url>
+                        <url>https://18comic-ive.club/albums/short/sub/japanese?page=1{Referer*https://18comic-ive.club}</url>
                         <level>2</level>
                     </submenu>
                 </subset>
@@ -142,7 +142,7 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>1</widget>
-                <path>^wrapper|container*0|col-xs-6 col-sm-6 col-md-4 col-lg-3 list-col*999|(video-title title-truncate m-t-5*0|@+video-title title-truncate m-t-5*0|_GOTO*1|@,thumb-overlay-albums*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-wantgo.club},thumb-overlay-albums*0|a*0|img*0|@src)+^wrapper|container*0|col-xs-6 col-sm-4 col-md-3 col-lg-3 list-col col-xl-2*999|(video-title title-truncate m-t-5*0|@+video-title title-truncate m-t-5*0|_GOTO*1|@,thumb-overlay-albums*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-wantgo.club},thumb-overlay-albums*0|a*0|img*0|@data-original)</path>
+                <path>^wrapper|container*0|col-xs-6 col-sm-6 col-md-4 col-lg-3 list-col*999|(video-title title-truncate m-t-5*0|@+video-title title-truncate m-t-5*0|_GOTO*1|@,thumb-overlay-albums*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-ive.club},thumb-overlay-albums*0|a*0|img*0|@src)+^wrapper|container*0|col-xs-6 col-sm-4 col-md-3 col-lg-3 list-col col-xl-2*999|(video-title title-truncate m-t-5*0|@+video-title title-truncate m-t-5*0|_GOTO*1|@,thumb-overlay-albums*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-ive.club},thumb-overlay-albums*0|a*0|img*0|@data-original)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -175,7 +175,7 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>-999</widget>
-                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*-1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-wantgo.club}</path>
+                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*-1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-ive.club}</path>
                 <tag>previousPage</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -186,7 +186,7 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>-999</widget>
-                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-wantgo.club}</path>
+                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-ive.club}</path>
                 <tag>nextPage</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -197,7 +197,7 @@
                 <level>1</level>
                 <css>2</css>
                 <widget>1</widget>
-                <path>^wrapper|container*0|col-xs-6 col-sm-6 col-md-4 col-lg-3 list-col*999|(video-title title-truncate m-t-5*0|@+video-title title-truncate m-t-5*0|_GOTO*1|@,thumb-overlay*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-wantgo.club},thumb-overlay*0|a*0|img*0|@data-original)+^wrapper|container*0|col-xs-6 col-sm-4 col-md-3 col-lg-3 list-col col-xl-2*999|(video-title title-truncate m-t-5*0|@+video-title title-truncate m-t-5*0|_GOTO*1|@,thumb-overlay*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-wantgo.club},thumb-overlay*0|a*0|img*0|@data-original)</path>
+                <path>^wrapper|container*0|col-xs-6 col-sm-6 col-md-4 col-lg-3 list-col*999|(video-title title-truncate m-t-5*0|@+video-title title-truncate m-t-5*0|_GOTO*1|@,thumb-overlay*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-ive.club},thumb-overlay*0|a*0|img*0|@data-original)+^wrapper|container*0|col-xs-6 col-sm-4 col-md-3 col-lg-3 list-col col-xl-2*999|(video-title title-truncate m-t-5*0|@+video-title title-truncate m-t-5*0|_GOTO*1|@,thumb-overlay*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-ive.club},thumb-overlay*0|a*0|img*0|@data-original)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -230,7 +230,7 @@
                 <level>1</level>
                 <css>2</css>
                 <widget>-999</widget>
-                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*-1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-wantgo.club}</path>
+                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*-1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-ive.club}</path>
                 <tag>previousPage</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -241,7 +241,7 @@
                 <level>1</level>
                 <css>2</css>
                 <widget>-999</widget>
-                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-wantgo.club}</path>
+                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-ive.club}</path>
                 <tag>nextPage</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -297,7 +297,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>-999</widget>
-                <path>_TEXT*0|[_MAYBE-CUT-L_]*html = base64DecodeUtf8|[_MAYBE-CUT-R_]*document.write|[_MAYBE-CUT-L_]*&quot;|[_MAYBE-CUT-R_]*&quot;|[_DECODE-BASE64_]*|_HTML*0|forum-open btn btn-primary*0|_GOTO*-1|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-wantgo.club}</path>
+                <path>_TEXT*0|[_MAYBE-CUT-L_]*html = base64DecodeUtf8|[_MAYBE-CUT-R_]*document.write|[_MAYBE-CUT-L_]*&quot;|[_MAYBE-CUT-R_]*&quot;|[_DECODE-BASE64_]*|_HTML*0|forum-open btn btn-primary*0|_GOTO*-1|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-ive.club}</path>
                 <tag>startWebsite</tag>
                 <type>0</type>
                 <checkText>null</checkText>
