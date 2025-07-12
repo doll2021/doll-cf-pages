@@ -5,26 +5,26 @@
         <!--解析器的基本信息-->
         <basicInfo>
             <name>hotmanga</name>
-            <version>20250607_StupidDoll</version>
-            <baseUrl>https://mapi.copy20.com</baseUrl>
-            <startUrl>https://mapi.copy20.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.05.09|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</startUrl>
+            <version>20250712_StupidDoll</version>
+            <baseUrl>https://api.manga2025.com</baseUrl>
+            <startUrl>https://api.manga2025.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.02.12|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</startUrl>
             <type>comic</type>
             <template>3</template>
             <access>Get</access>
             <charset>UTF-8</charset>
-            <header>Referer*https://mapi.copy20.com</header>
+            <header>Referer*https://m.manga2025.com</header>
             <order>asc</order>
         </basicInfo>
         
         <!--查询规则-->
         <searchRule>
-            <action>https://44422444.xyz/?url=https://mapi.copy20.com/api/v3/search/comic?platform=1&amp;q=</action>
+            <action>https://44422444.xyz/?url=https://api.manga2025.com/api/v3/search/comic?platform=1&amp;q=</action>
             <method>Get</method>
             <inputName>null</inputName>
             <inputFormatParam>null</inputFormatParam>
             <level>3</level>
             <targetLevel>1</targetLevel>
-            <extraParam>&amp;limit=20&amp;offset=0&amp;q_type=&amp;_update=true{Accept*application/json|platform*1|version*2025.05.09|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</extraParam>
+            <extraParam>&amp;limit=20&amp;offset=0&amp;q_type=&amp;_update=true{Accept*application/json|platform*1|version*2025.02.12|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</extraParam>
             <isJoint>yes</isJoint>
             <captchaInfo>null</captchaInfo>
         </searchRule>
@@ -33,7 +33,7 @@
         <jumpRule>
             <method>mathReplace</method>
             <parameter>offset=(?~!/~21)</parameter>
-            <regular>https://mapi.copy20.com.*</regular>
+            <regular>https://api.manga2025.com.*</regular>
             <offset>-1</offset>
             <startPage>null</startPage>
         </jumpRule>
@@ -42,7 +42,7 @@
         <menuBar>
             <menu>
                 <text>首页</text>
-                <url>https://mapi.copy20.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.05.09|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
+                <url>https://api.manga2025.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.02.12|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -68,57 +68,57 @@
                 <subset>
                     <submenu>
                         <text>爱情</text>
-                        <url>https://mapi.copy20.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;theme=aiqing&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.05.09|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
+                        <url>https://api.manga2025.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;theme=aiqing&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.02.12|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>欢乐</text>
-                        <url>https://mapi.copy20.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;theme=huanlexiang&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.05.09|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
+                        <url>https://api.manga2025.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;theme=huanlexiang&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.02.12|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>探索</text>
-                        <url>https://mapi.copy20.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;theme=maoxian&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.05.09|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
+                        <url>https://api.manga2025.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;theme=maoxian&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.02.12|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>奇幻</text>
-                        <url>https://mapi.copy20.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;theme=qihuan&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.05.09|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
+                        <url>https://api.manga2025.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;theme=qihuan&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.02.12|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>百合</text>
-                        <url>https://mapi.copy20.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;theme=baihe&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.05.09|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
+                        <url>https://api.manga2025.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;theme=baihe&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.02.12|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>校园</text>
-                        <url>https://mapi.copy20.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;theme=xiaoyuan&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.05.09|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
+                        <url>https://api.manga2025.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;theme=xiaoyuan&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.02.12|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>科幻</text>
-                        <url>https://mapi.copy20.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;theme=kehuan&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.05.09|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
+                        <url>https://api.manga2025.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;theme=kehuan&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.02.12|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>生活</text>
-                        <url>https://mapi.copy20.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;theme=shenghuo&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.05.09|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
+                        <url>https://api.manga2025.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;theme=shenghuo&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.02.12|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>格斗</text>
-                        <url>https://mapi.copy20.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;theme=gedou&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.05.09|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
+                        <url>https://api.manga2025.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;theme=gedou&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.02.12|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>悬疑</text>
-                        <url>https://mapi.copy20.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;theme=xuanyi&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.05.09|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
+                        <url>https://api.manga2025.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;theme=xuanyi&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.02.12|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>其它</text>
-                        <url>https://mapi.copy20.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;theme=qita&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.05.09|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
+                        <url>https://api.manga2025.com/api/v3/comics?free_type=1&amp;limit=21&amp;offset=0&amp;theme=qita&amp;ordering=-datetime_updated&amp;_update=true{Accept*application/json|platform*1|version*2025.02.12|accept-language*zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.6}</url>
                         <level>2</level>
                     </submenu>
                 </subset>
@@ -132,7 +132,7 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>1</widget>
-                <path>_JSON*0|_Object*results|_Object*list|_ARRAY*999|(_Object*name|_String+_Object*datetime_updated|_String,_Object*path_word|_String|_TEXT*0|[_ADD-L_]*https://mapi.copy20.com/api/v3/comic2/|[_ADD-R_]*?platform=1,_Object*cover|_String)</path>
+                <path>_JSON*0|_Object*results|_Object*list|_ARRAY*999|(_Object*name|_String+_Object*datetime_updated|_String,_Object*path_word|_String|_TEXT*0|[_ADD-L_]*https://api.manga2025.com/api/v3/comic2/|[_ADD-R_]*?platform=1,_Object*cover|_String)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -187,7 +187,7 @@
                 <level>1</level>
                 <css>2</css>
                 <widget>1</widget>
-                <path>_JSON*0|_Object*results|_Object*list|_ARRAY*999|(_Object*name|_String,_Object*path_word|_String|_TEXT*0|[_ADD-L_]*https://mapi.copy20.com/api/v3/comic2/|[_ADD-R_]*?platform=1,_Object*cover|_String)</path>
+                <path>_JSON*0|_Object*results|_Object*list|_ARRAY*999|(_Object*name|_String,_Object*path_word|_String|_TEXT*0|[_ADD-L_]*https://api.manga2025.com/api/v3/comic2/|[_ADD-R_]*?platform=1,_Object*cover|_String)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -287,7 +287,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>1</widget>
-                <path>_JSON*0|_Object*results|_Object*list|_ARRAY*999|(_Object*name|_String,_Object*uuid|_String|_TEXT*0|[_ADD-L_]*../../chapter2/|[_ADD-R_]*?platform=1&amp;_update=true)</path>
+                <path>_JSON*0|_Object*results|_Object*list|_ARRAY*999|(_Object*name|_String,_Object*uuid|_String|_TEXT*0|[_ADD-L_]*../../chapter/|[_ADD-R_]*?platform=1&amp;_update=true)</path>
                 <tag>textLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
