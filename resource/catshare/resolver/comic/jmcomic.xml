@@ -5,27 +5,27 @@
         <!--解析器的基本信息-->
         <basicInfo>
             <name>jmcomic</name>
-            <version>20250702_producer</version>
-            <baseUrl>https://18comic-ive.club</baseUrl>
-            <startUrl>https://18comic-ive.club/albums?page=1{Referer*https://18comic-ive.club}</startUrl>
+            <version>20250714_StupidDoll</version>
+            <baseUrl>https://jmcomic-ive.cc</baseUrl>
+            <startUrl>https://jmcomic-ive.cc/albums?page=1{Referer*https://jmcomic-ive.cc}</startUrl>
             <type>comic</type>
-            <template>1</template>
+            <template>3</template>
             <access>Get</access>
             <charset>UTF-8</charset>
-            <header>Referer*https://18comic-ive.club</header>
-            <order>null</order>
+            <header>Referer*https://jmcomic-ive.cc</header>
+            <order>asc</order>
         </basicInfo>
         
         <!--查询规则-->
         <searchRule>
-            <action>https://18comic-ive.club/search/photos?search_query=</action>
+            <action>https://jmcomic-ive.cc/search/photos?main_tag=0&amp;search_query=</action>
             <method>Get</method>
-            <inputName>search_query</inputName>
+            <inputName>null</inputName>
             <inputFormatParam>null</inputFormatParam>
             <level>3</level>
             <targetLevel>1</targetLevel>
-            <extraParam>{Referer*https://18comic-ive.club}</extraParam>
-            <isJoint>no</isJoint>
+            <extraParam>{Referer*https://jmcomic-ive.cc}</extraParam>
+            <isJoint>yes</isJoint>
             <captchaInfo>null</captchaInfo>
         </searchRule>
         
@@ -33,7 +33,7 @@
         <jumpRule>
             <method>mantissaIncrease</method>
             <parameter>null</parameter>
-            <regular>https://18comic-ive.club.*</regular>
+            <regular>https://jmcomic-ive.cc.*</regular>
             <offset>null</offset>
             <startPage>null</startPage>
         </jumpRule>
@@ -42,7 +42,7 @@
         <menuBar>
             <menu>
                 <text>首页</text>
-                <url>https://18comic-ive.club/albums?page=1{Referer*https://18comic-ive.club}</url>
+                <url>https://jmcomic-ive.cc/albums?page=1{Referer*https://jmcomic-ive.cc}</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -51,7 +51,7 @@
             </menu>
             <menu>
                 <text>同人志</text>
-                <url>https://18comic-ive.club/albums/doujin?page=1{Referer*https://18comic-ive.club}</url>
+                <url>null</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -59,27 +59,17 @@
                 <subset>
                     <submenu>
                         <text>汉化</text>
-                        <url>https://18comic-ive.club/albums/doujin/sub/chinese?page=1{Referer*https://18comic-ive.club}</url>
+                        <url>https://jmcomic-ive.cc/albums/doujin/sub/chinese?page=1{Referer*https://jmcomic-ive.cc}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>日语</text>
-                        <url>https://18comic-ive.club/albums/doujin/sub/japanese?page=1{Referer*https://18comic-ive.club}</url>
+                        <url>https://jmcomic-ive.cc/albums/doujin/sub/japanese?page=1{Referer*https://jmcomic-ive.cc}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>CG</text>
-                        <url>https://18comic-ive.club/albums/doujin/sub/CG?page=1{Referer*https://18comic-ive.club}</url>
-                        <level>2</level>
-                    </submenu>
-                    <submenu>
-                        <text>3D</text>
-                        <url>https://18comic-ive.club/albums/another/sub/3d?page=1{Referer*https://18comic-ive.club}</url>
-                        <level>2</level>
-                    </submenu>
-                    <submenu>
-                        <text>COS</text>
-                        <url>https://18comic-ive.club/albums/another/sub/cosplay?page=1{Referer*https://18comic-ive.club}</url>
+                        <url>https://jmcomic-ive.cc/albums/doujin/sub/CG?page=1{Referer*https://jmcomic-ive.cc}</url>
                         <level>2</level>
                     </submenu>
                 </subset>
@@ -90,12 +80,12 @@
                 <level>1</level>
                 <css>2</css>
                 <baseUrl>null</baseUrl>
-                <regular>https://.*comic.*/search/photos.*</regular>
+                <regular>.*/search/photos.*</regular>
                 <subset></subset>
             </menu>
             <menu>
                 <text>单行本</text>
-                <url>https://18comic-ive.club/albums/single?page=1{Referer*https://18comic-ive.club}</url>
+                <url>null</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -103,32 +93,52 @@
                 <subset>
                     <submenu>
                         <text>汉化</text>
-                        <url>https://18comic-ive.club/albums/single/sub/chinese?page=1{Referer*https://18comic-ive.club}</url>
+                        <url>https://jmcomic-ive.cc/albums/single/sub/chinese?page=1{Referer*https://jmcomic-ive.cc}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>日语</text>
-                        <url>https://18comic-ive.club/albums/single/sub/japanese?page=1{Referer*https://18comic-ive.club}</url>
+                        <url>https://jmcomic-ive.cc/albums/single/sub/japanese?page=1{Referer*https://jmcomic-ive.cc}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>青年</text>
+                        <url>https://jmcomic-ive.cc/albums/single/sub/youth?page=1{Referer*https://jmcomic-ive.cc}</url>
                         <level>2</level>
                     </submenu>
                 </subset>
             </menu>
             <menu>
-                <text>H杂志</text>
-                <url>https://18comic-ive.club/albums/short?page=1{Referer*https://18comic-ive.club}</url>
+                <text>其他</text>
+                <url>null</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
                 <regular>null</regular>
                 <subset>
                     <submenu>
-                        <text>汉化</text>
-                        <url>https://18comic-ive.club/albums/short/sub/chinese?page=1{Referer*https://18comic-ive.club}</url>
+                        <text>短篇</text>
+                        <url>https://jm18c-twie.club/albums/short?page=1{Referer*https://jmcomic-ive.cc}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
-                        <text>日语</text>
-                        <url>https://18comic-ive.club/albums/short/sub/japanese?page=1{Referer*https://18comic-ive.club}</url>
+                        <text>美漫</text>
+                        <url>https://jm18c-twie.club/albums/meiman?page=1{Referer*https://jmcomic-ive.cc}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>韩漫</text>
+                        <url>https://jm18c-twie.club/albums/hanman?page=1{Referer*https://jmcomic-ive.cc}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>3D</text>
+                        <url>https://jm18c-twie.club/albums/another/sub/3d?page=1{Referer*https://jmcomic-ive.cc}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>COS</text>
+                        <url>https://jm18c-twie.club/albums/another/sub/cosplay?page=1{Referer*https://jmcomic-ive.cc}</url>
                         <level>2</level>
                     </submenu>
                 </subset>
@@ -142,7 +152,7 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>1</widget>
-                <path>^wrapper|container*0|col-xs-6 col-sm-6 col-md-4 col-lg-3 list-col*999|(video-title title-truncate m-t-5*0|@+video-title title-truncate m-t-5*0|_GOTO*1|@,thumb-overlay-albums*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-ive.club},thumb-overlay-albums*0|a*0|img*0|@src)+^wrapper|container*0|col-xs-6 col-sm-4 col-md-3 col-lg-3 list-col col-xl-2*999|(video-title title-truncate m-t-5*0|@+video-title title-truncate m-t-5*0|_GOTO*1|@,thumb-overlay-albums*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-ive.club},thumb-overlay-albums*0|a*0|img*0|@data-original)</path>
+                <path>^wrapper|container*0|col-xs-6 col-sm-6 col-md-4 col-lg-3 list-col*999|(video-title title-truncate m-t-5*0|@+video-title title-truncate m-t-5*0|_GOTO*1|@+title-truncate tags*0|@,thumb-overlay-albums*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jmcomic-ive.cc},thumb-overlay-albums*0|a*0|img*0|@src)+^wrapper|container*0|col-xs-6 col-sm-4 col-md-3 col-lg-3 list-col col-xl-2*999|(video-title title-truncate m-t-5*0|@+video-title title-truncate m-t-5*0|_GOTO*1|@+title-truncate tags*0|@,thumb-overlay-albums*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jmcomic-ive.cc},thumb-overlay-albums*0|a*0|img*0|@data-original)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -175,7 +185,7 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>-999</widget>
-                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*-1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-ive.club}</path>
+                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*-1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jmcomic-ive.cc}</path>
                 <tag>previousPage</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -186,18 +196,18 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>-999</widget>
-                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-ive.club}</path>
+                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jmcomic-ive.cc}</path>
                 <tag>nextPage</tag>
                 <type>0</type>
                 <checkText>null</checkText>
                 <offset>null</offset>
             </module>
-            
+
             <module>
                 <level>1</level>
                 <css>2</css>
                 <widget>1</widget>
-                <path>^wrapper|container*0|col-xs-6 col-sm-6 col-md-4 col-lg-3 list-col*999|(video-title title-truncate m-t-5*0|@+video-title title-truncate m-t-5*0|_GOTO*1|@,thumb-overlay*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-ive.club},thumb-overlay*0|a*0|img*0|@data-original)+^wrapper|container*0|col-xs-6 col-sm-4 col-md-3 col-lg-3 list-col col-xl-2*999|(video-title title-truncate m-t-5*0|@+video-title title-truncate m-t-5*0|_GOTO*1|@,thumb-overlay*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-ive.club},thumb-overlay*0|a*0|img*0|@data-original)</path>
+                <path>_TEXT*0|[_REPL_]class=&quot;title-truncate tags p-b-5&quot;&gt;*class=&quot;title-truncate tags p-b-5&quot;&gt;分类标签：|_HTML*0|^wrapper|col-xs-6 col-sm-6 col-md-4 col-lg-3 list-col*999|(video-title title-truncate m-t-5*0|@+title-truncate tags p-b-5*0|@,a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jmcomic-ive.cc},thumb-overlay*0|img*0|@data-original)+_TEXT*0|[_REPL_]class=&quot;title-truncate tags p-b-5&quot;&gt;*class=&quot;title-truncate tags p-b-5&quot;&gt;分类标签：|_HTML*0|^wrapper|col-xs-6 col-sm-4 col-md-3 col-lg-3 list-col col-xl-2*999|(video-title title-truncate m-t-5*0|@+title-truncate tags p-b-5*0|@,a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jmcomic-ive.cc},thumb-overlay*0|img*0|@data-original)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -230,7 +240,7 @@
                 <level>1</level>
                 <css>2</css>
                 <widget>-999</widget>
-                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*-1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-ive.club}</path>
+                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*-1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jmcomic-ive.cc}</path>
                 <tag>previousPage</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -241,7 +251,7 @@
                 <level>1</level>
                 <css>2</css>
                 <widget>-999</widget>
-                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-ive.club}</path>
+                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jmcomic-ive.cc}</path>
                 <tag>nextPage</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -286,8 +296,8 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>-999</widget>
-                <path>_TEXT*0|[_MAYBE-CUT-L_]*html = base64DecodeUtf8|[_MAYBE-CUT-R_]*document.write|[_MAYBE-CUT-L_]*&quot;|[_MAYBE-CUT-R_]*&quot;|[_DECODE-BASE64_]*|_HTML*0|absolute train-number*0|pagecount*0|@</path>
-                <tag>number</tag>
+                <path>null</path>
+                <tag>indexWebsite</tag>
                 <type>0</type>
                 <checkText>null</checkText>
                 <offset>null</offset>
@@ -296,20 +306,21 @@
             <module>
                 <level>2</level>
                 <css>1</css>
-                <widget>-999</widget>
-                <path>_TEXT*0|[_MAYBE-CUT-L_]*html = base64DecodeUtf8|[_MAYBE-CUT-R_]*document.write|[_MAYBE-CUT-L_]*&quot;|[_MAYBE-CUT-R_]*&quot;|[_DECODE-BASE64_]*|_HTML*0|forum-open btn btn-primary*0|_GOTO*-1|@href|_TEXT*0|[_ADD-R_]*{Referer*https://18comic-ive.club}</path>
-                <tag>startWebsite</tag>
-                <type>0</type>
+                <widget>1</widget>
+                <path>_TEXT*0|[_MAYBE-CUT-L_]*html = base64DecodeUtf8|[_MAYBE-CUT-R_]*document.write|[_MAYBE-CUT-L_]*&quot;|[_MAYBE-CUT-R_]*&quot;|[_DECODE-BASE64_]*|_HTML*0|forum-open btn btn-primary*0|_GOTO*-2|a*999|(@,@href)+_TEXT*0|[_MAYBE-CUT-L_]*html = base64DecodeUtf8|[_MAYBE-CUT-R_]*document.write|[_MAYBE-CUT-L_]*&quot;|[_MAYBE-CUT-R_]*&quot;|[_DECODE-BASE64_]*|_HTML*0|btn-toolbar *0|a*999|(@,@href)</path>
+                <tag>textLinkList</tag>
+                <type>2</type>
                 <checkText>null</checkText>
                 <offset>null</offset>
             </module>
             
+            <!--自定义模块【名字要相互区别，不能够有重复】-->
             <module>
-                <level>2</level>
+                <level>-1</level>
                 <css>1</css>
                 <widget>-999</widget>
-                <path>owl-carousel owl-carousel-page*0|center*0|img*0|@data-src</path>
-                <tag>startImage</tag>
+                <path>null</path>
+                <tag>null</tag>
                 <type>0</type>
                 <checkText>null</checkText>
                 <offset>null</offset>
@@ -320,9 +331,9 @@
         <resRule>
             <resType>img</resType>
             <resPath>null</resPath>
-            <imageIncrease>yes</imageIncrease>
-            <pageIncrease>yes</pageIncrease>
-            <forceParsing>no</forceParsing>
+            <imageIncrease>null</imageIncrease>
+            <pageIncrease>null</pageIncrease>
+            <forceParsing>yes</forceParsing>
             <checkTextPath>null</checkTextPath>
             <checkTextRegular>null</checkTextRegular>
             <hrefPath>null</hrefPath>
@@ -334,17 +345,17 @@
         
         <!--强制解析规则【可在自定义模块内加入额外参数；如果所有节点均为空，则说明站点不需要强制解析】-->
         <forceParseRule>
-            <parseType>null</parseType>
-            <device>null</device>
+            <parseType>html</parseType>
+            <device>pc</device>
             <imageInnerHeader>null</imageInnerHeader>
             <urlFormatParam>null</urlFormatParam>
             <imageFormatParam>null</imageFormatParam>
             <dataFormatParam>null</dataFormatParam>
             <runJS>null</runJS>
-            <imageType>null</imageType>
+            <imageType>static</imageType>
             <number>null</number>
             <pagePath>null</pagePath>
-            <resPath>null</resPath>
+            <resPath>row thumb-overlay-albums*0|center scramble-page spnotice_chk*999|(img*0|@data-original)</resPath>
             <resFormatParam>null</resFormatParam>
             <xhrRegular>null</xhrRegular>
             <scriptRegular>null</scriptRegular>
