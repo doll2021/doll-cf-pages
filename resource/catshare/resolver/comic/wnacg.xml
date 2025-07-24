@@ -6,8 +6,8 @@
         <basicInfo>
             <name>wnacg</name>
             <version>20250724_producer</version>
-            <baseUrl>http://wn02.cc</baseUrl>
-            <startUrl>http://wn02.cc/albums-index-page-1.html</startUrl>
+            <baseUrl>https://www.wnacg.ru</baseUrl>
+            <startUrl>https://www.wnacg.ru/albums-index-page-1.html</startUrl>
             <type>comic</type>
             <template>1</template>
             <access>Get</access>
@@ -18,7 +18,7 @@
         
         <!--查询规则-->
         <searchRule>
-            <action>http://wn02.cc/search/?q=</action>
+            <action>https://www.wnacg.ru/search/?q=</action>
             <method>Get</method>
             <inputName>null</inputName>
             <inputFormatParam>null</inputFormatParam>
@@ -42,7 +42,7 @@
         <menuBar>
             <menu>
                 <text>首页</text>
-                <url>http://wn02.cc/albums-index-page-1.html</url>
+                <url>https://www.wnacg.ru/albums-index-page-1.html</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -55,12 +55,12 @@
                 <level>1</level>
                 <css>2</css>
                 <baseUrl>null</baseUrl>
-                <regular>http://wn02.cc/search/.*</regular>
+                <regular>https://www.wnacg.ru/search/.*</regular>
                 <subset></subset>
             </menu>
             <menu>
                 <text>同人志</text>
-                <url>http://wn02.cc/albums-index-cate-5.html</url>
+                <url>https://www.wnacg.ru/albums-index-cate-5.html</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -68,44 +68,44 @@
                 <subset>
                     <submenu>
                         <text>汉化</text>
-                        <url>http://wn02.cc/albums-index-cate-1.html</url>
+                        <url>https://www.wnacg.ru/albums-index-cate-1.html</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>日语</text>
-                        <url>http://wn02.cc/albums-index-cate-12.html</url>
+                        <url>https://www.wnacg.ru/albums-index-cate-12.html</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>英语</text>
-                        <url>http://wn02.cc/albums-index-cate-16.html</url>
+                        <url>https://www.wnacg.ru/albums-index-cate-16.html</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>AI</text>
-                        <url>http://wn02.cc/albums-index-cate-37.html</url>
+                        <url>https://www.wnacg.ru/albums-index-cate-37.html</url>
                         <level>2</level>
                     </submenu>
 					<submenu>
                         <text>3D</text>
-                        <url>http://wn02.cc/albums-index-cate-22.html</url>
+                        <url>https://www.wnacg.ru/albums-index-cate-22.html</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>CG</text>
-                        <url>http://wn02.cc/albums-index-cate-2.html</url>
+                        <url>https://www.wnacg.ru/albums-index-cate-2.html</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>COS</text>
-                        <url>http://wn02.cc/albums-index-cate-3.html</url>
+                        <url>https://www.wnacg.ru/albums-index-cate-3.html</url>
                         <level>2</level>
                     </submenu>
                 </subset>
             </menu>
             <menu>
                 <text>单行本</text>
-                <url>http://wn02.cc/albums-index-cate-6.html</url>
+                <url>https://www.wnacg.ru/albums-index-cate-6.html</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -113,24 +113,24 @@
                 <subset>
                     <submenu>
                         <text>汉化</text>
-                        <url>http://wn02.cc/albums-index-cate-9.html</url>
+                        <url>https://www.wnacg.ru/albums-index-cate-9.html</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>日语</text>
-                        <url>http://wn02.cc/albums-index-cate-13.html</url>
+                        <url>https://www.wnacg.ru/albums-index-cate-13.html</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>英语</text>
-                        <url>http://wn02.cc/albums-index-cate-17.html</url>
+                        <url>https://www.wnacg.ru/albums-index-cate-17.html</url>
                         <level>2</level>
                     </submenu>
                 </subset>
             </menu>
             <menu>
                 <text>杂志</text>
-                <url>http://wn02.cc/albums-index-cate-7.html</url>
+                <url>https://www.wnacg.ru/albums-index-cate-7.html</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -138,17 +138,17 @@
                 <subset>
                     <submenu>
                         <text>汉化</text>
-                        <url>http://wn02.cc/albums-index-cate-10.html</url>
+                        <url>https://www.wnacg.ru/albums-index-cate-10.html</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>日语</text>
-                        <url>http://wn02.cc/albums-index-cate-14.html</url>
+                        <url>https://www.wnacg.ru/albums-index-cate-14.html</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>英语</text>
-                        <url>http://wn02.cc/albums-index-cate-18.html</url>
+                        <url>https://www.wnacg.ru/albums-index-cate-18.html</url>
                         <level>2</level>
                     </submenu>
                 </subset>
