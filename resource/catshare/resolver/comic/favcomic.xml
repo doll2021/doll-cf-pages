@@ -5,20 +5,20 @@
         <!--解析器的基本信息-->
         <basicInfo>
             <name>favcomic</name>
-            <version>20250702_StupidDoll</version>
-            <baseUrl>https://www.favcomic.net</baseUrl>
-            <startUrl>https://www.favcomic.net/update?keyword=&amp;tag=0&amp;type=1&amp;page=1</startUrl>
+            <version>20250805_StupidDoll</version>
+            <baseUrl>https://www.favcomic.xyz</baseUrl>
+            <startUrl>https://www.favcomic.xyz/update?keyword=&amp;tag=0&amp;type=1&amp;page=1</startUrl>
             <type>comic</type>
             <template>3</template>
             <access>Get</access>
             <charset>UTF-8</charset>
-            <header>Referer*https://www.favcomic.net</header>
+            <header>Referer*https://www.favcomic.xyz</header>
             <order>asc</order>
         </basicInfo>
         
         <!--查询规则-->
         <searchRule>
-            <action>https://www.favcomic.net/update?keyword=</action>
+            <action>https://www.favcomic.xyz/update?keyword=</action>
             <method>Get</method>
             <inputName>null</inputName>
             <inputFormatParam>null</inputFormatParam>
@@ -33,7 +33,7 @@
         <jumpRule>
             <method>mantissaIncrease</method>
             <parameter>null</parameter>
-            <regular>https://www.favcomic.net.*</regular>
+            <regular>https://www.favcomic.xyz.*</regular>
             <offset>null</offset>
             <startPage>null</startPage>
         </jumpRule>
@@ -42,7 +42,7 @@
         <menuBar>
             <menu>
                 <text>少年</text>
-                <url>https://www.favcomic.net/update?keyword=&amp;tag=0&amp;type=1&amp;page=1</url>
+                <url>https://www.favcomic.xyz/update?keyword=&amp;tag=0&amp;type=1&amp;page=1</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -51,7 +51,7 @@
             </menu>
             <menu>
                 <text>少女</text>
-                <url>https://www.favcomic.net/update?keyword=&amp;tag=0&amp;type=2&amp;page=1</url>
+                <url>https://www.favcomic.xyz/update?keyword=&amp;tag=0&amp;type=2&amp;page=1</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -60,16 +60,16 @@
             </menu>
             <menu>
                 <text>图库</text>
-                <url>https://www.favcomic.net/picture?keyword=&amp;origin=0&amp;finished=0&amp;free=1&amp;tag=0&amp;sort=2&amp;page=1</url>
+                <url>https://www.favcomic.xyz/picture?keyword=&amp;origin=0&amp;finished=0&amp;free=1&amp;tag=0&amp;sort=2&amp;page=1</url>
                 <level>1</level>
                 <css>2</css>
                 <baseUrl>null</baseUrl>
-                <regular>https://www.favcomic.net/picture.*</regular>
+                <regular>https://www.favcomic.xyz/picture.*</regular>
                 <subset></subset>
             </menu>
             <menu>
                 <text>禁漫</text>
-                <url>https://www.favcomic.net/update?keyword=&amp;tag=0&amp;type=4&amp;page=1</url>
+                <url>https://www.favcomic.xyz/update?keyword=&amp;tag=0&amp;type=4&amp;page=1</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -85,7 +85,7 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>1</widget>
-                <path>comic_list*0|li*999|(brief_box*0|title*0|@+brief_box*0|chapter*0|txt*0|@+brief_box*0|chapter*0|txt*1|@,cover_box*0|a*0|@href,cover_box*0|cover*0|@src|_TEXT*0|[_REPL_]https://www.favcomic.nethttps://cdn.favcomic.net*https://cdn.favcomic.net)</path>
+                <path>comic_list*0|li*999|(brief_box*0|title*0|@+brief_box*0|chapter*0|txt*0|@+brief_box*0|chapter*0|txt*1|@,cover_box*0|a*0|@href,cover_box*0|cover*0|@src|_TEXT*0|[_REPL_]https://www.favcomic.xyzhttps://cdn.favcomic.xyz*https://cdn.favcomic.xyz)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -140,7 +140,7 @@
                 <level>1</level>
                 <css>2</css>
                 <widget>1</widget>
-                <path>comic_list*0|li*999|(brief_box*0|title*0|@+brief_box*0|chapter*0|@,cover_box*0|a*0|@href,cover_box*0|cover*0|@src|_TEXT*0|[_REPL_]https://www.favcomic.nethttps://cdn.favcomic.net*https://cdn.favcomic.net)</path>
+                <path>comic_list*0|li*999|(brief_box*0|title*0|@+brief_box*0|chapter*0|@,cover_box*0|a*0|@href,cover_box*0|cover*0|@src|_TEXT*0|[_REPL_]https://www.favcomic.xyzhttps://cdn.favcomic.xyz*https://cdn.favcomic.xyz)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -207,7 +207,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>3</widget>
-                <path>comic_cover_box*0|flex_box*0|comic_cover*0|@src|_TEXT*0|[_REPL_]https://www.favcomic.nethttps://cdn.favcomic.net*https://cdn.favcomic.net</path>
+                <path>comic_cover_box*0|flex_box*0|comic_cover*0|@src|_TEXT*0|[_REPL_]https://www.favcomic.xyzhttps://cdn.favcomic.xyz*https://cdn.favcomic.xyz</path>
                 <tag>cover</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -282,7 +282,7 @@
             <device>pc</device>
             <imageInnerHeader>null</imageInnerHeader>
             <urlFormatParam>null</urlFormatParam>
-            <imageFormatParam>_TEXT*0|[_REPL_]https://www.favcomic.nethttps://cdn.favcomic.net*https://cdn.favcomic.net</imageFormatParam>
+            <imageFormatParam>_TEXT*0|[_REPL_]https://www.favcomic.xyzhttps://cdn.favcomic.xyz*https://cdn.favcomic.xyz</imageFormatParam>
             <dataFormatParam>null</dataFormatParam>
             <runJS>null</runJS>
             <imageType>static</imageType>
