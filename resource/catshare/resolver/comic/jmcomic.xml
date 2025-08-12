@@ -6,25 +6,25 @@
         <basicInfo>
             <name>jmcomic</name>
             <version>20250724_StupidDoll</version>
-            <baseUrl>https://jm18c-qwq.cc</baseUrl>
-            <startUrl>https://jm18c-qwq.cc/albums?page=1{Referer*https://jm18c-qwq.cc}</startUrl>
+            <baseUrl>https://jm18c-tin.org</baseUrl>
+            <startUrl>https://jm18c-tin.org/albums?page=1{Referer*https://jm18c-tin.org}</startUrl>
             <type>comic</type>
             <template>3</template>
             <access>Get</access>
             <charset>UTF-8</charset>
-            <header>Referer*https://jm18c-qwq.cc</header>
+            <header>Referer*https://jm18c-tin.org</header>
             <order>asc</order>
         </basicInfo>
         
         <!--查询规则-->
         <searchRule>
-            <action>https://jm18c-qwq.cc/search/photos?main_tag=0&amp;search_query=</action>
+            <action>https://jm18c-tin.org/search/photos?main_tag=0&amp;search_query=</action>
             <method>Get</method>
             <inputName>null</inputName>
             <inputFormatParam>null</inputFormatParam>
             <level>3</level>
             <targetLevel>1</targetLevel>
-            <extraParam>{Referer*https://jm18c-qwq.cc}</extraParam>
+            <extraParam>{Referer*https://jm18c-tin.org}</extraParam>
             <isJoint>yes</isJoint>
             <captchaInfo>null</captchaInfo>
         </searchRule>
@@ -33,7 +33,7 @@
         <jumpRule>
             <method>mantissaIncrease</method>
             <parameter>null</parameter>
-            <regular>https://jm18c-qwq.cc.*</regular>
+            <regular>https://jm18c-tin.org.*</regular>
             <offset>null</offset>
             <startPage>null</startPage>
         </jumpRule>
@@ -42,7 +42,7 @@
         <menuBar>
             <menu>
                 <text>首页</text>
-                <url>https://jm18c-qwq.cc/albums?page=1{Referer*https://jm18c-qwq.cc}</url>
+                <url>https://jm18c-tin.org/albums?page=1{Referer*https://jm18c-tin.org}</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -59,17 +59,17 @@
                 <subset>
                     <submenu>
                         <text>汉化</text>
-                        <url>https://jm18c-qwq.cc/albums/doujin/sub/chinese?page=1{Referer*https://jm18c-qwq.cc}</url>
+                        <url>https://jm18c-tin.org/albums/doujin/sub/chinese?page=1{Referer*https://jm18c-tin.org}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>日语</text>
-                        <url>https://jm18c-qwq.cc/albums/doujin/sub/japanese?page=1{Referer*https://jm18c-qwq.cc}</url>
+                        <url>https://jm18c-tin.org/albums/doujin/sub/japanese?page=1{Referer*https://jm18c-tin.org}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>CG</text>
-                        <url>https://jm18c-qwq.cc/albums/doujin/sub/CG?page=1{Referer*https://jm18c-qwq.cc}</url>
+                        <url>https://jm18c-tin.org/albums/doujin/sub/CG?page=1{Referer*https://jm18c-tin.org}</url>
                         <level>2</level>
                     </submenu>
                 </subset>
@@ -93,17 +93,17 @@
                 <subset>
                     <submenu>
                         <text>汉化</text>
-                        <url>https://jm18c-qwq.cc/albums/single/sub/chinese?page=1{Referer*https://jm18c-qwq.cc}</url>
+                        <url>https://jm18c-tin.org/albums/single/sub/chinese?page=1{Referer*https://jm18c-tin.org}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>日语</text>
-                        <url>https://jm18c-qwq.cc/albums/single/sub/japanese?page=1{Referer*https://jm18c-qwq.cc}</url>
+                        <url>https://jm18c-tin.org/albums/single/sub/japanese?page=1{Referer*https://jm18c-tin.org}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>青年</text>
-                        <url>https://jm18c-qwq.cc/albums/single/sub/youth?page=1{Referer*https://jm18c-qwq.cc}</url>
+                        <url>https://jm18c-tin.org/albums/single/sub/youth?page=1{Referer*https://jm18c-tin.org}</url>
                         <level>2</level>
                     </submenu>
                 </subset>
@@ -118,27 +118,27 @@
                 <subset>
                     <submenu>
                         <text>短篇</text>
-                        <url>https://jm18c-twie.club/albums/short?page=1{Referer*https://jm18c-qwq.cc}</url>
+                        <url>https://jm18c-twie.club/albums/short?page=1{Referer*https://jm18c-tin.org}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>美漫</text>
-                        <url>https://jm18c-twie.club/albums/meiman?page=1{Referer*https://jm18c-qwq.cc}</url>
+                        <url>https://jm18c-twie.club/albums/meiman?page=1{Referer*https://jm18c-tin.org}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>韩漫</text>
-                        <url>https://jm18c-twie.club/albums/hanman?page=1{Referer*https://jm18c-qwq.cc}</url>
+                        <url>https://jm18c-twie.club/albums/hanman?page=1{Referer*https://jm18c-tin.org}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>3D</text>
-                        <url>https://jm18c-twie.club/albums/another/sub/3d?page=1{Referer*https://jm18c-qwq.cc}</url>
+                        <url>https://jm18c-twie.club/albums/another/sub/3d?page=1{Referer*https://jm18c-tin.org}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>COS</text>
-                        <url>https://jm18c-twie.club/albums/another/sub/cosplay?page=1{Referer*https://jm18c-qwq.cc}</url>
+                        <url>https://jm18c-twie.club/albums/another/sub/cosplay?page=1{Referer*https://jm18c-tin.org}</url>
                         <level>2</level>
                     </submenu>
                 </subset>
@@ -152,7 +152,7 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>1</widget>
-                <path>^wrapper|container*0|col-xs-6 col-sm-6 col-md-4 col-lg-3 list-col*999|(video-title title-truncate m-t-5*0|@+video-title title-truncate m-t-5*0|_GOTO*1|@+title-truncate tags*0|@,thumb-overlay-albums*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jm18c-qwq.cc},thumb-overlay-albums*0|a*0|img*0|@src)+^wrapper|container*0|col-xs-6 col-sm-4 col-md-3 col-lg-3 list-col col-xl-2*999|(video-title title-truncate m-t-5*0|@+video-title title-truncate m-t-5*0|_GOTO*1|@+title-truncate tags*0|@,thumb-overlay-albums*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jm18c-qwq.cc},thumb-overlay-albums*0|a*0|img*0|@data-original)</path>
+                <path>^wrapper|container*0|col-xs-6 col-sm-6 col-md-4 col-lg-3 list-col*999|(video-title title-truncate m-t-5*0|@+video-title title-truncate m-t-5*0|_GOTO*1|@+title-truncate tags*0|@,thumb-overlay-albums*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jm18c-tin.org},thumb-overlay-albums*0|a*0|img*0|@src)+^wrapper|container*0|col-xs-6 col-sm-4 col-md-3 col-lg-3 list-col col-xl-2*999|(video-title title-truncate m-t-5*0|@+video-title title-truncate m-t-5*0|_GOTO*1|@+title-truncate tags*0|@,thumb-overlay-albums*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jm18c-tin.org},thumb-overlay-albums*0|a*0|img*0|@data-original)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -185,7 +185,7 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>-999</widget>
-                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*-1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jm18c-qwq.cc}</path>
+                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*-1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jm18c-tin.org}</path>
                 <tag>previousPage</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -196,7 +196,7 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>-999</widget>
-                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jm18c-qwq.cc}</path>
+                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jm18c-tin.org}</path>
                 <tag>nextPage</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -207,7 +207,7 @@
                 <level>1</level>
                 <css>2</css>
                 <widget>1</widget>
-                <path>_TEXT*0|[_REPL_]class=&quot;title-truncate tags p-b-5&quot;&gt;*class=&quot;title-truncate tags p-b-5&quot;&gt;分类标签：|_HTML*0|^wrapper|col-xs-6 col-sm-6 col-md-4 col-lg-3 list-col*999|(video-title title-truncate m-t-5*0|@+title-truncate tags p-b-5*0|@,a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jm18c-qwq.cc},thumb-overlay*0|img*0|@data-original)+_TEXT*0|[_REPL_]class=&quot;title-truncate tags p-b-5&quot;&gt;*class=&quot;title-truncate tags p-b-5&quot;&gt;分类标签：|_HTML*0|^wrapper|col-xs-6 col-sm-4 col-md-3 col-lg-3 list-col col-xl-2*999|(video-title title-truncate m-t-5*0|@+title-truncate tags p-b-5*0|@,a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jm18c-qwq.cc},thumb-overlay*0|img*0|@data-original)</path>
+                <path>_TEXT*0|[_REPL_]class=&quot;title-truncate tags p-b-5&quot;&gt;*class=&quot;title-truncate tags p-b-5&quot;&gt;分类标签：|_HTML*0|^wrapper|col-xs-6 col-sm-6 col-md-4 col-lg-3 list-col*999|(video-title title-truncate m-t-5*0|@+title-truncate tags p-b-5*0|@,a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jm18c-tin.org},thumb-overlay*0|img*0|@data-original)+_TEXT*0|[_REPL_]class=&quot;title-truncate tags p-b-5&quot;&gt;*class=&quot;title-truncate tags p-b-5&quot;&gt;分类标签：|_HTML*0|^wrapper|col-xs-6 col-sm-4 col-md-3 col-lg-3 list-col col-xl-2*999|(video-title title-truncate m-t-5*0|@+title-truncate tags p-b-5*0|@,a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jm18c-tin.org},thumb-overlay*0|img*0|@data-original)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -240,7 +240,7 @@
                 <level>1</level>
                 <css>2</css>
                 <widget>-999</widget>
-                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*-1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jm18c-qwq.cc}</path>
+                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*-1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jm18c-tin.org}</path>
                 <tag>previousPage</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -251,7 +251,7 @@
                 <level>1</level>
                 <css>2</css>
                 <widget>-999</widget>
-                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jm18c-qwq.cc}</path>
+                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://jm18c-tin.org}</path>
                 <tag>nextPage</tag>
                 <type>0</type>
                 <checkText>null</checkText>
