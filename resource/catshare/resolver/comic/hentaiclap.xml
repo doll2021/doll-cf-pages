@@ -5,7 +5,7 @@
         <!--解析器的基本信息-->
         <basicInfo>
             <name>hentaiclap</name>
-            <version>20250714_producer</version>
+            <version>20250911_producer</version>
             <baseUrl>https://hentaiclap.com</baseUrl>
             <startUrl>https://hentaiclap.com/?page=1</startUrl>
             <type>comic</type>
@@ -233,7 +233,7 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>1</widget>
-                <path>galleries_container*0|thumb*999|(a*-1|@+cat*0|@|_TEXT*0|[_REPL_]#T1#*#T1#类别：,inner_thumb*0|a*0|@href,inner_thumb*0|a*0|img*0|@data-src)</path>
+                <path>galleries_container*0|thumb*999|(a*-1|@+cat*0|@|_TEXT*0|[_REPL_]#T1#*#T1#类别：,inner_thumb*0|a*0|@href,inner_thumb*0|a*0|img*0|@data-src|_TEXT*0|[_ADD-L_]*https://image.44477444.xyz/?url=)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -300,7 +300,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>3</widget>
-                <path>gt_cover*0|img*0|@data-src</path>
+                <path>gt_cover*0|img*0|@data-src|_TEXT*0|[_ADD-L_]*https://image.44477444.xyz/?url=</path>
                 <tag>cover</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -344,7 +344,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>-999</widget>
-                <path>reader_overlay preloader*0|fw_img*0|img*0|@data-src</path>
+                <path>reader_overlay preloader*0|fw_img*0|img*0|@data-src|_TEXT*0|[_ADD-L_]*https://image.44477444.xyz/?url=</path>
                 <tag>startImage</tag>
                 <type>0</type>
                 <checkText>null</checkText>
