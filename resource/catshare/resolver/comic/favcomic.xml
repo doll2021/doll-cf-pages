@@ -196,7 +196,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>2</widget>
-                <path>toggle_box*0|title*0|@</path>
+                <path>toggle_box*0|comic_title*0|@</path>
                 <tag>title</tag>
                 <type>0</type>
                 <checkText>null</checkText>
