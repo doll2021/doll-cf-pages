@@ -5,14 +5,14 @@
         <!--解析器的基本信息-->
         <basicInfo>
             <name>favcomic</name>
-            <version>20250825_StupidDoll</version>
+            <version>20250924_StupidDoll</version>
             <baseUrl>https://www.favcomic.xyz</baseUrl>
             <startUrl>https://www.favcomic.xyz/update?keyword=&amp;tag=0&amp;type=1&amp;page=1</startUrl>
             <type>comic</type>
             <template>3</template>
             <access>Get</access>
             <charset>UTF-8</charset>
-            <header>Referer*https://www.favcomic.xyz</header>
+            <header>Referer*https://www.favcomic.com</header>
             <order>asc</order>
         </basicInfo>
         
@@ -85,7 +85,7 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>1</widget>
-                <path>comic_list*0|li*999|(brief_box*0|title*0|@+brief_box*0|chapter*0|txt*0|@+brief_box*0|chapter*0|txt*1|@,cover_box*0|a*0|@href,cover_box*0|a*0|img*0|@data-src)</path>
+                <path>comic_list*0|li*999|(brief_box*0|title*0|@+brief_box*0|chapter*0|txt*0|@+brief_box*0|chapter*0|txt*1|@,cover_box*0|a*0|@href,cover_box*0|a*0|img*0|@data-src|_TEXT*0|[_MAYBE-CUT-L_]*/file/|[_ADD-L_]*https://cdn.favcomic.com/file/|[_REPL_]/app/*/image/|[_MAYBE-CUT-L_]*://|[_ADD-L_]*https://i0.wp.com/)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -140,7 +140,7 @@
                 <level>1</level>
                 <css>2</css>
                 <widget>1</widget>
-                <path>comic_list*0|li*999|(brief_box*0|title*0|@+brief_box*0|chapter*0|@,cover_box*0|a*0|@href,cover_box*0|a*0|img*0|@data-src)</path>
+                <path>comic_list*0|li*999|(brief_box*0|title*0|@+brief_box*0|chapter*0|@,cover_box*0|a*0|@href,cover_box*0|a*0|img*0|@data-src|_TEXT*0|[_MAYBE-CUT-L_]*/file/|[_ADD-L_]*https://cdn.favcomic.com/file/|[_REPL_]/app/*/image/|[_MAYBE-CUT-L_]*://|[_ADD-L_]*https://i0.wp.com/)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -207,7 +207,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>3</widget>
-                <path>comic_cover_box*0|flex_box*0|_REMOVE-C*toon_box|img*0|@data-src</path>
+                <path>comic_cover_box*0|flex_box*0|_REMOVE-C*toon_box|img*0|@data-src|_TEXT*0|[_MAYBE-CUT-L_]*/file/|[_ADD-L_]*https://cdn.favcomic.com/file/|[_REPL_]/app/*/image/|[_MAYBE-CUT-L_]*://|[_ADD-L_]*https://i0.wp.com/</path>
                 <tag>cover</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -282,13 +282,13 @@
             <device>pc</device>
             <imageInnerHeader>null</imageInnerHeader>
             <urlFormatParam>null</urlFormatParam>
-            <imageFormatParam>null</imageFormatParam>
+            <imageFormatParam>_TEXT*0|[_MAYBE-CUT-L_]*/file/|[_ADD-L_]*https://cdn.favcomic.com/file/|[_REPL_]/app/*/image/|[_ADD-L_]*https://image.44422444.xyz/?url=</imageFormatParam>
             <dataFormatParam>null</dataFormatParam>
             <runJS>null</runJS>
             <imageType>static</imageType>
             <number>null</number>
             <pagePath>null</pagePath>
-            <resPath>comic_chapter_box*0|unlazyload*999|(@data-src)</resPath>
+            <resPath>comic_chapter_box*0|^content|img*999|(@data-src)</resPath>
             <resFormatParam>null</resFormatParam>
             <xhrRegular>null</xhrRegular>
             <scriptRegular>null</scriptRegular>
