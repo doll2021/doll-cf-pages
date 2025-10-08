@@ -300,7 +300,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>3</widget>
-                <path>gt_cover*0|img*0|@data-src|_TEXT*0|[_ADD-L_]*https://image.44477444.xyz/?url=</path>
+                <path>gt_cover*0|img*0|@data-src</path>
                 <tag>cover</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -344,7 +344,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>-999</widget>
-                <path>reader_overlay preloader*0|fw_img*0|img*0|@data-src|_TEXT*0|[_ADD-L_]*https://image.44477444.xyz/?url=</path>
+                <path>fw_img*0|img*0|@data-src</path>
                 <tag>startImage</tag>
                 <type>0</type>
                 <checkText>null</checkText>
