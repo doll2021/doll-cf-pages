@@ -197,7 +197,7 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>1</widget>
-                <path>manga-list*0|ul*0|li*999|(p*0|@+p*1|@,manga-list-2-cover*0|a*0|@href|_TEXT*0|[_ADD-R_]*{User-Agent*Mozilla/5.0 ##2#Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332##3# AppleWebKit/537.36 ##2#KHTML##1# like Gecko##3# Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36},manga-list-2-cover*0|a*0|img*0|@src|_TEXT*0|[_REPL_]https://mwfimsvfast10.cc*https://mwappimgs.cc|https://mwfimsvfast9.cc*https://mwappimgs.cc|https://mwfimsvfast8.cc*https://mwappimgs.cc|https://mwfimsvfast2.cc*https://mwappimgs.cc|[_REPL_]https://mwfimsvfast3.cc*https://mwappimgs.cc|[_REPL_]https://mwfimsvfast4.cc*https://mwappimgs.cc|[_REPL_]https://mwfimsvfast5.cc*https://mwappimgs.cc|[_REPL_]https://mwfimsvfast6.cc*https://mwappimgs.cc|[_REPL_]https://mwfimsvfast7.cc*https://mwappimgs.cc)</path>
+                <path>manga-list*0|ul*0|li*999|(p*0|@+p*1|@,manga-list-2-cover*0|a*0|@href|_TEXT*0|[_ADD-R_]*{User-Agent*Mozilla/5.0 ##2#Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332##3# AppleWebKit/537.36 ##2#KHTML##1# like Gecko##3# Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36},manga-list-2-cover*0|a*0|img*0|@src|_TEXT*0||[_CUT-L_]*/static/|[_ADD-L_]*https://mwappimgs.cc/static/)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -252,7 +252,7 @@
                 <level>1</level>
                 <css>2</css>
                 <widget>1</widget>
-                <path>main-content*0|book-list*0|li*999|(book-list-info*0|book-list-info-title*0|@+book-list-info-bottom-item*0|@+book-list-info-desc*0|@,book-list-cover*0|a*0|@href|_TEXT*0|[_ADD-R_]*{User-Agent*Mozilla/5.0 ##2#Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332##3# AppleWebKit/537.36 ##2#KHTML##1# like Gecko##3# Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36},book-list-cover*0|a*0|img*0|@data-original|_TEXT*0|[_REPL_]https://mwfimsvfast10.cc*https://mwappimgs.cc|https://mwfimsvfast9.cc*https://mwappimgs.cc|https://mwfimsvfast8.cc*https://mwappimgs.cc|https://mwfimsvfast2.cc*https://mwappimgs.cc|[_REPL_]https://mwfimsvfast3.cc*https://mwappimgs.cc|[_REPL_]https://mwfimsvfast4.cc*https://mwappimgs.cc|[_REPL_]https://mwfimsvfast5.cc*https://mwappimgs.cc|[_REPL_]https://mwfimsvfast6.cc*https://mwappimgs.cc|[_REPL_]https://mwfimsvfast7.cc*https://mwappimgs.cc)</path>
+                <path>main-content*0|book-list*0|li*999|(book-list-info*0|book-list-info-title*0|@+book-list-info-bottom-item*0|@+book-list-info-desc*0|@,book-list-cover*0|a*0|@href|_TEXT*0|[_ADD-R_]*{User-Agent*Mozilla/5.0 ##2#Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332##3# AppleWebKit/537.36 ##2#KHTML##1# like Gecko##3# Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36},book-list-cover*0|a*0|img*0|@data-original|_TEXT*0||[_CUT-L_]*/static/|[_ADD-L_]*https://mwappimgs.cc/static/)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -319,7 +319,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>3</widget>
-                <path>detail-main*0|detail-main-cover*0|img*0|@data-original|_TEXT*0|[_REPL_]https://mwfimsvfast10.cc*https://mwappimgs.cc|https://mwfimsvfast9.cc*https://mwappimgs.cc|https://mwfimsvfast8.cc*https://mwappimgs.cc|https://mwfimsvfast2.cc*https://mwappimgs.cc|[_REPL_]https://mwfimsvfast3.cc*https://mwappimgs.cc|[_REPL_]https://mwfimsvfast4.cc*https://mwappimgs.cc|[_REPL_]https://mwfimsvfast5.cc*https://mwappimgs.cc|[_REPL_]https://mwfimsvfast6.cc*https://mwappimgs.cc|[_REPL_]https://mwfimsvfast7.cc*https://mwappimgs.cc</path>
+                <path>detail-main*0|detail-main-cover*0|img*0|@data-original|_TEXT*0||[_CUT-L_]*/static/|[_ADD-L_]*https://mwappimgs.cc/static/</path>
                 <tag>cover</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -394,7 +394,7 @@
             <device>pc</device>
             <imageInnerHeader>null</imageInnerHeader>
             <urlFormatParam>_TEXT*0|[_ADD-R_]*{User-Agent#U1#Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</urlFormatParam>
-            <imageFormatParam>_TEXT*0|[_REPL_]https://mwfimsvfast10.cc*https://mwappimgs.cc|https://mwfimsvfast9.cc*https://mwappimgs.cc|https://mwfimsvfast8.cc*https://mwappimgs.cc|https://mwfimsvfast2.cc*https://mwappimgs.cc|[_REPL_]https://mwfimsvfast3.cc*https://mwappimgs.cc|[_REPL_]https://mwfimsvfast4.cc*https://mwappimgs.cc|[_REPL_]https://mwfimsvfast5.cc*https://mwappimgs.cc|[_REPL_]https://mwfimsvfast6.cc*https://mwappimgs.cc|[_REPL_]https://mwfimsvfast7.cc*https://mwappimgs.cc</imageFormatParam>
+            <imageFormatParam>_TEXT*0||[_CUT-L_]*/static/|[_ADD-L_]*https://mwappimgs.cc/static/</imageFormatParam>
             <dataFormatParam>null</dataFormatParam>
             <runJS>yes</runJS>
             <imageType>static</imageType>
