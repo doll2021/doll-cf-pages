@@ -333,7 +333,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>-999</widget>
-                <path>gt_left*0|gt_btm*0|a*0|@href</path>
+                <path>gallery_id*0|@|_TEXT*0|[_REPL_]#*|[_ADD-L_]*/read/|[_ADD-R_]*/1/</path>
                 <tag>startWebsite</tag>
                 <type>0</type>
                 <checkText>null</checkText>
