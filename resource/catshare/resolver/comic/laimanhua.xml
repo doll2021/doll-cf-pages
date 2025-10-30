@@ -6,8 +6,8 @@
         <basicInfo>
             <name>laimanhua</name>
             <version>20251031_StupidDoll</version>
-            <baseUrl>https://www.laimanhua88.com</baseUrl>
-            <startUrl>https://www.laimanhua88.com/kanmanhua/zaixian_rhmh/1.html</startUrl>
+            <baseUrl>https://www.comemh8.com</baseUrl>
+            <startUrl>https://www.comemh8.com/kanmanhua/zaixian_rhmh/1.html</startUrl>
             <type>comic</type>
             <template>3</template>
             <access>Get</access>
@@ -18,7 +18,7 @@
         
         <!--查询规则-->
         <searchRule>
-            <action>https://www.laimanhua88.com/s81/search/</action>
+            <action>https://www.comemh8.com/e/search/</action>
             <method>Post</method>
             <inputName>key</inputName>
             <inputFormatParam>null</inputFormatParam>
@@ -33,7 +33,7 @@
         <jumpRule>
             <method>mantissaIncrease</method>
             <parameter>null</parameter>
-            <regular>https://www.laimanhua88.com.*</regular>
+            <regular>https://www.comemh8.com.*</regular>
             <offset>0</offset>
             <startPage>null</startPage>
         </jumpRule>
@@ -42,7 +42,7 @@
         <menuBar>
             <menu>
                 <text>日漫</text>
-                <url>https://www.laimanhua88.com/kanmanhua/zaixian_rhmh/1.html</url>
+                <url>https://www.comemh8.com/kanmanhua/zaixian_rhmh/1.html</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -51,7 +51,7 @@
             </menu>
             <menu>
                 <text>国漫</text>
-                <url>https://www.laimanhua88.com/kanmanhua/zaixian_dlmh/1.html</url>
+                <url>https://www.comemh8.com/kanmanhua/zaixian_dlmh/1.html</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -69,11 +69,11 @@
             </menu>
             <menu>
                 <text>更新</text>
-                <url>https://www.laimanhua88.com/kanmanhua/zaixian_recent.html</url>
+                <url>https://www.comemh8.com/kanmanhua/zaixian_recent.html</url>
                 <level>1</level>
                 <css>2</css>
                 <baseUrl>null</baseUrl>
-                <regular>https://www.laimanhua88.com/kanmanhua/zaixian_recent.html</regular>
+                <regular>https://www.comemh8.com/kanmanhua/zaixian_recent.html</regular>
                 <subset></subset>
             </menu>
             <menu>
@@ -86,57 +86,57 @@
                 <subset>
                     <submenu>
                         <text>生活</text>
-                        <url>https://www.laimanhua88.com/kanmanhua/shenghuo/1.html</url>
+                        <url>https://www.comemh8.com/kanmanhua/shenghuo/1.html</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>恋爱</text>
-                        <url>https://www.laimanhua88.com/kanmanhua/lianai/1.html</url>
+                        <url>https://www.comemh8.com/kanmanhua/lianai/1.html</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>耽美</text>
-                        <url>https://www.laimanhua88.com/kanmanhua/danmei/1.html</url>
+                        <url>https://www.comemh8.com/kanmanhua/danmei/1.html</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>恐怖</text>
-                        <url>https://www.laimanhua88.com/kanmanhua/kongbu/1.html</url>
+                        <url>https://www.comemh8.com/kanmanhua/kongbu/1.html</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>推理</text>
-                        <url>https://www.laimanhua88.com/kanmanhua/tuili/1.html</url>
+                        <url>https://www.comemh8.com/kanmanhua/tuili/1.html</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>喜剧</text>
-                        <url>https://www.laimanhua88.com/kanmanhua/gaoxiao/1.html</url>
+                        <url>https://www.comemh8.com/kanmanhua/gaoxiao/1.html</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>体育</text>
-                        <url>https://www.laimanhua88.com/kanmanhua/jingji/1.html</url>
+                        <url>https://www.comemh8.com/kanmanhua/jingji/1.html</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>科幻</text>
-                        <url>https://www.laimanhua88.com/kanmanhua/kehuan/1.html</url>
+                        <url>https://www.comemh8.com/kanmanhua/kehuan/1.html</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>格斗</text>
-                        <url>https://www.laimanhua88.com/kanmanhua/gedou/1.html</url>
+                        <url>https://www.comemh8.com/kanmanhua/gedou/1.html</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>少女</text>
-                        <url>https://www.laimanhua88.com/kanmanhua/shaonv/1.html</url>
+                        <url>https://www.comemh8.com/kanmanhua/shaonv/1.html</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>少年</text>
-                        <url>https://www.laimanhua88.com/kanmanhua/rexue/1.html</url>
+                        <url>https://www.comemh8.com/kanmanhua/rexue/1.html</url>
                         <level>2</level>
                     </submenu>
                 </subset>
