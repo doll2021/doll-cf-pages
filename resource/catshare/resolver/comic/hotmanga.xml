@@ -280,7 +280,7 @@
                 <tag>indexWebsite</tag>
                 <type>0</type>
                 <checkText>null</checkText>
-                <offset>_TEXT*0|[_REPL_]/comic2/*/comic/|[_CUT-R_]*?platform=1|[_ADD-R_]*/group/default/chapters?limit=500&amp;offset=0&amp;_update=true</offset>
+                <offset>_TEXT*0|[_REPL_]/comic2/*/comic/|[_CUT-R_]*?platform=1|[_ADD-R_]*/group/default/chapters?limit=500&amp;offset=0&amp;_update=true|[_ADD-L_]*https://44422444.xyz/?url=</offset>
             </module>
             
             <module>
