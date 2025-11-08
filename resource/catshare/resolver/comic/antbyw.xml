@@ -5,7 +5,7 @@
         <!--解析器的基本信息-->
         <basicInfo>
             <name>antbyw</name>
-            <version>20251029_StupidDoll</version>
+            <version>20251108_StupidDoll</version>
             <baseUrl>https://www.antbyw.com</baseUrl>
             <startUrl>https://www.antbyw.com/plugin.php?id=jameson_manhua&amp;c=index&amp;a=ku&amp;odfie=edittime&amp;order=desc&amp;page=1</startUrl>
             <type>comic</type>
@@ -345,15 +345,15 @@
         
         <!--强制解析规则【可在自定义模块内加入额外参数；如果所有节点均为空，则说明站点不需要强制解析】-->
         <forceParseRule>
-            <parseType>html</parseType>
+            <parseType>eachPage</parseType>
             <device>pc</device>
             <imageInnerHeader>null</imageInnerHeader>
-            <urlFormatParam>null</urlFormatParam>
+            <urlFormatParam>_TEXT*0|[_ADD-R_]*&amp;page=1</urlFormatParam>
             <imageFormatParam>null</imageFormatParam>
             <dataFormatParam>null</dataFormatParam>
             <runJS>null</runJS>
             <imageType>static</imageType>
-            <number>null</number>
+            <number>pg page*0|@|_TEXT*0|[_NUM-R_]*</number>
             <pagePath>null</pagePath>
             <resPath>_TEXT*0|[_CUT-L_]*let urls =|[_CUT-R_]*let idx =|[_CUT-R_]*;|[_TRIM_]*|_JSON*0|_Array*999|(_String)</resPath>
             <resFormatParam>null</resFormatParam>
