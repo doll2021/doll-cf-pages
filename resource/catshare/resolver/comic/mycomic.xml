@@ -5,9 +5,9 @@
         <!--解析器的基本信息-->
         <basicInfo>
             <name>mycomic</name>
-            <version>20250615_StupidDoll</version>
+            <version>20251114_StupidDoll</version>
             <baseUrl>https://mycomic.com</baseUrl>
-            <startUrl>https://44422444.xyz/?url=https://mycomic.com/cn/comics?sort=-update&amp;page=1{User-Agent*PostmanRuntime}</startUrl>
+            <startUrl>https://mycomic.44422444.xyz/cn/comics?sort=-update&amp;page=1{User-Agent*PostmanRuntime}</startUrl>
             <type>comic</type>
             <template>3</template>
             <access>Get</access>
@@ -18,7 +18,7 @@
         
         <!--查询规则-->
         <searchRule>
-            <action>https://44422444.xyz/?url=https://mycomic.com/cn/comics?q=</action>
+            <action>https://mycomic.44422444.xyz/cn/comics?q=</action>
             <method>Get</method>
             <inputName>null</inputName>
             <inputFormatParam>null</inputFormatParam>
@@ -33,7 +33,7 @@
         <jumpRule>
             <method>stringReplace</method>
             <parameter>page=</parameter>
-            <regular>.*mycomic.com.*</regular>
+            <regular>.*(mycomic.com|mycomic.44422444.xyz).*</regular>
             <offset>null</offset>
             <startPage>null</startPage>
         </jumpRule>
@@ -42,7 +42,7 @@
         <menuBar>
             <menu>
                 <text>首页</text>
-                <url>https://44422444.xyz/?url=https://mycomic.com/cn/comics?sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
+                <url>https://mycomic.44422444.xyz/cn/comics?sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -68,77 +68,77 @@
                 <subset>
                     <submenu>
                         <text>魔幻</text>
-                        <url>https://44422444.xyz/?url=https://mycomic.com/cn/comics?filter%5Btag%5D=mohuan&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://mycomic.44422444.xyz/cn/comics?filter%5Btag%5D=mohuan&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>魔法</text>
-                        <url>https://44422444.xyz/?url=https://mycomic.com/cn/comics?filter%5Btag%5D=mofa&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://mycomic.44422444.xyz/cn/comics?filter%5Btag%5D=mofa&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>热血</text>
-                        <url>https://44422444.xyz/?url=https://mycomic.com/cn/comics?filter%5Btag%5D=rexue&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://mycomic.44422444.xyz/cn/comics?filter%5Btag%5D=rexue&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>冒险</text>
-                        <url>https://44422444.xyz/?url=https://mycomic.com/cn/comics?filter%5Btag%5D=maoxian&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://mycomic.44422444.xyz/cn/comics?filter%5Btag%5D=maoxian&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>悬疑</text>
-                        <url>https://44422444.xyz/?url=https://mycomic.com/cn/comics?filter%5Btag%5D=xuanyi&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://mycomic.44422444.xyz/cn/comics?filter%5Btag%5D=xuanyi&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>爱情</text>
-                        <url>https://44422444.xyz/?url=https://mycomic.com/cn/comics?filter%5Btag%5D=aiqing&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://mycomic.44422444.xyz/cn/comics?filter%5Btag%5D=aiqing&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>校园</text>
-                        <url>https://44422444.xyz/?url=https://mycomic.com/cn/comics?filter%5Btag%5D=xiaoyuan&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://mycomic.44422444.xyz/cn/comics?filter%5Btag%5D=xiaoyuan&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>搞笑</text>
-                        <url>https://44422444.xyz/?url=https://mycomic.com/cn/comics?filter%5Btag%5D=gaoxiao&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://mycomic.44422444.xyz/cn/comics?filter%5Btag%5D=gaoxiao&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>科幻</text>
-                        <url>https://44422444.xyz/?url=https://mycomic.com/cn/comics?filter%5Btag%5D=kehuan&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://mycomic.44422444.xyz/cn/comics?filter%5Btag%5D=kehuan&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>百合</text>
-                        <url>https://44422444.xyz/?url=https://mycomic.com/cn/comics?filter%5Btag%5D=baihe&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://mycomic.44422444.xyz/cn/comics?filter%5Btag%5D=baihe&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>后宫</text>
-                        <url>https://44422444.xyz/?url=https://mycomic.com/cn/comics?filter%5Btag%5D=hougong&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://mycomic.44422444.xyz/cn/comics?filter%5Btag%5D=hougong&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>格斗</text>
-                        <url>https://44422444.xyz/?url=https://mycomic.com/cn/comics?filter%5Btag%5D=gedou&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://mycomic.44422444.xyz/cn/comics?filter%5Btag%5D=gedou&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>耽美</text>
-                        <url>https://44422444.xyz/?url=https://mycomic.com/cn/comics?filter%5Btag%5D=danmei&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://mycomic.44422444.xyz/cn/comics?filter%5Btag%5D=danmei&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>治愈</text>
-                        <url>https://44422444.xyz/?url=https://mycomic.com/cn/comics?filter%5Btag%5D=zhiyu&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://mycomic.44422444.xyz/cn/comics?filter%5Btag%5D=zhiyu&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>职场</text>
-                        <url>https://44422444.xyz/?url=https://mycomic.com/cn/comics?filter%5Btag%5D=zhichang&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://mycomic.44422444.xyz/cn/comics?filter%5Btag%5D=zhichang&amp;sort=-update&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                 </subset>
@@ -152,7 +152,7 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>1</widget>
-                <path>grow*0| group relative*0|_GOBACK*1|mt-2 text-center*999|(_GOBACK*1|a*0|img*0|@alt+_GOBACK*1|text-white text-sm pb-3 truncate*0|@,_GOBACK*1|a*0|@href|_TEXT*0|[_ADD-L_]*https://44422444.xyz/?url=|[_ADD-R_]*{User-Agent*PostmanRuntime},_GOBACK*1|a*0|img*0|@data-src)</path>
+                <path>grow*0| group relative*0|_GOBACK*1|mt-2 text-center*999|(_GOBACK*1|a*0|img*0|@alt+_GOBACK*1|text-white text-sm pb-3 truncate*0|@,_GOBACK*1|a*0|@href|_TEXT*0|[_REPL_]mycomic.com*mycomic.44422444.xyz|[_ADD-R_]*{User-Agent*PostmanRuntime},_GOBACK*1|a*0|img*0|@data-src)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -252,7 +252,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>1</widget>
-                <path>_TEXT*0|[_CUT-L_]*mt-8 mb-12|[_CUT-L_]*chapters:|[_CUT-L_]*[{|[_ADD-L_]*[{|[_CUT-R_]*}]|[_ADD-R_]*}]|_JSON*0|_Array*999|(_Object*title|_String,_Object*id|_String|_TEXT*0|[_ADD-L_]*https://44422444.xyz/?url=https://mycomic.com/cn/chapters/|[_ADD-R_]*{User-Agent*PostmanRuntime})+_TEXT*0|[_CUT-L_]*mt-8 mb-12|[_CUT-L_]*chapters:|[_CUT-L_]*chapters:|[_CUT-L_]*[{|[_ADD-L_]*[{|[_CUT-R_]*}]|[_ADD-R_]*}]|_JSON*0|_Array*999|(_Object*title|_String,_Object*id|_String|_TEXT*0|[_ADD-L_]*https://44422444.xyz/?url=https://mycomic.com/cn/chapters/|[_ADD-R_]*{User-Agent*PostmanRuntime})+_TEXT*0|[_CUT-L_]*mt-8 mb-12|[_CUT-L_]*chapters:|[_CUT-L_]*chapters:|[_CUT-L_]*chapters:|[_CUT-L_]*[{|[_ADD-L_]*[{|[_CUT-R_]*}]|[_ADD-R_]*}]|_JSON*0|_Array*999|(_Object*title|_String,_Object*id|_String|_TEXT*0|[_ADD-L_]*https://44422444.xyz/?url=https://mycomic.com/cn/chapters/|[_ADD-R_]*{User-Agent*PostmanRuntime})</path>
+                <path>_TEXT*0|[_CUT-L_]*mt-8 mb-12|[_CUT-L_]*chapters:|[_CUT-L_]*[{|[_ADD-L_]*[{|[_CUT-R_]*}]|[_ADD-R_]*}]|_JSON*0|_Array*999|(_Object*title|_String,_Object*id|_String|_TEXT*0|[_ADD-L_]*https://mycomic.44422444.xyz/cn/chapters/|[_ADD-R_]*{User-Agent*PostmanRuntime})+_TEXT*0|[_CUT-L_]*mt-8 mb-12|[_CUT-L_]*chapters:|[_CUT-L_]*chapters:|[_CUT-L_]*[{|[_ADD-L_]*[{|[_CUT-R_]*}]|[_ADD-R_]*}]|_JSON*0|_Array*999|(_Object*title|_String,_Object*id|_String|_TEXT*0|[_ADD-L_]*https://mycomic.44422444.xyz/cn/chapters/|[_ADD-R_]*{User-Agent*PostmanRuntime})+_TEXT*0|[_CUT-L_]*mt-8 mb-12|[_CUT-L_]*chapters:|[_CUT-L_]*chapters:|[_CUT-L_]*chapters:|[_CUT-L_]*[{|[_ADD-L_]*[{|[_CUT-R_]*}]|[_ADD-R_]*}]|_JSON*0|_Array*999|(_Object*title|_String,_Object*id|_String|_TEXT*0|[_ADD-L_]*https://mycomic.44422444.xyz/cn/chapters/|[_ADD-R_]*{User-Agent*PostmanRuntime})</path>
                 <tag>textLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
