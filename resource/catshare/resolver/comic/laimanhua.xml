@@ -5,7 +5,7 @@
         <!--解析器的基本信息-->
         <basicInfo>
             <name>laimanhua</name>
-            <version>20251031_StupidDoll</version>
+            <version>20251116_StupidDoll</version>
             <baseUrl>https://www.comemh8.com</baseUrl>
             <startUrl>https://www.comemh8.com/kanmanhua/zaixian_rhmh/1.html</startUrl>
             <type>comic</type>
@@ -401,8 +401,8 @@
             <parseType>autoIncrement</parseType>
             <device>mobile</device>
             <imageInnerHeader>null</imageInnerHeader>
-            <urlFormatParam>_TEXT*0|[_REPL_]www*m</urlFormatParam>
-            <imageFormatParam>null</imageFormatParam>
+            <urlFormatParam>_TEXT*0|[_REPL_]www*m|[_REPL_]m.comemh8.com*m.laimanhua88.com</urlFormatParam>
+            <imageFormatParam>_TEXT*0|[_ADD-R_]*{Referer*https://m.laimanhua88.com}</imageFormatParam>
             <dataFormatParam>null</dataFormatParam>
             <runJS>null</runJS>
             <imageType>dynamic</imageType>
