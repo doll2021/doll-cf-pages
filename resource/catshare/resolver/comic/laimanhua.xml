@@ -412,7 +412,7 @@
             <resFormatParam>null</resFormatParam>
             <xhrRegular>null</xhrRegular>
             <scriptRegular>null</scriptRegular>
-            <imageRegular>.*(mhpic[0-9]+.*cn|res.gezhengzhongyi.cn|kingwar.cn/mh160tuku/).*.(JPG|PNG|jpg|png|webp|WEBP).*</imageRegular>
+            <imageRegular>.*(mhpic[0-9]+.*cn|res.gezhengzhongyi.cn|kingwar.cn|tgmhfc.uk)/mh160tuku/.*.(JPG|PNG|jpg|png|webp|WEBP).*</imageRegular>
         </forceParseRule>
     </resolver>
 </resolvers>
