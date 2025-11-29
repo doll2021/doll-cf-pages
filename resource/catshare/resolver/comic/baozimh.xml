@@ -5,7 +5,7 @@
         <!--解析器的基本信息-->
         <basicInfo>
             <name>baozimh</name>
-            <version>20240707_StupidDoll</version>
+            <version>20251122_StupidDoll</version>
             <baseUrl>https://cn.dzmanga.com</baseUrl>
             <startUrl>https://cn.dzmanga.com/classify?page=1{User-Agent*PostmanRuntime}</startUrl>
             <type>comic</type>
@@ -377,14 +377,14 @@
             <parseType>eachPage</parseType>
             <device>pc</device>
             <imageInnerHeader>null</imageInnerHeader>
-            <urlFormatParam>_TEXT*0|[_CUT-L_]*comic_id=|[_REPL_]&amp;section_slot=*/|[_REPL_]&amp;chapter_slot=*_|[_ADD-R_]*_1.html|[_ADD-L_]*https://cn.dzmanga.com/comic/chapter/</urlFormatParam>
+            <urlFormatParam>_TEXT*0|[_CUT-L_]*comic_id=|[_REPL_]&amp;section_slot=*/|[_REPL_]&amp;chapter_slot=*_|[_ADD-R_]*_1.html|[_ADD-L_]*https://cn.dzmanga.com/comic/chapter/|[_ADD-L_]*https://44422444.xyz/?url=</urlFormatParam>
             <imageFormatParam>_TEXT*0|[_REPL_]baozicdn.com*baozimh.com</imageFormatParam>
             <dataFormatParam>null</dataFormatParam>
             <runJS>null</runJS>
             <imageType>static</imageType>
             <number>comic-chapter*0|title*0|@|_TEXT*0|[_CUT-R_]*)|[_CUT-L_]*(1</number>
             <pagePath>null</pagePath>
-            <resPath>chapter-main scroll-mode*0|comic-contain*0|amp-img*999|(@src)</resPath>
+            <resPath>chapter-main scroll-mode*0|comic-contain*0|comic-contain__item*999|(@data-src)</resPath>
             <resFormatParam>null</resFormatParam>
             <xhrRegular>null</xhrRegular>
             <scriptRegular>null</scriptRegular>
