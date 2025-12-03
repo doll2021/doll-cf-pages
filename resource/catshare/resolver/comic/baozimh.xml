@@ -5,9 +5,9 @@
         <!--解析器的基本信息-->
         <basicInfo>
             <name>baozimh</name>
-            <version>20251122_StupidDoll</version>
-            <baseUrl>https://cn.dzmanga.com</baseUrl>
-            <startUrl>https://cn.dzmanga.com/classify?page=1{User-Agent*PostmanRuntime}</startUrl>
+            <version>20251203_StupidDoll</version>
+            <baseUrl>https://baozimh.44422444.xyz</baseUrl>
+            <startUrl>https://baozimh.44422444.xyz/classify?page=1{User-Agent*PostmanRuntime}</startUrl>
             <type>comic</type>
             <template>3</template>
             <access>Get</access>
@@ -18,7 +18,7 @@
         
         <!--查询规则-->
         <searchRule>
-            <action>https://cn.dzmanga.com/search?q=</action>
+            <action>https://baozimh.44422444.xyz/search?q=</action>
             <method>Get</method>
             <inputName>null</inputName>
             <inputFormatParam>null</inputFormatParam>
@@ -33,7 +33,7 @@
         <jumpRule>
             <method>mantissaIncrease</method>
             <parameter>null</parameter>
-            <regular>https://cn.dzmanga.com.*</regular>
+            <regular>https://baozimh.44422444.xyz.*</regular>
             <offset>0</offset>
             <startPage>null</startPage>
         </jumpRule>
@@ -42,7 +42,7 @@
         <menuBar>
             <menu>
                 <text>首页</text>
-                <url>https://cn.dzmanga.com/classify?page=1{User-Agent*PostmanRuntime}</url>
+                <url>https://baozimh.44422444.xyz/classify?page=1{User-Agent*PostmanRuntime}</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -59,12 +59,12 @@
                 <subset>
                     <submenu>
                         <text>完结</text>
-                        <url>https://cn.dzmanga.com/classify?type=all&amp;region=all&amp;state=pub&amp;filter=*&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://baozimh.44422444.xyz/classify?type=all&amp;region=all&amp;state=pub&amp;filter=*&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>连载</text>
-                        <url>https://cn.dzmanga.com/classify?type=all&amp;region=all&amp;state=serial&amp;filter=*&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://baozimh.44422444.xyz/classify?type=all&amp;region=all&amp;state=serial&amp;filter=*&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                 </subset>
@@ -75,7 +75,7 @@
                 <level>1</level>
                 <css>3</css>
                 <baseUrl>null</baseUrl>
-                <regular>https://cn.dzmanga.com/search.*</regular>
+                <regular>https://baozimh.44422444.xyz/search.*</regular>
                 <subset></subset>
             </menu>
             <menu>
@@ -88,33 +88,33 @@
                 <subset>
                     <submenu>
                         <text>韩漫</text>
-                        <url>https://cn.dzmanga.com/classify?type=all&amp;region=kr&amp;state=all&amp;filter=*&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://baozimh.44422444.xyz/classify?type=all&amp;region=kr&amp;state=all&amp;filter=*&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>美漫</text>
-                        <url>https://cn.dzmanga.com/classify?type=all&amp;region=en&amp;state=all&amp;filter=*&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://baozimh.44422444.xyz/classify?type=all&amp;region=en&amp;state=all&amp;filter=*&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>国漫</text>
-                        <url>https://cn.dzmanga.com/classify?type=all&amp;region=cn&amp;state=all&amp;filter=*&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://baozimh.44422444.xyz/classify?type=all&amp;region=cn&amp;state=all&amp;filter=*&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>日漫</text>
-                        <url>https://cn.dzmanga.com/classify?type=all&amp;region=jp&amp;state=all&amp;filter=*&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://baozimh.44422444.xyz/classify?type=all&amp;region=jp&amp;state=all&amp;filter=*&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                 </subset>
             </menu>
             <menu>
                 <text>更新</text>
-                <url>https://cn.dzmanga.com/{User-Agent*PostmanRuntime}</url>
+                <url>https://baozimh.44422444.xyz/{User-Agent*PostmanRuntime}</url>
                 <level>1</level>
                 <css>2</css>
                 <baseUrl>null</baseUrl>
-                <regular>https://cn.dzmanga.com/\{User-Agent\*PostmanRuntime\}</regular>
+                <regular>https://baozimh.44422444.xyz/\{User-Agent\*PostmanRuntime\}</regular>
                 <subset></subset>
             </menu>
         </menuBar>
@@ -377,7 +377,7 @@
             <parseType>eachPage</parseType>
             <device>pc</device>
             <imageInnerHeader>null</imageInnerHeader>
-            <urlFormatParam>_TEXT*0|[_CUT-L_]*comic_id=|[_REPL_]&amp;section_slot=*/|[_REPL_]&amp;chapter_slot=*_|[_ADD-R_]*_1.html|[_ADD-L_]*https://cn.dzmanga.com/comic/chapter/|[_ADD-L_]*https://44422444.xyz/?url=</urlFormatParam>
+            <urlFormatParam>_TEXT*0|[_CUT-L_]*comic_id=|[_REPL_]&amp;section_slot=*/|[_REPL_]&amp;chapter_slot=*_|[_ADD-R_]*_1.html|[_ADD-L_]*https://baozimh.44422444.xyz/comic/chapter/</urlFormatParam>
             <imageFormatParam>_TEXT*0|[_REPL_]baozicdn.com*baozimh.com</imageFormatParam>
             <dataFormatParam>null</dataFormatParam>
             <runJS>null</runJS>
