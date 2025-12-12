@@ -12,7 +12,7 @@
             <template>3</template>
             <access>Get</access>
             <charset>UTF-8</charset>
-            <header>Referer*https://cn.dzmanga.com</header>
+            <header>Referer*https://cn.twbzmg.com</header>
             <order>asc</order>
         </basicInfo>
         
@@ -378,7 +378,7 @@
             <device>pc</device>
             <imageInnerHeader>null</imageInnerHeader>
             <urlFormatParam>_TEXT*0|[_CUT-L_]*comic_id=|[_REPL_]&amp;section_slot=*/|[_REPL_]&amp;chapter_slot=*_|[_ADD-R_]*_1.html|[_ADD-L_]*https://baozimh.44422444.xyz/comic/chapter/</urlFormatParam>
-            <imageFormatParam>_TEXT*0|[_REPL_]baozicdn.com*baozimh.com</imageFormatParam>
+            <imageFormatParam>_TEXT*0|[_REPL_]baozicdn.com*baozimh.com|[_REPL_]bzcdn.net*baozimh.com</imageFormatParam>
             <dataFormatParam>null</dataFormatParam>
             <runJS>null</runJS>
             <imageType>static</imageType>
