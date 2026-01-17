@@ -240,7 +240,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>1</widget>
-                <path>catalog_box*0|right_box*0|a*999|(title*0|@,@href)</path>
+                <path>catalog_box*0|right_box*0|a*999|(@,@href)</path>
                 <tag>textLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
