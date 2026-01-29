@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resolvers>
+    <resolver>
+        
+        <!--解析器的基本信息-->
+        <basicInfo>
+            <name>wnacg</name>
+            <version>20251222_producer</version>
+            <baseUrl>https://www.wn07.ru</baseUrl>
+            <startUrl>https://www.wn07.ru/albums-index-page-1.html</startUrl>
+            <type>comic</type>
+            <template>1</template>
+            <access>Get</access>
+            <charset>UTF-8</charset>
+            <header>auto</header>
+            <order>null</order>
+        </basicInfo>
+        
+        <!--查询规则-->
+        <searchRule>
+            <action>https://www.wn07.ru/search/?q=</action>
+            <method>Get</method>
+            <inputName>null</inputName>
+            <inputFormatParam>null</inputFormatParam>
+            <level>3</level>
+            <targetLevel>1</targetLevel>
+            <extraParam>&amp;f=_all&amp;s=create_time_DESC</extraParam>
+            <isJoint>yes</isJoint>
+            <captchaInfo>null</captchaInfo>
+        </searchRule>
+        
+        <!--跳转规则-->
+        <jumpRule>
+            <method>stringReplace</method>
+            <parameter>index-page-|s=create_time_DESC&amp;p=</parameter>
+            <regular>null</regular>
+            <offset>null</offset>
+            <startPage>null</startPage>
+        </jumpRule>
+        
+        <!--底层导航栏-->
+        <menuBar>
+            <menu>
+                <text>首页</text>
+                <url>https://www.wn07.ru/albums-index-page-1.html</url>
+                <level>1</level>
+                <css>1</css>
+                <baseUrl>null</baseUrl>
+                <regular>null</regular>
+                <subset></subset>
+            </menu>
+            <menu>
+                <text>hide</text>
+                <url>null</url>
+                <level>1</level>
+                <css>2</css>
+                <baseUrl>null</baseUrl>
+                <regular>https://www.wn07.ru/search/.*</regular>
+                <subset></subset>
+            </menu>
+            <menu>
+                <text>同人志</text>
+                <url>https://www.wn07.ru/albums-index-cate-5.html</url>
+                <level>1</level>
+                <css>1</css>
+                <baseUrl>null</baseUrl>
+                <regular>null</regular>
+                <subset>
+                    <submenu>
+                        <text>汉化</text>
+                        <url>https://www.wn07.ru/albums-index-cate-1.html</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>日语</text>
+                        <url>https://www.wn07.ru/albums-index-cate-12.html</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>英语</text>
+                        <url>https://www.wn07.ru/albums-index-cate-16.html</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>AI</text>
+                        <url>https://www.wn07.ru/albums-index-cate-37.html</url>
+                        <level>2</level>
+                    </submenu>
+					<submenu>
+                        <text>3D</text>
+                        <url>https://www.wn07.ru/albums-index-cate-22.html</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>CG</text>
+                        <url>https://www.wn07.ru/albums-index-cate-2.html</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>COS</text>
+                        <url>https://www.wn07.ru/albums-index-cate-3.html</url>
+                        <level>2</level>
+                    </submenu>
+                </subset>
+            </menu>
+            <menu>
+                <text>单行本</text>
+                <url>https://www.wn07.ru/albums-index-cate-6.html</url>
+                <level>1</level>
+                <css>1</css>
+                <baseUrl>null</baseUrl>
+                <regular>null</regular>
+                <subset>
+                    <submenu>
+                        <text>汉化</text>
+                        <url>https://www.wn07.ru/albums-index-cate-9.html</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>日语</text>
+                        <url>https://www.wn07.ru/albums-index-cate-13.html</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>英语</text>
+                        <url>https://www.wn07.ru/albums-index-cate-17.html</url>
+                        <level>2</level>
+                    </submenu>
+                </subset>
+            </menu>
+            <menu>
+                <text>杂志</text>
+                <url>https://www.wn07.ru/albums-index-cate-7.html</url>
+                <level>1</level>
+                <css>1</css>
+                <baseUrl>null</baseUrl>
+                <regular>null</regular>
+                <subset>
+                    <submenu>
+                        <text>汉化</text>
+                        <url>https://www.wn07.ru/albums-index-cate-10.html</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>日语</text>
+                        <url>https://www.wn07.ru/albums-index-cate-14.html</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>英语</text>
+                        <url>https://www.wn07.ru/albums-index-cate-18.html</url>
+                        <level>2</level>
+                    </submenu>
+                </subset>
+            </menu>
+        </menuBar>
+        
+        <!--模块映射规则-->
+        <mapRule>
+            <!--第一层模块-->
+            <module>
+                <level>1</level>
+                <css>1</css>
+                <widget>1</widget>
+                <path>^bodywrap|gallary_wrap*0|ul*0|li*999|(pic_box*0|a*0|@title+info*0|info_col*0|@,pic_box*0|a*0|@href,pic_box*0|a*0|img*0|@src)</path>
+                <tag>iconLinkList</tag>
+                <type>2</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>1</css>
+                <widget>-1</widget>
+                <path>f_left paginator*0|thispage*0|@</path>
+                <tag>currentNumber</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>1</css>
+                <widget>-2</widget>
+                <path>f_left paginator*0|a*-2|@</path>
+                <tag>totalNumber</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>1</css>
+                <widget>-999</widget>
+                <path>f_left paginator*0|prev*0|a*0|@href</path>
+                <tag>previousPage</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>1</css>
+                <widget>-999</widget>
+                <path>f_left paginator*0|next*0|a*0|@href</path>
+                <tag>nextPage</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>2</css>
+                <widget>1</widget>
+                <path>^bodywrap|gallary_wrap*0|ul*0|li*999|(pic_box*0|a*0|@title+info*0|info_col*0|@|_TEXT*0|[_REPL_]&lt;em&gt;*|[_REPL_]&lt;/em&gt;*,pic_box*0|a*0|@href,pic_box*0|a*0|img*0|@src)</path>
+                <tag>iconLinkList</tag>
+                <type>2</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>2</css>
+                <widget>-1</widget>
+                <path>f_left paginator*0|thispage*0|@</path>
+                <tag>currentNumber</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>2</css>
+                <widget>-2</widget>
+                <path>f_left paginator*0|a*-1|@</path>
+                <tag>totalNumber</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>2</css>
+                <widget>-999</widget>
+                <path>f_left paginator*0|thispage*0|_GOTO*-1|@href</path>
+                <tag>previousPage</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>2</css>
+                <widget>-999</widget>
+                <path>f_left paginator*0|thispage*0|_GOTO*1|@href</path>
+                <tag>nextPage</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <!--第二层模块-->
+            <module>
+                <level>2</level>
+                <css>1</css>
+                <widget>2</widget>
+                <path>asTBcell uwthumb*0|img*0|@alt</path>
+                <tag>title</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>2</level>
+                <css>1</css>
+                <widget>3</widget>
+                <path>asTBcell uwthumb*0|img*0|@src</path>
+                <tag>cover</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>2</level>
+                <css>1</css>
+                <widget>4</widget>
+                <path>asTBcell uwconn*0|label*0|@+asTBcell uwconn*0|label*1|@+asTBcell uwconn*0|addtags*0|@+asTBcell uwconn*0|p*0|@</path>
+                <tag>intro</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>2</level>
+                <css>1</css>
+                <widget>-999</widget>
+                <path>asTBcell uwconn*0|label*1|@</path>
+                <tag>number</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>2</level>
+                <css>1</css>
+                <widget>-999</widget>
+                <path>asTBcell uwthumb*0|btn*0|@href|_TEXT*0|[_REPL_]photos-slide-*photos-gallery-</path>
+                <tag>startWebsite</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>2</level>
+                <css>1</css>
+                <widget>-999</widget>
+                <path>_TEXT*0|[_CUT-L_]*imglist = |[_CUT-R_]*;&quot;);|[_REPL_]\*|[_REPL-ALL_], caption:[\s\S]+?"\}*|[_REPL-ALL_]\{ url:[\s\S]+?\+*|[_REPL_]img5.wnimg.ru*img5.wnimg1.ru</path>
+                <tag>startImage</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>_JSON*0|_Array*999|(_String)</offset>
+            </module>
+        </mapRule>
+        
+        <!--资源的分布规则-->
+        <resRule>
+            <resType>img</resType>
+            <resPath>null</resPath>
+            <imageIncrease>null</imageIncrease>
+            <pageIncrease>null</pageIncrease>
+            <forceParsing>no</forceParsing>
+            <checkTextPath>null</checkTextPath>
+            <checkTextRegular>null</checkTextRegular>
+            <hrefPath>null</hrefPath>
+            <startFormatParam>null</startFormatParam>
+            <endFormatParam>null</endFormatParam>
+            <fontError>null</fontError>
+            <playManager>null</playManager>
+        </resRule>
+        
+        <!--强制解析规则【可在自定义模块内加入额外参数；如果所有节点均为空，则说明站点不需要强制解析】-->
+        <forceParseRule>
+            <parseType>null</parseType>
+            <device>null</device>
+            <imageInnerHeader>null</imageInnerHeader>
+            <urlFormatParam>null</urlFormatParam>
+            <imageFormatParam>null</imageFormatParam>
+            <dataFormatParam>null</dataFormatParam>
+            <runJS>null</runJS>
+            <imageType>null</imageType>
+            <number>null</number>
+            <pagePath>null</pagePath>
+            <resPath>null</resPath>
+            <resFormatParam>null</resFormatParam>
+            <xhrRegular>null</xhrRegular>
+            <scriptRegular>null</scriptRegular>
+            <imageRegular>null</imageRegular>
+        </forceParseRule>
+    </resolver>
+</resolvers>
