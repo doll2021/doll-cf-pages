@@ -126,7 +126,7 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>1</widget>
-                <path>classify mt-5 l-content*0|pure-g classify-items*0|comics-card pure-u-1-3 pure-u-md-1-4 pure-u-lg-1-6*999|(a*0|@title,a*0|@href|_TEXT*0|[_ADD-R_]*{User-Agent*PostmanRuntime},a*0|amp-img*0|@src)</path>
+                <path>classify mt-5 l-content*0|pure-g classify-items*0|comics-card pure-u-1-3 pure-u-md-1-4 pure-u-lg-1-6*999|(a*0|@title,a*0|@href|_TEXT*0|[_ADD-R_]*{User-Agent*PostmanRuntime},a*0|amp-img*0|@src|_TEXT*0|[_REPL_]baozimh.com*bzmgcn.com)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -181,7 +181,7 @@
                 <level>1</level>
                 <css>2</css>
                 <widget>1</widget>
-                <path>mt-5 index*0|index-recommend-items*-1|pure-g*0|comics-card__poster text-decoration-none*999|(_GOBACK*1|comics-card__title*0|@+_GOBACK*1|comics-card__info*0|tags*0|@,@href|_TEXT*0|[_ADD-R_]*{User-Agent*PostmanRuntime},amp-img*0|@src)</path>
+                <path>mt-5 index*0|index-recommend-items*-1|pure-g*0|comics-card__poster text-decoration-none*999|(_GOBACK*1|comics-card__title*0|@+_GOBACK*1|comics-card__info*0|tags*0|@,@href|_TEXT*0|[_ADD-R_]*{User-Agent*PostmanRuntime},amp-img*0|@src|_TEXT*0|[_REPL_]baozimh.com*bzmgcn.com)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -236,7 +236,7 @@
                 <level>1</level>
                 <css>3</css>
                 <widget>1</widget>
-                <path>l-content search mt-5*0|pure-g classify-items*0|comics-card__poster text-decoration-none*999|(@title,@href|_TEXT*0|[_ADD-R_]*{User-Agent*PostmanRuntime},amp-img*0|@src)</path>
+                <path>l-content search mt-5*0|pure-g classify-items*0|comics-card__poster text-decoration-none*999|(@title,@href|_TEXT*0|[_ADD-R_]*{User-Agent*PostmanRuntime},amp-img*0|@src|_TEXT*0|[_REPL_]baozimh.com*bzmgcn.com)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -303,7 +303,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>3</widget>
-                <path>comics-detail*0|pure-g de-info__box*0|pure-u-1-1 pure-u-sm-1-3 pure-u-md-1-6*0|amp-img*0|@src</path>
+                <path>comics-detail*0|pure-g de-info__box*0|pure-u-1-1 pure-u-sm-1-3 pure-u-md-1-6*0|amp-img*0|@src|_TEXT*0|[_REPL_]baozimh.com*bzmgcn.com</path>
                 <tag>cover</tag>
                 <type>0</type>
                 <checkText>null</checkText>
