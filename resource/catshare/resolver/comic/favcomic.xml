@@ -85,7 +85,7 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>1</widget>
-                <path>comic_list*0|li*999|(brief_box*0|title*0|@+brief_box*0|chapter*0|txt*0|@+brief_box*0|chapter*0|txt*1|@,cover_box*0|a*0|@href,cover_box*0|a*0|img*0|@data-src|_TEXT*0|[_MAYBE-CUT-L_]*/file/|[_ADD-L_]*https://cdn.favcomic.com/file/|[_REPL_]/app/*/image/|[_MAYBE-CUT-L_]*://|[_ADD-L_]*https://i0.wp.com/)</path>
+                <path>comic_list*0|li*999|(brief_box*0|title*0|@+brief_box*0|chapter*0|txt*0|@+brief_box*0|chapter*0|txt*1|@,cover_box*0|a*0|@href,cover_box*0|a*0|img*0|@data-src|_TEXT*0|[_MAYBE-CUT-L_]*/file/|[_ADD-L_]*https://cdn.favcomic.xyz/file/|[_REPL_]/app/*/image/)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -140,7 +140,7 @@
                 <level>1</level>
                 <css>2</css>
                 <widget>1</widget>
-                <path>comic_list*0|li*999|(brief_box*0|title*0|@+brief_box*0|chapter*0|@,cover_box*0|a*0|@href,cover_box*0|a*0|img*0|@data-src|_TEXT*0|[_MAYBE-CUT-L_]*/file/|[_ADD-L_]*https://cdn.favcomic.com/file/|[_REPL_]/app/*/image/|[_MAYBE-CUT-L_]*://|[_ADD-L_]*https://i0.wp.com/)</path>
+                <path>comic_list*0|li*999|(brief_box*0|title*0|@+brief_box*0|chapter*0|@,cover_box*0|a*0|@href,cover_box*0|a*0|img*0|@data-src|_TEXT*0|[_MAYBE-CUT-L_]*/file/|[_ADD-L_]*https://cdn.favcomic.xyz/file/|[_REPL_]/app/*/image/)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -207,7 +207,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>3</widget>
-                <path>comic_cover_box*0|flex_box*0|_REMOVE-C*toon_box|img*0|@data-src|_TEXT*0|[_MAYBE-CUT-L_]*/file/|[_ADD-L_]*https://cdn.favcomic.com/file/|[_REPL_]/app/*/image/|[_MAYBE-CUT-L_]*://|[_ADD-L_]*https://i0.wp.com/</path>
+                <path>comic_cover_box*0|flex_box*0|_REMOVE-C*toon_box|img*0|@data-src|_TEXT*0|[_MAYBE-CUT-L_]*/file/|[_ADD-L_]*https://cdn.favcomic.xyz/file/|[_REPL_]/app/*/image/</path>
                 <tag>cover</tag>
                 <type>0</type>
                 <checkText>null</checkText>
