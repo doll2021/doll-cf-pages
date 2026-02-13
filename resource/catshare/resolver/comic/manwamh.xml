@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resolvers>
+    <resolver>
+        
+        <!--解析器的基本信息-->
+        <basicInfo>
+            <name>manwamh</name>
+            <version>20260213_StupidDoll</version>
+            <baseUrl>https://manwatu.cc</baseUrl>
+            <startUrl>https://manwatu.cc/booklist?page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</startUrl>
+            <type>comic</type>
+            <template>3</template>
+            <access>Get</access>
+            <charset>UTF-8</charset>
+            <header>Referer*https://manwatu.cc</header>
+            <order>asc</order>
+        </basicInfo>
+        
+        <!--查询规则-->
+        <searchRule>
+            <action>https://manwatu.cc/search?keyword=</action>
+            <method>Get</method>
+            <inputName>null</inputName>
+            <inputFormatParam>null</inputFormatParam>
+            <level>3</level>
+            <targetLevel>1</targetLevel>
+            <extraParam>{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</extraParam>
+            <isJoint>yes</isJoint>
+            <captchaInfo>null</captchaInfo>
+        </searchRule>
+        
+        <!--跳转规则-->
+        <jumpRule>
+            <method>stringReplace</method>
+            <parameter>page=</parameter>
+            <regular>https://manwatu.cc.*</regular>
+            <offset>0</offset>
+            <startPage>null</startPage>
+        </jumpRule>
+        
+        <!--底层导航栏-->
+        <menuBar>
+            <menu>
+                <text>首页</text>
+                <url>https://manwatu.cc/booklist?page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                <level>1</level>
+                <css>1</css>
+                <baseUrl>null</baseUrl>
+                <regular>null</regular>
+                <subset></subset>
+            </menu>
+            <menu>
+                <text>进度</text>
+                <url>null</url>
+                <level>1</level>
+                <css>1</css>
+                <baseUrl>null</baseUrl>
+                <regular>null</regular>
+                <subset>
+                    <submenu>
+                        <text>连载</text>
+                        <url>https://manwatu.cc/booklist?page=1&amp;tag=&amp;end=2&amp;gender=-1&amp;has_full=-1&amp;area=1&amp;sort=0{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>完结</text>
+                        <url>https://manwatu.cc/booklist?page=1&amp;tag=&amp;end=1&amp;gender=-1&amp;has_full=-1&amp;area=1&amp;sort=0{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <level>2</level>
+                    </submenu>
+                </subset>
+            </menu>
+            <menu>
+                <text>hide</text>
+                <url>null</url>
+                <level>1</level>
+                <css>2</css>
+                <baseUrl>null</baseUrl>
+                <regular>https://manwatu.cc/search\?keyword=.*</regular>
+                <subset></subset>
+            </menu>
+            <menu>
+                <text>地区</text>
+                <url>null</url>
+                <level>1</level>
+                <css>1</css>
+                <baseUrl>null</baseUrl>
+                <regular>null</regular>
+                <subset>
+                    <submenu>
+                        <text>国漫</text>
+                        <url>https://manwatu.cc/booklist?page=1&amp;tag=&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=4&amp;sort=0{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>韩漫</text>
+                        <url>https://manwatu.cc/booklist?page=1&amp;tag=&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=2&amp;sort=0{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>日漫</text>
+                        <url>https://manwatu.cc/booklist?page=1&amp;tag=&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=3&amp;sort=0{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <level>2</level>
+                    </submenu>
+                </subset>
+            </menu>
+            <menu>
+                <text>分类</text>
+                <url>null</url>
+                <level>1</level>
+                <css>1</css>
+                <baseUrl>null</baseUrl>
+                <regular>null</regular>
+                <subset>
+                    <submenu>
+                        <text>肉欲</text>
+                        <url>https://manwatu.cc/booklist?page=1&amp;tag=肉欲&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=1&amp;sort=0{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>性感</text>
+                        <url>https://manwatu.cc/booklist?page=1&amp;tag=性感&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=1&amp;sort=0{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>3D</text>
+                        <url>https://manwatu.cc/booklist?page=1&amp;tag=3D&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=1&amp;sort=0{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>大尺度</text>
+                        <url>https://manwatu.cc/booklist?page=1&amp;tag=大尺度&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=1&amp;sort=0{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>剧情</text>
+                        <url>https://manwatu.cc/booklist?page=1&amp;tag=剧情&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=1&amp;sort=0{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>宅系</text>
+                        <url>https://manwatu.cc/booklist?page=1&amp;tag=宅系&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=1&amp;sort=0{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>玄幻</text>
+                        <url>https://manwatu.cc/booklist?page=1&amp;tag=玄幻&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=1&amp;sort=0{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>搞笑</text>
+                        <url>https://manwatu.cc/booklist?page=1&amp;tag=滑稽搞笑&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=1&amp;sort=0{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>少女</text>
+                        <url>https://manwatu.cc/booklist?page=1&amp;tag=少女&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=1&amp;sort=0{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>魔法</text>
+                        <url>https://manwatu.cc/booklist?page=1&amp;tag=魔法&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=1&amp;sort=0{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>热血</text>
+                        <url>https://manwatu.cc/booklist?page=1&amp;tag=热血&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=1&amp;sort=0{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>校园</text>
+                        <url>https://manwatu.cc/booklist?page=1&amp;tag=校园&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=1&amp;sort=0{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>日常</text>
+                        <url>https://manwatu.cc/booklist?page=1&amp;tag=日常&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=1&amp;sort=0{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>言情</text>
+                        <url>https://manwatu.cc/booklist?page=1&amp;tag=都市&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=1&amp;sort=0{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>恋爱</text>
+                        <url>https://manwatu.cc/booklist?page=1&amp;tag=恋爱&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=1&amp;sort=0{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <level>2</level>
+                    </submenu>
+                </subset>
+            </menu>
+        </menuBar>
+        
+        <!--模块映射规则-->
+        <mapRule>
+            <!--第一层模块-->
+            <module>
+                <level>1</level>
+                <css>1</css>
+                <widget>1</widget>
+                <path>manga-list*0|ul*0|li*999|(p*0|@+p*1|@,manga-list-2-cover*0|a*0|@href|_TEXT*0|[_ADD-R_]*{User-Agent*Mozilla/5.0 ##2#Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332##3# AppleWebKit/537.36 ##2#KHTML##1# like Gecko##3# Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36},manga-list-2-cover*0|a*0|img*0|@src|_TEXT*0||[_CUT-L_]*/static/|[_ADD-L_]*https://mwappimgs.cc/static/)</path>
+                <tag>iconLinkList</tag>
+                <type>2</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>1</css>
+                <widget>-1</widget>
+                <path>SELF</path>
+                <tag>currentNumber</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>_TEXT*0|[_CUT-L_]*page=|[_NUM-L_]*0</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>1</css>
+                <widget>-2</widget>
+                <path>-1</path>
+                <tag>totalNumber</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>1</css>
+                <widget>-999</widget>
+                <path>JUMP</path>
+                <tag>previousPage</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>1</css>
+                <widget>-999</widget>
+                <path>JUMP</path>
+                <tag>nextPage</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>2</css>
+                <widget>1</widget>
+                <path>main-content*0|book-list*0|li*999|(book-list-info*0|book-list-info-title*0|@+book-list-info-bottom-item*0|@+book-list-info-desc*0|@,book-list-cover*0|a*0|@href|_TEXT*0|[_ADD-R_]*{User-Agent*Mozilla/5.0 ##2#Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332##3# AppleWebKit/537.36 ##2#KHTML##1# like Gecko##3# Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36},book-list-cover*0|a*0|img*0|@data-original|_TEXT*0||[_CUT-L_]*/static/|[_ADD-L_]*https://mwappimgs.cc/static/)</path>
+                <tag>iconLinkList</tag>
+                <type>2</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>2</css>
+                <widget>-1</widget>
+                <path>null</path>
+                <tag>currentNumber</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>2</css>
+                <widget>-2</widget>
+                <path>null</path>
+                <tag>totalNumber</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>2</css>
+                <widget>-999</widget>
+                <path>null</path>
+                <tag>previousPage</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>1</level>
+                <css>2</css>
+                <widget>-999</widget>
+                <path>null</path>
+                <tag>nextPage</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <!--第二层模块-->
+            <module>
+                <level>2</level>
+                <css>1</css>
+                <widget>2</widget>
+                <path>detail-main*0|detail-main-info-title*0|@</path>
+                <tag>title</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>2</level>
+                <css>1</css>
+                <widget>3</widget>
+                <path>detail-main*0|detail-main-cover*0|img*0|@data-original|_TEXT*0||[_CUT-L_]*/static/|[_ADD-L_]*https://mwappimgs.cc/static/</path>
+                <tag>cover</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>2</level>
+                <css>1</css>
+                <widget>4</widget>
+                <path>detail-main*0|detail-main-info*0|@+^water-content|detail-list-title*0|detail-list-title-3*0|@|_TEXT*0|[_REPL_]更新*|[_ADD-L_]*更新时间：+selector-zero*0|detail-main-info-class*0|@|_TEXT*0|[_ADD-L_]*标签：+selector-zero*0|detail-desc*0|@</path>
+                <tag>intro</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>2</level>
+                <css>1</css>
+                <widget>-999</widget>
+                <path>null</path>
+                <tag>indexWebsite</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <module>
+                <level>2</level>
+                <css>1</css>
+                <widget>1</widget>
+                <path>^detail-list-select|li*999|(a*0|@,a*0|@href)</path>
+                <tag>textLinkList</tag>
+                <type>2</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+            
+            <!--自定义模块【名字要相互区别，不能够有重复】-->
+            <module>
+                <level>-1</level>
+                <css>1</css>
+                <widget>-999</widget>
+                <path>null</path>
+                <tag>null</tag>
+                <type>0</type>
+                <checkText>null</checkText>
+                <offset>null</offset>
+            </module>
+        </mapRule>
+        
+        <!--资源的分布规则-->
+        <resRule>
+            <resType>img</resType>
+            <resPath>null</resPath>
+            <imageIncrease>null</imageIncrease>
+            <pageIncrease>null</pageIncrease>
+            <forceParsing>yes</forceParsing>
+            <checkTextPath>null</checkTextPath>
+            <checkTextRegular>null</checkTextRegular>
+            <hrefPath>null</hrefPath>
+            <startFormatParam>null</startFormatParam>
+            <endFormatParam>null</endFormatParam>
+            <fontError>null</fontError>
+            <playManager>null</playManager>
+        </resRule>
+        
+        <!--强制解析规则【可在自定义模块内加入额外参数；如果所有节点均为空，则说明站点不需要强制解析】-->
+        <forceParseRule>
+            <parseType>html</parseType>
+            <device>pc</device>
+            <imageInnerHeader>null</imageInnerHeader>
+            <urlFormatParam>_TEXT*0|[_ADD-R_]*{User-Agent#U1#Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</urlFormatParam>
+            <imageFormatParam>_TEXT*0||[_CUT-L_]*/static/|[_ADD-L_]*https://mwappimgs.cc/static/</imageFormatParam>
+            <dataFormatParam>null</dataFormatParam>
+            <runJS>yes</runJS>
+            <imageType>static</imageType>
+            <number>null</number>
+            <pagePath>null</pagePath>
+            <resPath>view-main-1 readForm  *0|content-img lazy_img*999|(@data-r-src)</resPath>
+            <resFormatParam>null</resFormatParam>
+            <xhrRegular>null</xhrRegular>
+            <scriptRegular>null</scriptRegular>
+            <imageRegular>null</imageRegular>
+        </forceParseRule>
+    </resolver>
+</resolvers>
