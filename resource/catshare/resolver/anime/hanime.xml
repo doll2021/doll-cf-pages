@@ -232,7 +232,7 @@
         <!--资源的分布规则-->
         <resRule>
             <resType>video</resType>
-            <resPath>_TEXT*0|[_MAYBE-CUT-L_]*name=&quot;video-sd&quot;|[_MAYBE-CUT-R_]*h4 style=|[_CUT-L_]*&quot;|[_CUT-R_]*&quot;|[_REPL_]&amp;amp;*&amp;</resPath>
+            <resPath>_TEXT*0|[_MAYBE-CUT-L_]*&quot;preload&quot;|[_MAYBE-CUT-R_]*type=|[_CUT-L_]*&quot;|[_CUT-R_]*&quot;|[_REPL_]&amp;amp;*&amp;</resPath>
             <imageIncrease>null</imageIncrease>
             <pageIncrease>null</pageIncrease>
             <forceParsing>null</forceParsing>
