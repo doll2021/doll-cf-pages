@@ -5,9 +5,9 @@
         <!--解析器的基本信息-->
         <basicInfo>
             <name>hanime</name>
-            <version>20251223_producer</version>
+            <version>20260224_producer</version>
             <baseUrl>https://hanime1.com</baseUrl>
-            <startUrl>https://44466444.xyz/?url=https://hanime1.com/search?genre=全部&amp;sort=最新上傳&amp;page=1</startUrl>
+            <startUrl>https://hanime1.com/search?genre=全部&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</startUrl>
             <type>anime</type>
             <template>202</template>
             <access>Get</access>
@@ -18,13 +18,13 @@
         
         <!--查询规则-->
         <searchRule>
-            <action>https://44466444.xyz/?url=https://hanime1.com/search?query=</action>
+            <action>https://hanime1.com/search?query=</action>
             <method>Get</method>
             <inputName>null</inputName>
             <inputFormatParam>null</inputFormatParam>
             <level>2</level>
             <targetLevel>1</targetLevel>
-            <extraParam>&amp;sort=最新上傳&amp;page=1</extraParam>
+            <extraParam>&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</extraParam>
             <isJoint>yes</isJoint>
             <captchaInfo>null</captchaInfo>
         </searchRule>
@@ -42,7 +42,7 @@
         <menuBar>
             <menu>
                 <text>首页</text>
-                <url>https://44466444.xyz/?url=https://hanime1.com/search?genre=全部&amp;sort=最新上傳&amp;page=1</url>
+                <url>https://hanime1.com/search?genre=全部&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -68,47 +68,47 @@
                 <subset>
                     <submenu>
                         <text>COS</text>
-                        <url>https://44466444.xyz/?url=https://hanime1.com/search?genre=Cosplay&amp;sort=最新上傳&amp;page=1</url>
+                        <url>https://hanime1.com/search?genre=Cosplay&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>MMD</text>
-                        <url>https://44466444.xyz/?url=https://hanime1.com/search?genre=MMD&amp;sort=最新上傳&amp;page=1</url>
+                        <url>https://hanime1.com/search?genre=MMD&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>AI生成</text>
-                        <url>https://44466444.xyz/?url=https://hanime1.com/search?genre=AI生成&amp;sort=最新上傳&amp;page=1</url>
+                        <url>https://hanime1.com/search?genre=AI生成&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>2D</text>
-                        <url>https://44466444.xyz/?url=https://hanime1.com/search?genre=2D動畫&amp;sort=最新上傳&amp;page=1</url>
+                        <url>https://hanime1.com/search?genre=2D動畫&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>2.5D</text>
-                        <url>https://44466444.xyz/?url=https://hanime1.com/search?genre=2.5D&amp;sort=最新上傳&amp;page=1</url>
+                        <url>https://hanime1.com/search?genre=2.5D&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>3D</text>
-                        <url>https://44466444.xyz/?url=https://hanime1.com/search?genre=3DCG&amp;sort=最新上傳&amp;page=1</url>
+                        <url>https://hanime1.com/search?genre=3DCG&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>动态动画</text>
-                        <url>https://44466444.xyz/?url=https://hanime1.com/search?genre=Motion%20Anime&amp;sort=最新上傳&amp;page=1</url>
+                        <url>https://hanime1.com/search?genre=Motion%20Anime&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>泡面番</text>
-                        <url>https://44466444.xyz/?url=https://hanime1.com/search?genre=泡麵番&amp;sort=最新上傳&amp;page=1</url>
+                        <url>https://hanime1.com/search?genre=泡麵番&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>里番</text>
-                        <url>https://44466444.xyz/?url=https://hanime1.com/search?genre=裏番&amp;sort=最新上傳&amp;page=1</url>
+                        <url>https://hanime1.com/search?genre=裏番&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                 </subset>
@@ -122,7 +122,7 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>1</widget>
-                <path>content-padding-new*0|video-item-container*999|(title*0|@+duration*0|@+stat-item*-1|@,a*0|@href|_TEXT*0|[_ADD-L_]*https://44466444.xyz/?url=,thumb-container*0|img*0|@src)</path>
+                <path>content-padding-new*0|video-item-container*999|(title*0|@+duration*0|@+stat-item*-1|@,a*0|@href|_TEXT*0|[_ADD-R_]*{User-Agent*PostmanRuntime},thumb-container*0|img*0|@src)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -177,7 +177,7 @@
                 <level>1</level>
                 <css>2</css>
                 <widget>1</widget>
-                <path>home-rows-videos-wrapper*0|a*999|(home-rows-videos-div search-videos*0|@,@href|_TEXT*0|[_ADD-L_]*https://44466444.xyz/?url=,home-rows-videos-div search-videos*0|img*0|@src)</path>
+                <path>home-rows-videos-wrapper*0|a*999|(home-rows-videos-div search-videos*0|@,@href|_TEXT*0|[_ADD-R_]*{User-Agent*PostmanRuntime},home-rows-videos-div search-videos*0|img*0|@src)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
