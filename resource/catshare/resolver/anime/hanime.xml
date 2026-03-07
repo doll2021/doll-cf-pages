@@ -232,7 +232,7 @@
         <!--资源的分布规则-->
         <resRule>
             <resType>video</resType>
-            <resPath>_TEXT*0|[_MAYBE-CUT-L_]*&quot;preload&quot;|[_MAYBE-CUT-R_]*type=|[_CUT-L_]*href=&quot;|[_CUT-R_]*&quot;|[_REPL_]&amp;amp;*&amp;</resPath>
+            <resPath>_TEXT*0|[_EXEC_EXPR_IF_INCLUDE_]size=&quot;1080*W19NQVlCRS1DVVQtUl9dKnNpemU9IjEwODB8W19NQVlCRS1MQVNULUNVVC1MX10qc291cmNlIHNyYz0ifFtfTUFZQkUtQ1VULVJfXSp0eXBlPXxbX01BWUJFLUNVVC1SX10qIg==|[_EXEC_EXPR_IF_INCLUDE_]preload*W19NQVlCRS1DVVQtTF9dKiJwcmVsb2FkInxbX01BWUJFLUNVVC1SX10qdHlwZT18W19NQVlCRS1DVVQtTF9dKmhyZWY9InxbX01BWUJFLUNVVC1SX10qIg==|[_REPL_]&amp;amp;*&amp;</resPath>
             <imageIncrease>null</imageIncrease>
             <pageIncrease>null</pageIncrease>
             <forceParsing>null</forceParsing>
