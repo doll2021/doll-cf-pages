@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>Base64加解密</title>
+    <!-- Font Awesome 5 (免费图标库，用于锁、复制等图标) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #d9e9ff 0%, #f0f7ff 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .card {
+            max-width: 760px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 36px 36px 32px 32px;
+            box-shadow: 0 20px 40px -12px rgba(0, 70, 150, 0.35),
+                        0 8px 24px -6px rgba(0, 45, 90, 0.2),
+                        inset 0 1px 0 #ffffffcc;
+            backdrop-filter: blur(2px);
+            padding: 32px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 600;
+            color: #0a3b5f;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+            border-left: 8px solid #2b7fc2;
+            padding-left: 24px;
+        }
+
+        h1 i {
+            color: #2b7fc2;
+            font-size: 2rem;
+            background: #e2effb;
+            padding: 12px;
+            border-radius: 50%;
+            box-shadow: inset 0 -2px 0 #b3d4f0;
+        }
+
+        .sub {
+            color: #3d6184;
+            margin-bottom: 30px;
+            font-size: 1rem;
+            font-weight: 400;
+            padding-left: 32px;
+            opacity: 0.85;
+            border-bottom: 2px dotted #aec9e7;
+            padding-bottom: 12px;
+        }
+
+        .field {
+            margin-bottom: 24px;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #1f4e7a;
+            display: block;
+            margin-bottom: 8px;
+            margin-left: 6px;
+            letter-spacing: 0.3px;
+        }
+
+        label i {
+            color: #2f6ea2;
+            width: 24px;
+            font-size: 1rem;
+            margin-right: 6px;
+        }
+
+        textarea {
+            width: 100%;
+            border: 2px solid #c9ddec;
+            border-radius: 24px;
+            padding: 16px 20px;
+            font-size: 1rem;
+            line-height: 1.5;
+            background: #f9fcff;
+            resize: vertical;
+            min-height: 130px;
+            max-height: 300px;
+            transition: all 0.2s ease;
+            color: #10364e;
+            font-weight: 400;
+            box-shadow: inset 0 2px 5px rgba(0,30,60,0.02);
+        }
+
+        textarea:focus {
+            border-color: #2b7fc2;
+            outline: none;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(43, 127, 194, 0.15), inset 0 1px 6px #e1effa;
+        }
+
+        textarea[readonly] {
+            background-color: #f1f7fd;
+            border-color: #b9d3ed;
+            color: #1f4462;
+            cursor: default;
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin: 28px 0 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            border: none;
+            background: white;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 0 6px 14px rgba(22, 78, 128, 0.15);
+            transition: 0.15s;
+            border: 1px solid rgba(255,255,255,0.6);
+            flex: 0 1 auto;
+            min-width: 150px;
+            color: #18537a;
+            background: linear-gradient(white, #f1f9ff);
+        }
+
+        .btn i {
+            font-size: 1.2rem;
+            color: #1f6fb0;
+        }
+
+        .btn.primary {
+            background: linear-gradient(145deg, #1f6fb0, #0f4985);
+            color: white;
+            box-shadow: 0 10px 18px -6px #0f4985, 0 4px 8px #b3d4f0 inset;
+            border: 1px solid #74b3e0;
+        }
+
+        .btn.primary i {
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .btn.primary:hover {
+            background: linear-gradient(145deg, #2980c7, #13579b);
+            transform: translateY(-2px);
+            box-shadow: 0 16px 22px -8px #0f3d68;
+        }
+
+        .btn.secondary {
+            background: #eaf3fc;
+            border: 1px solid #bcd3ed;
+            color: #0e3d63;
+        }
+
+        .btn.secondary:hover {
+            background: #d6e9fa;
+            transform: scale(0.98);
+            box-shadow: 0 4px 8px rgba(43, 100, 150, 0.2);
+        }
+
+        .output-wrapper {
+            display: flex;
+            align-items: flex-end;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .output-wrapper textarea {
+            flex: 1;
+        }
+
+        .icon-btn {
+            background: #ffffff;
+            border: 2px solid #bbd5f2;
+            border-radius: 40px;
+            width: 56px;
+            height: 56px;
+            font-size: 1.7rem;
+            color: #1f6fb0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.15s;
+            box-shadow: 0 4px 10px rgba(0, 60, 120, 0.1);
+            margin-bottom: 6px;
+            flex-shrink: 0;
+        }
+
+        .icon-btn:hover {
+            background: #e2f0ff;
+            border-color: #2b7fc2;
+            color: #0f3a60;
+            transform: translateY(-2px);
+        }
+
+        .icon-btn:active {
+            transform: translateY(2px);
+            box-shadow: none;
+        }
+
+        /* 轻提示 Toast */
+        .toast-message {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) scale(0.9);
+            background: #1267a5;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 1rem;
+            box-shadow: 0 20px 30px -8px #0a3352;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+            z-index: 999;
+            border: 1px solid #9ac7f0;
+            letter-spacing: 0.5px;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .toast-message.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) scale(1);
+        }
+
+        .toast-message i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+            vertical-align: middle;
+        }
+
+        /* 清空按钮微调 */
+        #clearBtn {
+            background: white;
+            border: 1px solid #c2d9f0;
+            color: #1f5380;
+        }
+
+        #clearBtn:hover {
+            background: #f2f9ff;
+        }
+
+        /* 响应式 */
+        @media (max-width: 550px) {
+            .card { padding: 24px 18px; }
+            h1 { font-size: 1.8rem; padding-left: 16px; }
+            .btn { min-width: 120px; padding: 12px 16px; font-size: 1rem; }
+            .icon-btn { width: 48px; height: 48px; font-size: 1.5rem; }
+        }
+
+        @media (max-width: 420px) {
+            .button-group { flex-direction: column; }
+            .btn { width: 100%; }
+        }
+
+        /* 装饰细节 */
+        .watermark {
+            text-align: center;
+            margin-top: 25px;
+            color: #8fb3d6;
+            font-size: 0.8rem;
+            font-weight: 400;
+            border-top: 1px dashed #bed8f0;
+            padding-top: 18px;
+        }
+        .watermark i {
+            color: #478ac9;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>
+            <i class="fas fa-shield-alt"></i> 
+            Base64加解密工具
+        </h1>
+        <div class="sub">
+            纯文本 <i class="fas fa-exchange-alt" style="margin-right: 6px;"></i> Base64
+        </div>
+
+        <!-- 输入区域 -->
+        <div class="field">
+            <label for="input"><i class="fas fa-pencil-alt"></i> 输入 原文/Base64</label>
+            <textarea id="input" placeholder="小猫互传 或 5bCP54yr5LqS5Lyg"></textarea>
+        </div>
+
+        <!-- 操作按钮组 -->
+        <div class="button-group">
+            <button class="btn primary" id="encodeBtn"><i class="fas fa-lock"></i> 加密 → Base64</button>
+            <button class="btn primary" id="decodeBtn"><i class="fas fa-unlock-alt"></i> 解密 → 原文</button>
+            <button class="btn secondary" id="clearBtn"><i class="fas fa-eraser"></i> 清空所有</button>
+        </div>
+
+        <!-- 输出区域 + 复制按钮 -->
+        <div class="field">
+            <label for="output"><i class="fas fa-clipboard-list"></i> 输出结果</label>
+            <div class="output-wrapper">
+                <textarea id="output" placeholder="等待加密或解密结果..." readonly></textarea>
+                <button class="icon-btn" id="copyBtn" title="复制到剪贴板"><i class="far fa-copy"></i></button>
+            </div>
+        </div>
+
+        <div class="watermark">
+            <i class="fas fa-circle" style="font-size: 0.3rem; vertical-align: middle;"></i> © 2026 小猫互传 <i class="fas fa-circle" style="font-size: 0.3rem; vertical-align: middle;"></i>
+        </div>
+    </div>
+
+    <!-- 全局轻提示 Toast -->
+    <div id="toast" class="toast-message">
+        <i class="fas fa-check-circle"></i> <span id="toast-text">复制成功</span>
+    </div>
+
+    <script>
+        (function() {
+            // ---------- DOM 元素 ----------
+            const inputTextarea = document.getElementById('input');
+            const outputTextarea = document.getElementById('output');
+            const encodeBtn = document.getElementById('encodeBtn');
+            const decodeBtn = document.getElementById('decodeBtn');
+            const clearBtn = document.getElementById('clearBtn');
+            const copyBtn = document.getElementById('copyBtn');
+            const toast = document.getElementById('toast');
+            const toastSpan = document.getElementById('toast-text');
+
+            let toastTimer = null;
+
+            // ---------- 工具函数：显示toast ----------
+            function showToast(message, duration = 2000) {
+                if (toastTimer) {
+                    clearTimeout(toastTimer);
+                    toastTimer = null;
+                }
+                toastSpan.textContent = message;
+                toast.classList.add('show');
+                toastTimer = setTimeout(() => {
+                    toast.classList.remove('show');
+                }, duration);
+            }
+
+            // ---------- 编码：字符串 → Base64 (UTF-8 安全) ----------
+            function encodeBase64(str) {
+                try {
+                    // 将字符串转为 UTF-8 字节数组
+                    const utf8Bytes = new TextEncoder().encode(str);
+                    // 将字节数组转换为二进制字符串 (每个字节 0-255 转为字符)
+                    let binary = '';
+                    for (let i = 0; i < utf8Bytes.length; i++) {
+                        binary += String.fromCharCode(utf8Bytes[i]);
+                    }
+                    // 使用 btoa 进行标准 Base64 编码
+                    return btoa(binary);
+                } catch (e) {
+                    console.warn('加密异常', e);
+                    return '[加密错误] 无法处理该文本';
+                }
+            }
+
+            // ---------- 解码：Base64 → 字符串 (UTF-8 安全，自动填充+去空白) ----------
+            function decodeBase64(base64Str) {
+                // 第一步：清理空白字符 (空格、换行、制表符)
+                let cleaned = base64Str.replace(/\s/g, '');
+                if (cleaned === '') {
+                    return '';   // 空字符串返回空
+                }
+
+                try {
+                    // 第二步：自动填充 '=' 使得长度为4的倍数 (标准 Base64 填充)
+                    const remainder = cleaned.length % 4;
+                    if (remainder !== 0) {
+                        // 填充等号 (最大3个，但atob最多接受2个等号，不过填充后若非法会在catch处理)
+                        cleaned += '='.repeat(4 - remainder);
+                    }
+
+                    // 第三步：atob 解码得到二进制字符串 (每个字符代码 0-255)
+                    const binary = atob(cleaned);
+
+                    // 第四步：将二进制字符串转成 Uint8Array
+                    const bytes = new Uint8Array(binary.length);
+                    for (let i = 0; i < binary.length; i++) {
+                        bytes[i] = binary.charCodeAt(i);
+                    }
+
+                    // 第五步：用 TextDecoder 将 UTF-8 字节解码为普通文本
+                    return new TextDecoder().decode(bytes);
+                } catch (e) {
+                    // 解码失败：可能是非法Base64或者填充错误、包含非UTF-8数据
+                    throw new Error('无效的Base64或无法解码');
+                }
+            }
+
+            // ---------- 加密按钮事件 ----------
+            encodeBtn.addEventListener('click', function() {
+                const inputValue = inputTextarea.value;
+                try {
+                    const encoded = encodeBase64(inputValue);
+                    outputTextarea.value = encoded;
+                } catch (err) {
+                    outputTextarea.value = '❌ 加密过程出错';
+                    showToast('加密失败', 1500);
+                }
+            });
+
+            // ---------- 解密按钮事件 ----------
+            decodeBtn.addEventListener('click', function() {
+                const inputValue = inputTextarea.value;
+                if (inputValue.trim() === '') {
+                    outputTextarea.value = '';
+                    return;
+                }
+                try {
+                    const decoded = decodeBase64(inputValue);
+                    outputTextarea.value = decoded;
+                } catch (err) {
+                    // 显示错误信息到输出框
+                    outputTextarea.value = '⚠️ 解码失败：不是有效的Base64 (包含非法字符/格式)';
+                    showToast('解密失败，请检查输入', 1600);
+                }
+            });
+
+            // ---------- 清空按钮：同时清空输入和输出 ----------
+            clearBtn.addEventListener('click', function() {
+                inputTextarea.value = '';
+                outputTextarea.value = '';
+                inputTextarea.focus();
+                showToast('已清空', 1000);
+            });
+
+            // ---------- 复制按钮：将输出框内容复制到剪贴板 ----------
+            copyBtn.addEventListener('click', function() {
+                const outputValue = outputTextarea.value;
+                if (!outputValue) {
+                    showToast('无内容可复制', 1300);
+                    return;
+                }
+
+                // 使用 clipboard API 复制
+                navigator.clipboard.writeText(outputValue)
+                    .then(() => {
+                        showToast('复制成功 ✓', 1600);
+                    })
+                    .catch(err => {
+                        console.warn('复制失败:', err);
+                        // 降级处理：使用 execCommand (较老兼容)
+                        try {
+                            outputTextarea.select();
+                            document.execCommand('copy');
+                            showToast('复制成功 (传统方式)', 1600);
+                        } catch (e) {
+                            showToast('复制失败，请手动复制', 1800);
+                        }
+                    });
+            });
+
+            // ---------- 附加小优化：点击输出框方便手动全选 (只读但可以选中) ----------
+            outputTextarea.addEventListener('focus', function() {
+                this.select();
+            });
+
+            // ---------- 示例填充 (可选，但留空更简洁，若需要可取消注释) ----------
+            // (为了让新用户更快上手，可默认放一个示例文本，但为了清爽，留空。此处保留一个初始化示例注释)
+            // 如果想展示初始例子，可以取消下行：
+            // inputTextarea.value = 'Base64 编码示例：Hello 你好 🌟';
+        })();
+    </script>
+</body>
+</html>
