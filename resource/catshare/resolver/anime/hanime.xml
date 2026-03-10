@@ -5,9 +5,9 @@
         <!--解析器的基本信息-->
         <basicInfo>
             <name>hanime</name>
-            <version>20260224_producer</version>
-            <baseUrl>https://hanime1.com</baseUrl>
-            <startUrl>https://hanime1.com/search?genre=全部&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</startUrl>
+            <version>20260310_producer</version>
+            <baseUrl>https://hanime1.me</baseUrl>
+            <startUrl>https://hanime1.me/search?genre=全部&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</startUrl>
             <type>anime</type>
             <template>202</template>
             <access>Get</access>
@@ -18,7 +18,7 @@
         
         <!--查询规则-->
         <searchRule>
-            <action>https://hanime1.com/search?query=</action>
+            <action>https://hanime1.me/search?query=</action>
             <method>Get</method>
             <inputName>null</inputName>
             <inputFormatParam>null</inputFormatParam>
@@ -33,7 +33,7 @@
         <jumpRule>
             <method>stringReplace</method>
             <parameter>&amp;page=</parameter>
-            <regular>.*https://hanime1.com.*</regular>
+            <regular>.*https://hanime1.me.*</regular>
             <offset>null</offset>
             <startPage>null</startPage>
         </jumpRule>
@@ -42,7 +42,7 @@
         <menuBar>
             <menu>
                 <text>首页</text>
-                <url>https://hanime1.com/search?genre=全部&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
+                <url>https://hanime1.me/search?genre=全部&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -68,47 +68,47 @@
                 <subset>
                     <submenu>
                         <text>COS</text>
-                        <url>https://hanime1.com/search?genre=Cosplay&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://hanime1.me/search?genre=Cosplay&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>MMD</text>
-                        <url>https://hanime1.com/search?genre=MMD&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://hanime1.me/search?genre=MMD&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>AI生成</text>
-                        <url>https://hanime1.com/search?genre=AI生成&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://hanime1.me/search?genre=AI生成&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>2D</text>
-                        <url>https://hanime1.com/search?genre=2D動畫&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://hanime1.me/search?genre=2D動畫&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>2.5D</text>
-                        <url>https://hanime1.com/search?genre=2.5D&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://hanime1.me/search?genre=2.5D&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>3D</text>
-                        <url>https://hanime1.com/search?genre=3DCG&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://hanime1.me/search?genre=3DCG&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>动态动画</text>
-                        <url>https://hanime1.com/search?genre=Motion%20Anime&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://hanime1.me/search?genre=Motion%20Anime&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>泡面番</text>
-                        <url>https://hanime1.com/search?genre=泡麵番&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://hanime1.me/search?genre=泡麵番&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>里番</text>
-                        <url>https://hanime1.com/search?genre=裏番&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
+                        <url>https://hanime1.me/search?genre=裏番&amp;sort=最新上傳&amp;page=1{User-Agent*PostmanRuntime}</url>
                         <level>2</level>
                     </submenu>
                 </subset>
