@@ -5,7 +5,7 @@
         <!--解析器的基本信息-->
         <basicInfo>
             <name>boylove</name>
-            <version>20260326_StupidDoll</version>
+            <version>20260331_StupidDoll</version>
             <baseUrl>https://bubulabu.net</baseUrl>
             <startUrl>https://bubulabu.net/home/api/cate/tp/1-0-2-1-1-0-1-0</startUrl>
             <type>comic</type>
@@ -249,7 +249,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>3</widget>
-                <path>stui-content__thumb*0|a*0|@data-original</path>
+                <path>stui-content__thumb*0|a*0|@data-original|_TEXT*0|[_ADD-L_]*https://image.44422444.xyz/?url=</path>
                 <tag>cover</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -324,7 +324,7 @@
             <device>pc</device>
             <imageInnerHeader>null</imageInnerHeader>
             <urlFormatParam>null</urlFormatParam>
-            <imageFormatParam>_TEXT*0|[_REPL_]https://blcnimghost2.cc*https://bubulabu.net</imageFormatParam>
+            <imageFormatParam>_TEXT*0|[_ADD-L_]*https://image.44422444.xyz/?url=</imageFormatParam>
             <dataFormatParam>null</dataFormatParam>
             <runJS>null</runJS>
             <imageType>static</imageType>
