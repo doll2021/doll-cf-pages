@@ -292,7 +292,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>2</widget>
-                <path>comics-detail*0|pure-g de-info__box*0|comics-detail__title*0|@</path>
+                <path>comics-detail*0|pure-g de-info__box*0|comics-detail__title*0|@|_TEXT*0|[_TO-ZH-CN_]*</path>
                 <tag>title</tag>
                 <type>0</type>
                 <checkText>null</checkText>
