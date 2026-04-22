@@ -18,7 +18,7 @@
         
         <!--查询规则-->
         <searchRule>
-            <action>https://www.laimanhua88.com/s81/search/</action>
+            <action>https://www.comemh8.com/e/search/</action>
             <method>Post</method>
             <inputName>key</inputName>
             <inputFormatParam>null</inputFormatParam>
@@ -412,7 +412,7 @@
             <resFormatParam>null</resFormatParam>
             <xhrRegular>null</xhrRegular>
             <scriptRegular>null</scriptRegular>
-            <imageRegular>.*(mhpic[0-9]+.*cn|res.gezhengzhongyi.cn|kingwar.cn|tgmhfc.uk)/mh160tuku/.*.(JPG|PNG|jpg|png|webp|WEBP).*</imageRegular>
+            <imageRegular>.*/mh160tuku/.*01.(JPG|PNG|jpg|png|webp|WEBP).*</imageRegular>
         </forceParseRule>
     </resolver>
 </resolvers>
