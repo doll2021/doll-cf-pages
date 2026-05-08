@@ -5,7 +5,7 @@
         <!--解析器的基本信息-->
         <basicInfo>
             <name>jmcomic</name>
-            <version>20250724_StupidDoll</version>
+            <version>20260508_StupidDoll</version>
             <baseUrl>https://jm18c-fuyu.cc</baseUrl>
             <startUrl>https://jm18c-fuyu.cc/albums?page=1{Referer*https://jm18c-fuyu.cc}</startUrl>
             <type>comic</type>
@@ -118,27 +118,37 @@
                 <subset>
                     <submenu>
                         <text>短篇</text>
-                        <url>https://jm18c-twie.club/albums/short?page=1{Referer*https://jm18c-fuyu.cc}</url>
+                        <url>https://jm18c-fuyu.cc/albums/short?page=1{Referer*https://jm18c-fuyu.cc}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>美漫</text>
-                        <url>https://jm18c-twie.club/albums/meiman?page=1{Referer*https://jm18c-fuyu.cc}</url>
+                        <url>https://jm18c-fuyu.cc/albums/meiman?page=1{Referer*https://jm18c-fuyu.cc}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>韩漫</text>
-                        <url>https://jm18c-twie.club/albums/hanman?page=1{Referer*https://jm18c-fuyu.cc}</url>
+                        <url>https://jm18c-fuyu.cc/albums/hanman?page=1{Referer*https://jm18c-fuyu.cc}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>普通韩漫</text>
+                        <url>https://jm18c-fuyu.cc/albums/hanmansfw?page=1{Referer*https://jm18c-fuyu.cc}</url>
+                        <level>2</level>
+                    </submenu>
+                    <submenu>
+                        <text>其他</text>
+                        <url>https://jm18c-fuyu.cc/albums/another/sub/other?page=1{Referer*https://jm18c-fuyu.cc}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>3D</text>
-                        <url>https://jm18c-twie.club/albums/another/sub/3d?page=1{Referer*https://jm18c-fuyu.cc}</url>
+                        <url>https://jm18c-fuyu.cc/albums/another/sub/3d?page=1{Referer*https://jm18c-fuyu.cc}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>COS</text>
-                        <url>https://jm18c-twie.club/albums/another/sub/cosplay?page=1{Referer*https://jm18c-fuyu.cc}</url>
+                        <url>https://jm18c-fuyu.cc/albums/another/sub/cosplay?page=1{Referer*https://jm18c-fuyu.cc}</url>
                         <level>2</level>
                     </submenu>
                 </subset>
