@@ -5,9 +5,9 @@
         <!--解析器的基本信息-->
         <basicInfo>
             <name>pornhub</name>
-            <version>20251225_producer</version>
-            <baseUrl>https://pornhub.44466444.xyz</baseUrl>
-            <startUrl>https://pornhub.44466444.xyz/video?page=1</startUrl>
+            <version>20260509_producer</version>
+            <baseUrl>https://cn.pornhub.com</baseUrl>
+            <startUrl>https://cn.pornhub.com/video?page=1</startUrl>
             <type>anime</type>
             <template>202</template>
             <access>Get</access>
@@ -18,7 +18,7 @@
         
         <!--查询规则-->
         <searchRule>
-            <action>https://pornhub.44466444.xyz/video/search?search=</action>
+            <action>https://cn.pornhub.com/video/search?search=</action>
             <method>Get</method>
             <inputName>null</inputName>
             <inputFormatParam>_TEXT*0|[_REPL-IF-CHINESE_]* |[_TRIM_]*</inputFormatParam>
@@ -33,7 +33,7 @@
         <jumpRule>
             <method>mantissaIncrease</method>
             <parameter>null</parameter>
-            <regular>https://pornhub.44466444.xyz.*</regular>
+            <regular>https://cn.pornhub.com.*</regular>
             <offset>null</offset>
             <startPage>null</startPage>
         </jumpRule>
@@ -42,7 +42,7 @@
         <menuBar>
             <menu>
                 <text>首页</text>
-                <url>https://pornhub.44466444.xyz/video?page=1</url>
+                <url>https://cn.pornhub.com/video?page=1</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -59,77 +59,77 @@
                 <subset>
                     <submenu>
                         <text>拳交</text>
-                        <url>https://pornhub.44466444.xyz/video?c=19&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=19&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>指交</text>
-                        <url>https://pornhub.44466444.xyz/video?c=592&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=592&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>按摩</text>
-                        <url>https://pornhub.44466444.xyz/video?c=78&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=78&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>捆绑</text>
-                        <url>https://pornhub.44466444.xyz/video?c=10&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=10&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>校园</text>
-                        <url>https://pornhub.44466444.xyz/video?c=88&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=88&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>熟女</text>
-                        <url>https://pornhub.44466444.xyz/video?c=28&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=28&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>青少年</text>
-                        <url>https://pornhub.44466444.xyz/categories/teen?page=1</url>
+                        <url>https://cn.pornhub.com/categories/teen?page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>辣妈</text>
-                        <url>https://pornhub.44466444.xyz/video?c=29&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=29&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>女黑人</text>
-                        <url>https://pornhub.44466444.xyz/video?c=17&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=17&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>肛交</text>
-                        <url>https://pornhub.44466444.xyz/video?c=35&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=35&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>老少欢</text>
-                        <url>https://pornhub.44466444.xyz/video?c=181&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=181&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>女同</text>
-                        <url>https://pornhub.44466444.xyz/video?c=27&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=27&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>3P</text>
-                        <url>https://pornhub.44466444.xyz/video?c=65&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=65&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>日本人</text>
-                        <url>https://pornhub.44466444.xyz/video?c=111&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=111&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>里番</text>
-                        <url>https://pornhub.44466444.xyz/categories/hentai?page=1</url>
+                        <url>https://cn.pornhub.com/categories/hentai?page=1</url>
                         <level>2</level>
                     </submenu>
                 </subset>
@@ -140,7 +140,7 @@
                 <level>1</level>
                 <css>2</css>
                 <baseUrl>null</baseUrl>
-                <regular>https://pornhub.44466444.xyz/video/search.*</regular>
+                <regular>https://cn.pornhub.com/video/search.*</regular>
                 <subset></subset>
             </menu>
             <menu>
@@ -153,92 +153,92 @@
                 <subset>
                     <submenu>
                         <text>群交</text>
-                        <url>https://pornhub.44466444.xyz/video?c=2&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=2&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>亚洲人</text>
-                        <url>https://pornhub.44466444.xyz/video?c=1&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=1&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>假阳具</text>
-                        <url>https://pornhub.44466444.xyz/video?c=542&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=542&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>俄国人</text>
-                        <url>https://pornhub.44466444.xyz/video?c=99&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=99&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>野战</text>
-                        <url>https://pornhub.44466444.xyz/video?c=24&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=24&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>重口</text>
-                        <url>https://pornhub.44466444.xyz/video?c=21&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=21&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>双洞</text>
-                        <url>https://pornhub.44466444.xyz/video?c=72&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=72&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>口交</text>
-                        <url>https://pornhub.44466444.xyz/video?c=13&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=13&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>合集</text>
-                        <url>https://pornhub.44466444.xyz/video?c=57&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=57&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>大学</text>
-                        <url>https://pornhub.44466444.xyz/categories/college?page=1</url>
+                        <url>https://cn.pornhub.com/categories/college?page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>自慰</text>
-                        <url>https://pornhub.44466444.xyz/video?c=492&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=492&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>高潮</text>
-                        <url>https://pornhub.44466444.xyz/video?c=502&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=502&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>巨乳</text>
-                        <url>https://pornhub.44466444.xyz/video?c=8&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=8&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>巨屌</text>
-                        <url>https://pornhub.44466444.xyz/video?c=7&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=7&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>模特</text>
-                        <url>https://pornhub.44466444.xyz/video?c=139&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=139&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>素人</text>
-                        <url>https://pornhub.44466444.xyz/video?c=138&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=138&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>性玩具</text>
-                        <url>https://pornhub.44466444.xyz/video?c=23&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=23&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>恋物癖</text>
-                        <url>https://pornhub.44466444.xyz/video?c=18&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=18&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                 </subset>
@@ -253,92 +253,92 @@
                 <subset>
                     <submenu>
                         <text>金发女</text>
-                        <url>https://pornhub.44466444.xyz/video?c=9&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=9&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>阿拉伯人</text>
-                        <url>https://pornhub.44466444.xyz/video?c=98&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=98&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>捷克人</text>
-                        <url>https://pornhub.44466444.xyz/video?c=100&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=100&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>英国人</text>
-                        <url>https://pornhub.44466444.xyz/video?c=96&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=96&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>拉丁裔</text>
-                        <url>https://pornhub.44466444.xyz/video?c=26&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=26&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>潮吹</text>
-                        <url>https://pornhub.44466444.xyz/video?c=69&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=69&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>独家</text>
-                        <url>https://pornhub.44466444.xyz/video?c=115&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=115&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>实拍</text>
-                        <url>https://pornhub.44466444.xyz/video?c=31&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=31&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>第一视角</text>
-                        <url>https://pornhub.44466444.xyz/video?c=41&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=41&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>舔屄</text>
-                        <url>https://pornhub.44466444.xyz/video?c=131&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=131&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>贫乳</text>
-                        <url>https://pornhub.44466444.xyz/video?c=59&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=59&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>跨性别</text>
-                        <url>https://pornhub.44466444.xyz/transgender?page=1</url>
+                        <url>https://cn.pornhub.com/transgender?page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>跨种族</text>
-                        <url>https://pornhub.44466444.xyz/video?c=25&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=25&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>轮交</text>
-                        <url>https://pornhub.44466444.xyz/video?c=80&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=80&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>少女</text>
-                        <url>https://pornhub.44466444.xyz/categories/babe?page=1</url>
+                        <url>https://cn.pornhub.com/categories/babe?page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>高清</text>
-                        <url>https://pornhub.44466444.xyz/hd?page=1</url>
+                        <url>https://cn.pornhub.com/hd?page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>COS</text>
-                        <url>https://pornhub.44466444.xyz/video?c=241&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=241&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>播客</text>
-                        <url>https://pornhub.44466444.xyz/video?c=891&amp;page=1</url>
+                        <url>https://cn.pornhub.com/video?c=891&amp;page=1</url>
                         <level>2</level>
                     </submenu>
                 </subset>
