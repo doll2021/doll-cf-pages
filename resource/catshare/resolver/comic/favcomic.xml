@@ -281,7 +281,7 @@
             <parseType>html</parseType>
             <device>pc</device>
             <imageInnerHeader>null</imageInnerHeader>
-            <urlFormatParam>_TEXT*0|[_ADD-L_]*https://favcomic.44422444.xyz/?url=</urlFormatParam>
+            <urlFormatParam>_TEXT*0|[_ADD-L_]*https://favcomic-login.44422444.xyz/?url=</urlFormatParam>
             <imageFormatParam>_TEXT*0|[_ADD-L_]*https://favcomic-decrypt.44422444.xyz/?url=</imageFormatParam>
             <dataFormatParam>null</dataFormatParam>
             <runJS>null</runJS>
