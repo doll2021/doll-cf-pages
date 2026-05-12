@@ -360,7 +360,7 @@
                 <tag>indexWebsite</tag>
                 <type>0</type>
                 <checkText>null</checkText>
-                <offset>_TEXT*0|[_ADD-R_]*/|[_ADD-R_]*{Accept*#U0#Connection*keep-alive#U0#User-Agent*PostmanRuntime#U0#authorization*Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3Nzg0Nzc2MTAsImlhdCI6MTc3NTg4NTYxMCwianRpIjoidW5pcXVlX2lkIiwibmJmIjoxNzc1ODg1NjEwLCJzdWIiOiJ6bWhfNDI1MTExIiwidWlkIjo0MjUxMTEsInVzZXJfbGV2ZWwiOjF9.mqZB7hRkMIw89reb76AVhBB6HKsM45UVkOpAjc74KNQ}</offset>
+                <offset>_TEXT*0|[_ADD-R_]*/|[_ADD-R_]*{Accept*#U0#Connection*keep-alive#U0#User-Agent*PostmanRuntime#U0#authorization*Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3ODExOTMyNzgsImlhdCI6MTc3ODYwMTI3OCwianRpIjoidW5pcXVlX2lkIiwibmJmIjoxNzc4NjAxMjc4LCJzdWIiOiJ6bWhfNDI1MTExIiwidWlkIjo0MjUxMTEsInVzZXJfbGV2ZWwiOjF9.9-_mc_KqJn_Ue7fLhlCeYdceGKfjJSDCLxyt2uNe0Zc}</offset>
             </module>
             
             <module>
@@ -408,7 +408,7 @@
             <parseType>html</parseType>
             <device>pc</device>
             <imageInnerHeader>null</imageInnerHeader>
-            <urlFormatParam>_TEXT*0|[_REPL_]/detail/*/chapter/|[_REPL_]?_v=15*|[_ADD-R_]*{Accept*#U0#Connection*keep-alive#U0#User-Agent*PostmanRuntime#U0#authorization*Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3Nzg0Nzc2MTAsImlhdCI6MTc3NTg4NTYxMCwianRpIjoidW5pcXVlX2lkIiwibmJmIjoxNzc1ODg1NjEwLCJzdWIiOiJ6bWhfNDI1MTExIiwidWlkIjo0MjUxMTEsInVzZXJfbGV2ZWwiOjF9.mqZB7hRkMIw89reb76AVhBB6HKsM45UVkOpAjc74KNQ}</urlFormatParam>
+            <urlFormatParam>_TEXT*0|[_REPL_]/detail/*/chapter/|[_REPL_]?_v=15*|[_ADD-R_]*{Accept*#U0#Connection*keep-alive#U0#User-Agent*PostmanRuntime#U0#authorization*Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3ODExOTMyNzgsImlhdCI6MTc3ODYwMTI3OCwianRpIjoidW5pcXVlX2lkIiwibmJmIjoxNzc4NjAxMjc4LCJzdWIiOiJ6bWhfNDI1MTExIiwidWlkIjo0MjUxMTEsInVzZXJfbGV2ZWwiOjF9.9-_mc_KqJn_Ue7fLhlCeYdceGKfjJSDCLxyt2uNe0Zc}</urlFormatParam>
             <imageFormatParam>null</imageFormatParam>
             <dataFormatParam>null</dataFormatParam>
             <runJS>null</runJS>
