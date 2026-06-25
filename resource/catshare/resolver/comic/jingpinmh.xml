@@ -152,7 +152,7 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>1</widget>
-                <path>library-content-con*0|mh-item*999|(mh-item-detali*0|title*0|@+mh-item-detali*0|chapter*0|@+mh-item-detali*0|zl*0|@,mh-item-tip*0|a*0|@href,mh-cover tip*0|@style)</path>
+                <path>library-content-con*0|mh-item*999|(mh-item-detali*0|title*0|@+mh-item-detali*0|chapter*0|@+mh-item-detali*0|zl*0|@,mh-item-tip*0|a*0|@href|_TEXT*0|[_REPL_]www.mwjsiot.com*jingpinmh.44422444.xyz,mh-cover tip*0|@style)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -207,7 +207,7 @@
                 <level>1</level>
                 <css>2</css>
                 <widget>1</widget>
-                <path>search-result-page*0|ul*0|li*999|(cart-info*0|p*0|@+cart-cover*0|span*0|@,cart-cover*0|@href,cart-cover*0|img*0|@src)</path>
+                <path>search-result-page*0|ul*0|li*999|(cart-info*0|p*0|@+cart-cover*0|span*0|@,cart-cover*0|@href|_TEXT*0|[_REPL_]www.mwjsiot.com*jingpinmh.44422444.xyz,cart-cover*0|img*0|@src)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -307,7 +307,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>1</widget>
-                <path>chapter-list clearfix*0|li*999|(a*0|@,a*0|@href)</path>
+                <path>chapter-list clearfix*0|li*999|(a*0|@,a*0|@href|_TEXT*0|[_REPL_]www.mwjsiot.com*jingpinmh.44422444.xyz)</path>
                 <tag>textLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
