@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Android Vector Drawable → 48x48 PNG 转换工具</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f5f7fa;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            padding: 40px 40px 48px;
+            transition: all 0.2s;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+            gap: 16px;
+        }
+        .header-left h1 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a1a2e;
+            letter-spacing: -0.3px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .header-left h1 .badge {
+            font-size: 14px;
+            font-weight: 500;
+            background: #eef2ff;
+            color: #4f46e5;
+            padding: 2px 12px;
+            border-radius: 20px;
+            letter-spacing: 0;
+        }
+        .header-left p {
+            color: #6b7280;
+            font-size: 15px;
+            margin-top: 6px;
+        }
+        .header-right {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 10px 22px;
+            border: none;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+        .btn-primary {
+            background: #4f46e5;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: #4338ca;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+        }
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+        }
+        .btn-secondary:hover {
+            background: #e5e7eb;
+        }
+        .btn-success {
+            background: #059669;
+            color: #fff;
+        }
+        .btn-success:hover {
+            background: #047857;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.35);
+        }
+        .btn-success:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .btn-outline {
+            background: transparent;
+            color: #4f46e5;
+            border: 2px solid #4f46e5;
+            padding: 8px 18px;
+        }
+        .btn-outline:hover {
+            background: #eef2ff;
+        }
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-top: 8px;
+        }
+        @media (max-width: 900px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .container {
+                padding: 24px 20px 32px;
+            }
+            .header-left h1 {
+                font-size: 22px;
+            }
+        }
+        .panel {
+            background: #fafbfc;
+            border-radius: 16px;
+            border: 1px solid #eef0f2;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .panel-header {
+            padding: 16px 20px;
+            background: #f8f9fb;
+            border-bottom: 1px solid #eef0f2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .panel-header .title {
+            font-weight: 600;
+            font-size: 15px;
+            color: #1a1a2e;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .panel-header .title .count {
+            font-weight: 400;
+            font-size: 13px;
+            color: #9ca3af;
+        }
+        .panel-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        textarea {
+            width: 100%;
+            height: 320px;
+            font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+            font-size: 13px;
+            line-height: 1.7;
+            padding: 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 12px;
+            background: #ffffff;
+            color: #1f2937;
+            resize: vertical;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            tab-size: 2;
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+        }
+        textarea::placeholder {
+            color: #9ca3af;
+        }
+        .textarea-wrap {
+            position: relative;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .preview-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 320px;
+            background: #ffffff;
+            border-radius: 12px;
+            border: 2px dashed #e5e7eb;
+            transition: border-color 0.3s, background 0.3s;
+            padding: 24px;
+            position: relative;
+        }
+        .preview-area.has-content {
+            border-color: #4f46e5;
+            background: #fafbff;
+            border-style: solid;
+        }
+        .preview-area .placeholder {
+            text-align: center;
+            color: #9ca3af;
+        }
+        .preview-area .placeholder .icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+            opacity: 0.5;
+        }
+        .preview-area .placeholder p {
+            font-size: 15px;
+            max-width: 260px;
+        }
+        .preview-area .preview-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            width: 100%;
+        }
+        .preview-area .preview-content canvas {
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid #eef0f2;
+            image-rendering: pixelated;
+            background: #ffffff;
+        }
+        .preview-area .preview-content .info-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            font-size: 13px;
+            color: #6b7280;
+        }
+        .preview-area .preview-content .info-row span {
+            background: #f3f4f6;
+            padding: 4px 14px;
+            border-radius: 20px;
+        }
+        .preview-area .preview-content .info-row .size-badge {
+            background: #eef2ff;
+            color: #4f46e5;
+            font-weight: 600;
+        }
+        .action-bar {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+        .action-bar .btn {
+            flex: 0 0 auto;
+        }
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #1f2937;
+            color: #f9fafb;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            z-index: 999;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+        .toast.error {
+            background: #b91c1c;
+        }
+        .toast.success {
+            background: #065f46;
+        }
+        .examples {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 4px;
+        }
+        .examples .example-tag {
+            font-size: 12px;
+            color: #6b7280;
+            background: #f3f4f6;
+            padding: 2px 12px;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .examples .example-tag:hover {
+            background: #eef2ff;
+            color: #4f46e5;
+            border-color: #4f46e5;
+        }
+        .error-msg {
+            background: #fef2f2;
+            color: #b91c1c;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-size: 13px;
+            margin-top: 12px;
+            display: none;
+            border: 1px solid #fecaca;
+        }
+        .error-msg.show {
+            display: block;
+        }
+        .footer-note {
+            margin-top: 24px;
+            text-align: center;
+            font-size: 13px;
+            color: #9ca3af;
+            border-top: 1px solid #f0f2f5;
+            padding-top: 20px;
+        }
+        .footer-note a {
+            color: #4f46e5;
+            text-decoration: none;
+        }
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+        textarea::-webkit-scrollbar {
+            width: 6px;
+        }
+        textarea::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 8px;
+        }
+        textarea::-webkit-scrollbar-thumb {
+            background: #d1d5db;
+            border-radius: 8px;
+        }
+        textarea::-webkit-scrollbar-thumb:hover {
+            background: #b0b4ba;
+        }
+        .loader {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 0.7s linear infinite;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 16px 12px 24px;
+                border-radius: 12px;
+            }
+            .header-left h1 {
+                font-size: 19px;
+                flex-wrap: wrap;
+            }
+            .btn {
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+            textarea {
+                height: 200px;
+                font-size: 12px;
+                padding: 12px;
+            }
+            .preview-area {
+                min-height: 200px;
+                padding: 16px;
+            }
+            .panel-body {
+                padding: 12px;
+            }
+            .panel-header {
+                padding: 12px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-left">
+                <h1>🎨 Vector → PNG <span class="badge">48×48</span></h1>
+                <p>将 Android Vector Drawable(XML)转换为48×48的PNG图片</p>
+            </div>
+            <div class="header-right">
+                <div class="examples">
+                    <span class="example-tag" data-example="circle">⚪ 圆形</span>
+                    <span class="example-tag" data-example="star">⭐ 星形</span>
+                    <span class="example-tag" data-example="home">🏠 主页</span>
+                    <span class="example-tag" data-example="heart">❤️ 心形</span>
+                    <span class="example-tag" data-example="yellow">💛 黄色图标</span>
+                </div>
+            </div>
+        </div>
+        <div class="main-grid">
+            <div class="panel">
+                <div class="panel-header">
+                    <span class="title">📝 输入 XML <span class="count">(Vector Drawable)</span></span>
+                    <button class="btn btn-secondary" id="clearBtn" style="padding:4px 14px;font-size:12px;">清空</button>
+                </div>
+                <div class="panel-body">
+                    <div class="textarea-wrap">
+                        <textarea id="xmlInput" placeholder="在此粘贴 Android Vector Drawable 的 XML 代码..."></textarea>
+                    </div>
+                    <div class="error-msg" id="errorMsg"></div>
+                    <div class="action-bar">
+                        <button class="btn btn-primary" id="convertBtn">⚡ 转换</button>
+                        <button class="btn btn-outline" id="formatBtn" style="font-weight:500;">🧹 格式化 XML</button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-header">
+                    <span class="title">🖼️ 预览~导出 <span class="count">(48×48 PNG)</span></span>
+                    <button class="btn btn-success" id="downloadBtn" disabled>⬇️ 下载 PNG</button>
+                </div>
+                <div class="panel-body">
+                    <div class="preview-area" id="previewArea">
+                        <div class="placeholder" id="placeholder">
+                            <div class="icon">🖼️</div>
+                            <p>转换后 PNG 预览会显示在这里<br /><span style="font-size:13px;color:#d1d5db;">点击「转换」按钮开始</span></p>
+                        </div>
+                        <div class="preview-content" id="previewContent" style="display:none;">
+                            <canvas id="previewCanvas" width="48" height="48"></canvas>
+                            <div class="info-row">
+                                <span class="size-badge">48 × 48 px</span>
+                                <span id="fileSizeInfo">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="toast" id="toast"></div>
+    <script>
+        (function() {
+            'use strict';
+
+            const xmlInput = document.getElementById('xmlInput');
+            const convertBtn = document.getElementById('convertBtn');
+            const downloadBtn = document.getElementById('downloadBtn');
+            const clearBtn = document.getElementById('clearBtn');
+            const formatBtn = document.getElementById('formatBtn');
+            const previewArea = document.getElementById('previewArea');
+            const placeholder = document.getElementById('placeholder');
+            const previewContent = document.getElementById('previewContent');
+            const previewCanvas = document.getElementById('previewCanvas');
+            const fileSizeInfo = document.getElementById('fileSizeInfo');
+            const errorMsg = document.getElementById('errorMsg');
+            const toast = document.getElementById('toast');
+
+            let currentPngDataUrl = null;
+            let currentSvgString = null;
+            let isConverting = false;
+
+            // ---------- Examples ----------
+            const EXAMPLES = {
+                circle: `<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24">
+        <path
+            android:fillColor="#4F46E5"
+            android:pathData="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z"/>
+    </vector>`,
+                star: `<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24">
+        <path
+            android:fillColor="#F59E0B"
+            android:pathData="M12,17.27L18.18,21l-1.64,-7.03L22,9.24l-7.19,-0.61L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21z"/>
+    </vector>`,
+                home: `<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24">
+        <path
+            android:fillColor="#10B981"
+            android:pathData="M10,20v-6h4v6h5v-8h3L12,3L2,12h3v8z"/>
+    </vector>`,
+                heart: `<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24">
+        <path
+            android:fillColor="#EF4444"
+            android:pathData="M12,21.35l-1.45,-1.32C5.4,15.36,2,12.28,2,8.5C2,5.42,4.42,3,7.5,3c1.74,0,3.41,0.81,4.5,2.09C13.09,3.81,14.76,3,16.5,3C19.58,3,22,5.42,22,8.5c0,3.78,-3.4,6.86,-8.55,11.54L12,21.35z"/>
+    </vector>`,
+                yellow: `<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24"
+        android:tint="#FFD700">
+        <path
+            android:fillColor="@android:color/white"
+            android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2zM13.41,18.09L13.41,20h-2.67v-1.93c-1.71,-0.36 -3.16,-1.46 -3.27,-3.4h1.96c0.1,1.05 0.82,1.87 2.65,1.87 1.96,0 2.4,-0.98 2.4,-1.59 0,-0.83 -0.44,-1.61 -2.67,-2.14 -2.48,-0.6 -4.18,-1.62 -4.18,-3.67 0,-1.72 1.39,-2.84 3.11,-3.21L10.74,4h2.67v1.95c1.86,0.45 2.79,1.86 2.85,3.39L14.3,9.34c-0.05,-1.11 -0.64,-1.87 -2.22,-1.87 -1.5,0 -2.4,0.68 -2.4,1.64 0,0.84 0.65,1.39 2.67,1.91s4.18,1.39 4.18,3.91c-0.01,1.83 -1.38,2.83 -3.12,3.16z"/>
+    </vector>`
+            };
+
+            // ---------- Toast ----------
+            let toastTimer = null;
+
+            function showToast(msg, type) {
+                if (toastTimer) { clearTimeout(toastTimer);
+                    toast.classList.remove('show', 'error', 'success'); }
+                toast.textContent = msg;
+                toast.className = 'toast';
+                if (type === 'error') toast.classList.add('error');
+                else if (type === 'success') toast.classList.add('success');
+                void toast.offsetWidth;
+                toast.classList.add('show');
+                toastTimer = setTimeout(() => {
+                    toast.classList.remove('show');
+                    toastTimer = null;
+                }, 3000);
+            }
+
+            function showError(msg) {
+                if (msg) {
+                    errorMsg.textContent = msg;
+                    errorMsg.classList.add('show');
+                } else {
+                    errorMsg.classList.remove('show');
+                    errorMsg.textContent = '';
+                }
+            }
+
+            // ---------- Format ----------
+            function formatXml(xml) {
+                try {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(xml, 'text/xml');
+                    const parseError = doc.querySelector('parsererror');
+                    if (parseError) throw new Error('XML 格式错误');
+                    const serializer = new XMLSerializer();
+                    let result = serializer.serializeToString(doc);
+                    result = result.replace(/>\s*</g, '>\n<');
+                    const lines = result.split('\n');
+                    let indent = 0;
+                    const formatted = [];
+                    for (let line of lines) {
+                        line = line.trim();
+                        if (!line) continue;
+                        if (line.startsWith('</')) indent = Math.max(0, indent - 1);
+                        formatted.push('  '.repeat(indent) + line);
+                        if (line.endsWith('>') && !line.endsWith('/>') && !line.startsWith('</') && !line.startsWith('<?')) indent++;
+                    }
+                    return formatted.join('\n');
+                } catch (e) {
+                    showError('格式化失败: ' + e.message);
+                    return xml;
+                }
+            }
+
+            // ---------- Color parsing with android resource support ----------
+            function parseColor(colorStr) {
+                if (!colorStr || colorStr === 'none' || colorStr === 'transparent') {
+                    return { color: colorStr || 'none' };
+                }
+                // Handle @android:color/xxx
+                const androidResMatch = colorStr.match(/^@android:color\/(\w+)$/);
+                if (androidResMatch) {
+                    const name = androidResMatch[1];
+                    const map = {
+                        'white': '#FFFFFF',
+                        'black': '#000000',
+                        'transparent': 'none',
+                        'red': '#FF0000',
+                        'green': '#00FF00',
+                        'blue': '#0000FF',
+                        'yellow': '#FFFF00',
+                        'cyan': '#00FFFF',
+                        'magenta': '#FF00FF',
+                        'gray': '#808080',
+                        'grey': '#808080',
+                        'darkgray': '#A9A9A9',
+                        'lightgray': '#D3D3D3',
+                        'orange': '#FFA500',
+                        'purple': '#800080',
+                        'pink': '#FFC0CB'
+                    };
+                    const hex = map[name];
+                    if (hex) {
+                        if (hex === 'none') return { color: 'none' };
+                        return { color: hex };
+                    } else {
+                        // fallback to white
+                        return { color: '#FFFFFF' };
+                    }
+                }
+                // Handle @color/... (app resources) - ignore, return default
+                if (colorStr.startsWith('@color/')) {
+                    return { color: '#FFFFFF' }; // fallback
+                }
+                // Handle #AARRGGBB
+                const hexMatch = colorStr.match(/^#([0-9a-fA-F]{8})$/);
+                if (hexMatch) {
+                    const hex = hexMatch[1];
+                    const alpha = parseInt(hex.substring(0, 2), 16) / 255;
+                    const r = parseInt(hex.substring(2, 4), 16);
+                    const g = parseInt(hex.substring(4, 6), 16);
+                    const b = parseInt(hex.substring(6, 8), 16);
+                    return { color: `#${hex.substring(2)}`, alpha: alpha };
+                }
+                // Handle #RRGGBB
+                const rgbMatch = colorStr.match(/^#([0-9a-fA-F]{6})$/);
+                if (rgbMatch) return { color: colorStr };
+                // Handle #RGB
+                const shortMatch = colorStr.match(/^#([0-9a-fA-F]{3})$/);
+                if (shortMatch) {
+                    const r = shortMatch[1][0] + shortMatch[1][0];
+                    const g = shortMatch[1][1] + shortMatch[1][1];
+                    const b = shortMatch[1][2] + shortMatch[1][2];
+                    return { color: `#${r}${g}${b}` };
+                }
+                // Handle rgb/rgba
+                const rgbFunc = colorStr.match(/^rgba?\(([^)]+)\)$/);
+                if (rgbFunc) return { color: colorStr };
+                // Named color (basic)
+                return { color: colorStr };
+            }
+
+            // ---------- Convert path with tint support ----------
+            function convertPath(path, defaultFill) {
+                const d = path.getAttribute('android:pathData');
+                if (!d) return '';
+
+                let attrs = { d: d };
+
+                // Determine fill: if defaultFill (from tint) is provided, use it unless path has explicit fillColor='none'
+                const pathFill = path.getAttribute('android:fillColor');
+                let fillColor = null;
+                let fillAlpha = null;
+
+                if (defaultFill && defaultFill !== 'none') {
+                    // tint overrides, but if path explicitly sets fillColor to 'none', we respect it?
+                    // Usually tint overrides everything, but if fillColor is 'none', it stays none.
+                    if (pathFill && pathFill === 'none') {
+                        fillColor = 'none';
+                    } else {
+                        fillColor = defaultFill.color;
+                        fillAlpha = defaultFill.alpha;
+                    }
+                } else if (pathFill) {
+                    const parsed = parseColor(pathFill);
+                    fillColor = parsed.color;
+                    fillAlpha = parsed.alpha;
+                }
+
+                if (fillColor && fillColor !== 'none') {
+                    attrs.fill = fillColor;
+                    if (fillAlpha !== undefined && fillAlpha !== 1) {
+                        attrs['fill-opacity'] = fillAlpha;
+                    }
+                } else if (fillColor === 'none') {
+                    attrs.fill = 'none';
+                } else {
+                    // In Android, default fill is none
+                    attrs.fill = 'none';
+                }
+
+                // stroke
+                const stroke = path.getAttribute('android:strokeColor');
+                if (stroke && stroke !== 'none') {
+                    const parsed = parseColor(stroke);
+                    attrs.stroke = parsed.color;
+                    if (parsed.alpha !== undefined && parsed.alpha !== 1) {
+                        attrs['stroke-opacity'] = parsed.alpha;
+                    }
+                } else if (stroke === 'none') {
+                    attrs.stroke = 'none';
+                }
+
+                const sw = path.getAttribute('android:strokeWidth');
+                if (sw) attrs['stroke-width'] = sw;
+
+                const cap = path.getAttribute('android:strokeLineCap');
+                if (cap) {
+                    const map = { 'butt': 'butt', 'round': 'round', 'square': 'square' };
+                    attrs['stroke-linecap'] = map[cap] || cap;
+                }
+                const join = path.getAttribute('android:strokeLineJoin');
+                if (join) {
+                    const map = { 'miter': 'miter', 'round': 'round', 'bevel': 'bevel' };
+                    attrs['stroke-linejoin'] = map[join] || join;
+                }
+                const miter = path.getAttribute('android:strokeMiterLimit');
+                if (miter) attrs['stroke-miterlimit'] = miter;
+
+                // fill alpha (if not set already)
+                const fillAlphaAttr = path.getAttribute('android:fillAlpha');
+                if (fillAlphaAttr && !attrs['fill-opacity']) {
+                    attrs['fill-opacity'] = fillAlphaAttr;
+                }
+                const strokeAlpha = path.getAttribute('android:strokeAlpha');
+                if (strokeAlpha && !attrs['stroke-opacity']) {
+                    attrs['stroke-opacity'] = strokeAlpha;
+                }
+                const alpha = path.getAttribute('android:alpha');
+                if (alpha && alpha !== '1.0') {
+                    attrs.opacity = alpha;
+                }
+
+                let parts = [];
+                for (let [key, val] of Object.entries(attrs)) {
+                    parts.push(`${key}="${String(val).replace(/"/g, '&quot;')}"`);
+                }
+                return `<path ${parts.join(' ')}/>`;
+            }
+
+            function convertGroup(group, defaultFill) {
+                const children = group.children;
+                if (!children || children.length === 0) return '';
+
+                let transformParts = [];
+                const rotation = group.getAttribute('android:rotation');
+                const pivotX = group.getAttribute('android:pivotX');
+                const pivotY = group.getAttribute('android:pivotY');
+                const scaleX = group.getAttribute('android:scaleX');
+                const scaleY = group.getAttribute('android:scaleY');
+                const translateX = group.getAttribute('android:translateX');
+                const translateY = group.getAttribute('android:translateY');
+
+                if (translateX && translateY) {
+                    transformParts.push(`translate(${translateX},${translateY})`);
+                } else if (translateX) {
+                    transformParts.push(`translate(${translateX},0)`);
+                } else if (translateY) {
+                    transformParts.push(`translate(0,${translateY})`);
+                }
+
+                if (scaleX && scaleY) {
+                    if (pivotX || pivotY) {
+                        const px = pivotX || 0;
+                        const py = pivotY || 0;
+                        const sx = scaleX || 1;
+                        const sy = scaleY || 1;
+                        if (sx !== 1 || sy !== 1) {
+                            transformParts.push(`translate(${px},${py}) scale(${sx},${sy}) translate(${-px},${-py})`);
+                        }
+                    } else {
+                        if (scaleX && scaleY) transformParts.push(`scale(${scaleX},${scaleY})`);
+                        else if (scaleX) transformParts.push(`scale(${scaleX},1)`);
+                        else if (scaleY) transformParts.push(`scale(1,${scaleY})`);
+                    }
+                }
+                if (rotation) {
+                    if (pivotX && pivotY) {
+                        transformParts.push(`rotate(${rotation},${pivotX},${pivotY})`);
+                    } else {
+                        transformParts.push(`rotate(${rotation})`);
+                    }
+                }
+
+                let transform = transformParts.length > 0 ? transformParts.join(' ') : '';
+                const alpha = group.getAttribute('android:alpha');
+
+                let inner = '';
+                for (let child of children) {
+                    if (child.tagName === 'path') {
+                        inner += convertPath(child, defaultFill);
+                    } else if (child.tagName === 'group') {
+                        inner += convertGroup(child, defaultFill);
+                    }
+                }
+                if (!inner) return '';
+
+                let attrs = '';
+                if (transform) attrs += ` transform="${transform}"`;
+                if (alpha && alpha !== '1.0') attrs += ` opacity="${alpha}"`;
+                return `<g${attrs}>${inner}</g>`;
+            }
+
+            // ---------- Main conversion ----------
+            function convertVectorToSVG(xmlString) {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(xmlString, 'text/xml');
+                const parseError = doc.querySelector('parsererror');
+                if (parseError) {
+                    throw new Error('XML 解析失败: ' + (parseError.textContent || '无效的 XML 格式'));
+                }
+                const vector = doc.querySelector('vector');
+                if (!vector) {
+                    throw new Error('未找到 <vector> 根元素');
+                }
+
+                const vw = vector.getAttribute('android:viewportWidth') || '24';
+                const vh = vector.getAttribute('android:viewportHeight') || '24';
+                const alpha = vector.getAttribute('android:alpha');
+
+                // Read tint
+                let tintColor = null;
+                const tintAttr = vector.getAttribute('android:tint');
+                if (tintAttr) {
+                    const parsed = parseColor(tintAttr);
+                    if (parsed.color && parsed.color !== 'none') {
+                        tintColor = parsed;
+                    }
+                }
+
+                let svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${vw} ${vh}" width="48" height="48"`;
+                if (alpha && alpha !== '1.0') {
+                    svg += ` style="opacity:${alpha}"`;
+                }
+                svg += '>';
+
+                // Process children, passing tint as default fill
+                const children = vector.children;
+                for (let child of children) {
+                    if (child.tagName === 'path') {
+                        svg += convertPath(child, tintColor);
+                    } else if (child.tagName === 'group') {
+                        svg += convertGroup(child, tintColor);
+                    } else if (child.tagName === 'clip-path') {
+                        // skip for simplicity
+                    } else {
+                        console.warn('Unknown element:', child.tagName);
+                    }
+                }
+
+                svg += '</svg>';
+                return svg;
+            }
+
+            // ---------- Render SVG to Canvas ----------
+            function renderSvgToCanvas(svgString, width, height) {
+                return new Promise((resolve, reject) => {
+                    const encoded = encodeURIComponent(svgString);
+                    const dataUri = 'data:image/svg+xml;charset=utf-8,' + encoded;
+                    const img = new Image();
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');
+                        canvas.width = width;
+                        canvas.height = height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.clearRect(0, 0, width, height);
+                        ctx.drawImage(img, 0, 0, width, height);
+                        resolve(canvas);
+                    };
+                    img.onerror = function(err) {
+                        reject(new Error('SVG 渲染失败: 可能包含不支持的属性或语法错误'));
+                    };
+                    img.src = dataUri;
+                });
+            }
+
+            // ---------- Main convert ----------
+            async function doConvert() {
+                if (isConverting) return;
+                isConverting = true;
+                convertBtn.disabled = true;
+                convertBtn.innerHTML = '<span class="loader"></span> 转换中...';
+                showError(null);
+                currentPngDataUrl = null;
+                currentSvgString = null;
+                downloadBtn.disabled = true;
+                previewContent.style.display = 'none';
+                placeholder.style.display = 'block';
+                previewArea.classList.remove('has-content');
+
+                try {
+                    const xml = xmlInput.value.trim();
+                    if (!xml) {
+                        showToast('请先粘贴 Vector Drawable XML 代码', 'error');
+                        return;
+                    }
+
+                    const svg = convertVectorToSVG(xml);
+                    currentSvgString = svg;
+
+                    const canvas = await renderSvgToCanvas(svg, 48, 48);
+                    const targetCanvas = previewCanvas;
+                    const ctx = targetCanvas.getContext('2d');
+                    ctx.clearRect(0, 0, 48, 48);
+                    ctx.drawImage(canvas, 0, 0, 48, 48);
+
+                    currentPngDataUrl = targetCanvas.toDataURL('image/png');
+
+                    placeholder.style.display = 'none';
+                    previewContent.style.display = 'flex';
+                    previewArea.classList.add('has-content');
+
+                    const pngData = currentPngDataUrl.split(',')[1];
+                    if (pngData) {
+                        const size = Math.round(pngData.length * 3 / 4);
+                        fileSizeInfo.textContent = size < 1024 ? `📦 ${size} B` : `📦 ${(size / 1024).toFixed(1)} KB`;
+                    } else {
+                        fileSizeInfo.textContent = '';
+                    }
+
+                    downloadBtn.disabled = false;
+                    showToast('✅ 转换成功！', 'success');
+
+                } catch (err) {
+                    showError('❌ ' + err.message);
+                    showToast('转换失败: ' + err.message, 'error');
+                    previewContent.style.display = 'none';
+                    placeholder.style.display = 'block';
+                    previewArea.classList.remove('has-content');
+                    downloadBtn.disabled = true;
+                    currentPngDataUrl = null;
+                } finally {
+                    isConverting = false;
+                    convertBtn.disabled = false;
+                    convertBtn.innerHTML = '⚡ 转换';
+                }
+            }
+
+            function downloadPng() {
+                if (!currentPngDataUrl) {
+                    showToast('请先转换', 'error');
+                    return;
+                }
+                const link = document.createElement('a');
+                link.download = 'vector_48x48.png';
+                link.href = currentPngDataUrl;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                showToast('⬇️ 下载已开始', 'success');
+            }
+
+            function loadExample(name) {
+                const xml = EXAMPLES[name];
+                if (xml) {
+                    xmlInput.value = xml;
+                    showToast('✅ 已加载示例: ' + name, 'success');
+                    setTimeout(() => doConvert(), 100);
+                }
+            }
+
+            // ---------- Event listeners ----------
+            convertBtn.addEventListener('click', doConvert);
+            downloadBtn.addEventListener('click', downloadPng);
+            clearBtn.addEventListener('click', function() {
+                xmlInput.value = '';
+                showError(null);
+                previewContent.style.display = 'none';
+                placeholder.style.display = 'block';
+                previewArea.classList.remove('has-content');
+                downloadBtn.disabled = true;
+                currentPngDataUrl = null;
+                currentSvgString = null;
+                showToast('已清空', 'success');
+            });
+            formatBtn.addEventListener('click', function() {
+                const raw = xmlInput.value;
+                if (!raw.trim()) {
+                    showToast('没有内容可格式化', 'error');
+                    return;
+                }
+                try {
+                    const formatted = formatXml(raw);
+                    xmlInput.value = formatted;
+                    showToast('✅ 格式化完成', 'success');
+                    showError(null);
+                } catch (e) {
+                    showToast('格式化失败: ' + e.message, 'error');
+                }
+            });
+
+            document.querySelectorAll('.example-tag').forEach(tag => {
+                tag.addEventListener('click', function() {
+                    loadExample(this.dataset.example);
+                });
+            });
+
+            xmlInput.addEventListener('keydown', function(e) {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                    e.preventDefault();
+                    doConvert();
+                }
+            });
+
+            // ---------- On load: no auto conversion, input empty ----------
+            // (already empty by default)
+
+            window.__tool = {
+                convertVectorToSVG,
+                renderSvgToCanvas,
+                doConvert,
+                EXAMPLES
+            };
+        })();
+    </script>
+</body>
+</html>
