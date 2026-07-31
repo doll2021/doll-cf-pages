@@ -18,14 +18,14 @@
         
         <!--查询规则-->
         <searchRule>
-            <action>https://reliable-proxy.onrender.com/search/?key=</action>
+            <action>https://8comic-search.44422444.xyz/search/?key=</action>
             <method>Get</method>
             <inputName>null</inputName>
             <inputFormatParam>null</inputFormatParam>
             <level>3</level>
             <targetLevel>1</targetLevel>
-            <extraParam>&amp;target=https://www.8comic.com</extraParam>
-            <isJoint>yes</isJoint>
+            <extraParam>null</extraParam>
+            <isJoint>null</isJoint>
             <captchaInfo>null</captchaInfo>
         </searchRule>
         
