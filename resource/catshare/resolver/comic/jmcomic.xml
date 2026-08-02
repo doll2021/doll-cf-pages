@@ -6,25 +6,25 @@
         <basicInfo>
             <name>jmcomic</name>
             <version>20260508_StupidDoll</version>
-            <baseUrl>https://comic18j-yodo.club</baseUrl>
-            <startUrl>https://comic18j-yodo.club/albums?page=1{Referer*https://comic18j-yodo.club}</startUrl>
+            <baseUrl>https://comic18j-jobi.cc</baseUrl>
+            <startUrl>https://comic18j-jobi.cc/albums?page=1{Referer*https://comic18j-jobi.cc}</startUrl>
             <type>comic</type>
             <template>3</template>
             <access>Get</access>
             <charset>UTF-8</charset>
-            <header>Referer*https://comic18j-yodo.club</header>
+            <header>Referer*https://comic18j-jobi.cc</header>
             <order>asc</order>
         </basicInfo>
         
         <!--查询规则-->
         <searchRule>
-            <action>https://comic18j-yodo.club/search/photos?main_tag=0&amp;search_query=</action>
+            <action>https://comic18j-jobi.cc/search/photos?main_tag=0&amp;search_query=</action>
             <method>Get</method>
             <inputName>null</inputName>
             <inputFormatParam>null</inputFormatParam>
             <level>3</level>
             <targetLevel>1</targetLevel>
-            <extraParam>{Referer*https://comic18j-yodo.club}</extraParam>
+            <extraParam>{Referer*https://comic18j-jobi.cc}</extraParam>
             <isJoint>yes</isJoint>
             <captchaInfo>null</captchaInfo>
         </searchRule>
@@ -33,7 +33,7 @@
         <jumpRule>
             <method>mantissaIncrease</method>
             <parameter>null</parameter>
-            <regular>https://comic18j-yodo.club.*</regular>
+            <regular>https://comic18j-jobi.cc.*</regular>
             <offset>null</offset>
             <startPage>null</startPage>
         </jumpRule>
@@ -42,7 +42,7 @@
         <menuBar>
             <menu>
                 <text>首页</text>
-                <url>https://comic18j-yodo.club/albums?page=1{Referer*https://comic18j-yodo.club}</url>
+                <url>https://comic18j-jobi.cc/albums?page=1{Referer*https://comic18j-jobi.cc}</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -59,17 +59,17 @@
                 <subset>
                     <submenu>
                         <text>汉化</text>
-                        <url>https://comic18j-yodo.club/albums/doujin/sub/chinese?page=1{Referer*https://comic18j-yodo.club}</url>
+                        <url>https://comic18j-jobi.cc/albums/doujin/sub/chinese?page=1{Referer*https://comic18j-jobi.cc}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>日语</text>
-                        <url>https://comic18j-yodo.club/albums/doujin/sub/japanese?page=1{Referer*https://comic18j-yodo.club}</url>
+                        <url>https://comic18j-jobi.cc/albums/doujin/sub/japanese?page=1{Referer*https://comic18j-jobi.cc}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>CG</text>
-                        <url>https://comic18j-yodo.club/albums/doujin/sub/CG?page=1{Referer*https://comic18j-yodo.club}</url>
+                        <url>https://comic18j-jobi.cc/albums/doujin/sub/CG?page=1{Referer*https://comic18j-jobi.cc}</url>
                         <level>2</level>
                     </submenu>
                 </subset>
@@ -93,17 +93,17 @@
                 <subset>
                     <submenu>
                         <text>汉化</text>
-                        <url>https://comic18j-yodo.club/albums/single/sub/chinese?page=1{Referer*https://comic18j-yodo.club}</url>
+                        <url>https://comic18j-jobi.cc/albums/single/sub/chinese?page=1{Referer*https://comic18j-jobi.cc}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>日语</text>
-                        <url>https://comic18j-yodo.club/albums/single/sub/japanese?page=1{Referer*https://comic18j-yodo.club}</url>
+                        <url>https://comic18j-jobi.cc/albums/single/sub/japanese?page=1{Referer*https://comic18j-jobi.cc}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>青年</text>
-                        <url>https://comic18j-yodo.club/albums/single/sub/youth?page=1{Referer*https://comic18j-yodo.club}</url>
+                        <url>https://comic18j-jobi.cc/albums/single/sub/youth?page=1{Referer*https://comic18j-jobi.cc}</url>
                         <level>2</level>
                     </submenu>
                 </subset>
@@ -118,37 +118,37 @@
                 <subset>
                     <submenu>
                         <text>短篇</text>
-                        <url>https://comic18j-yodo.club/albums/short?page=1{Referer*https://comic18j-yodo.club}</url>
+                        <url>https://comic18j-jobi.cc/albums/short?page=1{Referer*https://comic18j-jobi.cc}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>美漫</text>
-                        <url>https://comic18j-yodo.club/albums/meiman?page=1{Referer*https://comic18j-yodo.club}</url>
+                        <url>https://comic18j-jobi.cc/albums/meiman?page=1{Referer*https://comic18j-jobi.cc}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>韩漫</text>
-                        <url>https://comic18j-yodo.club/albums/hanman?page=1{Referer*https://comic18j-yodo.club}</url>
+                        <url>https://comic18j-jobi.cc/albums/hanman?page=1{Referer*https://comic18j-jobi.cc}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>普通韩漫</text>
-                        <url>https://comic18j-yodo.club/albums/hanmansfw?page=1{Referer*https://comic18j-yodo.club}</url>
+                        <url>https://comic18j-jobi.cc/albums/hanmansfw?page=1{Referer*https://comic18j-jobi.cc}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>其他</text>
-                        <url>https://comic18j-yodo.club/albums/another/sub/other?page=1{Referer*https://comic18j-yodo.club}</url>
+                        <url>https://comic18j-jobi.cc/albums/another/sub/other?page=1{Referer*https://comic18j-jobi.cc}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>3D</text>
-                        <url>https://comic18j-yodo.club/albums/another/sub/3d?page=1{Referer*https://comic18j-yodo.club}</url>
+                        <url>https://comic18j-jobi.cc/albums/another/sub/3d?page=1{Referer*https://comic18j-jobi.cc}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>COS</text>
-                        <url>https://comic18j-yodo.club/albums/another/sub/cosplay?page=1{Referer*https://comic18j-yodo.club}</url>
+                        <url>https://comic18j-jobi.cc/albums/another/sub/cosplay?page=1{Referer*https://comic18j-jobi.cc}</url>
                         <level>2</level>
                     </submenu>
                 </subset>
@@ -162,7 +162,7 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>1</widget>
-                <path>^wrapper|container*0|col-xs-6 col-sm-6 col-md-4 col-lg-3 list-col*999|(video-title title-truncate m-t-5*0|@+video-title title-truncate m-t-5*0|_GOTO*1|@+title-truncate tags*0|@,thumb-overlay-albums*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://comic18j-yodo.club},thumb-overlay-albums*0|a*0|img*0|@src)+^wrapper|container*0|col-xs-6 col-sm-4 col-md-3 col-lg-3 list-col col-xl-2*999|(video-title title-truncate m-t-5*0|@+video-title title-truncate m-t-5*0|_GOTO*1|@+title-truncate tags*0|@,thumb-overlay-albums*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://comic18j-yodo.club},thumb-overlay-albums*0|a*0|img*0|@data-original)</path>
+                <path>^wrapper|container*0|col-xs-6 col-sm-6 col-md-4 col-lg-3 list-col*999|(video-title title-truncate m-t-5*0|@+video-title title-truncate m-t-5*0|_GOTO*1|@+title-truncate tags*0|@,thumb-overlay-albums*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://comic18j-jobi.cc},thumb-overlay-albums*0|a*0|img*0|@src)+^wrapper|container*0|col-xs-6 col-sm-4 col-md-3 col-lg-3 list-col col-xl-2*999|(video-title title-truncate m-t-5*0|@+video-title title-truncate m-t-5*0|_GOTO*1|@+title-truncate tags*0|@,thumb-overlay-albums*0|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://comic18j-jobi.cc},thumb-overlay-albums*0|a*0|img*0|@data-original)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -195,7 +195,7 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>-999</widget>
-                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*-1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://comic18j-yodo.club}</path>
+                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*-1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://comic18j-jobi.cc}</path>
                 <tag>previousPage</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -206,7 +206,7 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>-999</widget>
-                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://comic18j-yodo.club}</path>
+                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://comic18j-jobi.cc}</path>
                 <tag>nextPage</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -217,7 +217,7 @@
                 <level>1</level>
                 <css>2</css>
                 <widget>1</widget>
-                <path>_TEXT*0|[_REPL_]class=&quot;title-truncate tags p-b-5&quot;&gt;*class=&quot;title-truncate tags p-b-5&quot;&gt;分类标签：|_HTML*0|^wrapper|col-xs-6 col-sm-6 col-md-4 col-lg-3 list-col*999|(video-title title-truncate m-t-5*0|@+title-truncate tags p-b-5*0|@,a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://comic18j-yodo.club},thumb-overlay*0|img*0|@data-original)+_TEXT*0|[_REPL_]class=&quot;title-truncate tags p-b-5&quot;&gt;*class=&quot;title-truncate tags p-b-5&quot;&gt;分类标签：|_HTML*0|^wrapper|col-xs-6 col-sm-4 col-md-3 col-lg-3 list-col col-xl-2*999|(video-title title-truncate m-t-5*0|@+title-truncate tags p-b-5*0|@,a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://comic18j-yodo.club},thumb-overlay*0|img*0|@data-original)</path>
+                <path>_TEXT*0|[_REPL_]class=&quot;title-truncate tags p-b-5&quot;&gt;*class=&quot;title-truncate tags p-b-5&quot;&gt;分类标签：|_HTML*0|^wrapper|col-xs-6 col-sm-6 col-md-4 col-lg-3 list-col*999|(video-title title-truncate m-t-5*0|@+title-truncate tags p-b-5*0|@,a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://comic18j-jobi.cc},thumb-overlay*0|img*0|@data-original)+_TEXT*0|[_REPL_]class=&quot;title-truncate tags p-b-5&quot;&gt;*class=&quot;title-truncate tags p-b-5&quot;&gt;分类标签：|_HTML*0|^wrapper|col-xs-6 col-sm-4 col-md-3 col-lg-3 list-col col-xl-2*999|(video-title title-truncate m-t-5*0|@+title-truncate tags p-b-5*0|@,a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://comic18j-jobi.cc},thumb-overlay*0|img*0|@data-original)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
@@ -250,7 +250,7 @@
                 <level>1</level>
                 <css>2</css>
                 <widget>-999</widget>
-                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*-1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://comic18j-yodo.club}</path>
+                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*-1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://comic18j-jobi.cc}</path>
                 <tag>previousPage</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -261,7 +261,7 @@
                 <level>1</level>
                 <css>2</css>
                 <widget>-999</widget>
-                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://comic18j-yodo.club}</path>
+                <path>^wrapper|container*0|pagination*0|active*0|_GOTO*1|a*0|@href|_TEXT*0|[_ADD-R_]*{Referer*https://comic18j-jobi.cc}</path>
                 <tag>nextPage</tag>
                 <type>0</type>
                 <checkText>null</checkText>
