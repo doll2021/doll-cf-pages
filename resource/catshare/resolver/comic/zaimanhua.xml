@@ -360,7 +360,7 @@
                 <tag>indexWebsite</tag>
                 <type>0</type>
                 <checkText>null</checkText>
-                <offset>_TEXT*0|[_ADD-R_]*/|[_ADD-R_]*{Accept*#U0#Connection*keep-alive#U0#User-Agent*PostmanRuntime#U0#authorization*Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3ODU5ODY4MjEsImlhdCI6MTc4MzM5NDgyMSwianRpIjoidW5pcXVlX2lkIiwibmJmIjoxNzgzMzk0ODIxLCJzdWIiOiJ6bWhfNDI1MTExIiwidWlkIjo0MjUxMTEsInVzZXJfbGV2ZWwiOjF9.LXMT94aBZ579iy4zMVRvqzW4m2B5Qg7NxEHsrSI3m1E}</offset>
+                <offset>_TEXT*0|[_ADD-R_]*/|[_ADD-R_]*{Accept*#U0#Connection*keep-alive#U0#User-Agent*PostmanRuntime#U0#authorization*Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3ODg2NjAwNTUsImlhdCI6MTc4NjA2ODA1NSwianRpIjoiNmMwNTAzZDItMzdhZC00MTU4LThmZjQtZTkyOWNjNWU1YmQ3IiwibmJmIjoxNzg2MDY4MDU1LCJzZXNzaW9uX2lhdCI6MTc4NjA2ODA1NSwic3ViIjoiem1oXzQyNTExMSIsInVpZCI6NDI1MTExLCJ1c2VyX2xldmVsIjoxfQ.ONllrzsAMa468I4uY0zKnQHnloIbX-6PH_FkgVayhZI}</offset>
             </module>
             
             <module>
@@ -408,7 +408,7 @@
             <parseType>html</parseType>
             <device>pc</device>
             <imageInnerHeader>null</imageInnerHeader>
-            <urlFormatParam>_TEXT*0|[_REPL_]/detail/*/chapter/|[_REPL_]?_v=15*|[_ADD-R_]*{Accept*#U0#Connection*keep-alive#U0#User-Agent*PostmanRuntime#U0#authorization*Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3ODU5ODY4MjEsImlhdCI6MTc4MzM5NDgyMSwianRpIjoidW5pcXVlX2lkIiwibmJmIjoxNzgzMzk0ODIxLCJzdWIiOiJ6bWhfNDI1MTExIiwidWlkIjo0MjUxMTEsInVzZXJfbGV2ZWwiOjF9.LXMT94aBZ579iy4zMVRvqzW4m2B5Qg7NxEHsrSI3m1E}</urlFormatParam>
+            <urlFormatParam>_TEXT*0|[_REPL_]/detail/*/chapter/|[_REPL_]?_v=15*|[_ADD-R_]*{Accept*#U0#Connection*keep-alive#U0#User-Agent*PostmanRuntime#U0#authorization*Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3ODg2NjAwNTUsImlhdCI6MTc4NjA2ODA1NSwianRpIjoiNmMwNTAzZDItMzdhZC00MTU4LThmZjQtZTkyOWNjNWU1YmQ3IiwibmJmIjoxNzg2MDY4MDU1LCJzZXNzaW9uX2lhdCI6MTc4NjA2ODA1NSwic3ViIjoiem1oXzQyNTExMSIsInVpZCI6NDI1MTExLCJ1c2VyX2xldmVsIjoxfQ.ONllrzsAMa468I4uY0zKnQHnloIbX-6PH_FkgVayhZI}</urlFormatParam>
             <imageFormatParam>null</imageFormatParam>
             <dataFormatParam>null</dataFormatParam>
             <runJS>null</runJS>
