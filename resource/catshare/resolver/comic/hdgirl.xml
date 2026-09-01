@@ -6,8 +6,8 @@
         <basicInfo>
             <name>hdgirl</name>
             <version>20260529_producer</version>
-            <baseUrl>https://fzfqy.uuss.uk</baseUrl>
-            <startUrl>https://fzfqy.uuss.uk/?query-3-page=1</startUrl>
+            <baseUrl>https://feza.uuss.uk</baseUrl>
+            <startUrl>https://feza.uuss.uk/?query-3-page=1</startUrl>
             <type>comic</type>
             <template>2</template>
             <access>Get</access>
@@ -33,7 +33,7 @@
         <jumpRule>
             <method>mantissaIncrease</method>
             <parameter>null</parameter>
-            <regular>.*https://fzfqy.uuss.uk.*</regular>
+            <regular>.*https://feza.uuss.uk.*</regular>
             <offset>null</offset>
             <startPage>null</startPage>
         </jumpRule>
@@ -42,7 +42,7 @@
         <menuBar>
             <menu>
                 <text>首页</text>
-                <url>https://fzfqy.uuss.uk/?query-3-page=1</url>
+                <url>https://feza.uuss.uk/?query-3-page=1</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -68,17 +68,17 @@
                 <subset>
                     <submenu>
                         <text>相册</text>
-                        <url>https://fzfqy.uuss.uk/pages/album?query-3-page=1</url>
+                        <url>https://feza.uuss.uk/pages/album?query-3-page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>流行</text>
-                        <url>https://fzfqy.uuss.uk/pages/popular?query-3-page=1</url>
+                        <url>https://feza.uuss.uk/pages/popular?query-3-page=1</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>COS</text>
-                        <url>https://fzfqy.uuss.uk/pages/cosplay?query-3-page=1</url>
+                        <url>https://feza.uuss.uk/pages/cosplay?query-3-page=1</url>
                         <level>2</level>
                     </submenu>
                 </subset>
@@ -92,7 +92,7 @@
                 <level>1</level>
                 <css>1</css>
                 <widget>1</widget>
-                <path>is-layout-flow wp-block-query*0|ul*0|wp-block-template-part*999|(h2*0|@+wp-block-post-date*0|@,h2*0|a*0|@href|_TEXT*0|[_MAYBE-CUT-L_]*/content/|[_ADD-L_]*https://fzfqy.uuss.uk/content/|[_ADD-R_]*/1,@)</path>
+                <path>is-layout-flow wp-block-query*0|ul*0|wp-block-template-part*999|(h2*0|@+wp-block-post-date*0|@,h2*0|a*0|@href|_TEXT*0|[_MAYBE-CUT-L_]*/content/|[_ADD-L_]*https://feza.uuss.uk/content/|[_ADD-R_]*/1,@)</path>
                 <tag>iconLinkList</tag>
                 <type>2</type>
                 <checkText>null</checkText>
