@@ -6,19 +6,19 @@
         <basicInfo>
             <name>boylove</name>
             <version>20260331_StupidDoll</version>
-            <baseUrl>https://byblovecw8.org</baseUrl>
-            <startUrl>https://byblovecw8.org/home/api/cate/tp/1-0-2-1-1-0-1-0</startUrl>
+            <baseUrl>https://fuzhaiboylove3.work</baseUrl>
+            <startUrl>https://fuzhaiboylove3.work/home/api/cate/tp/1-0-2-1-1-0-1-0</startUrl>
             <type>comic</type>
             <template>3</template>
             <access>Get</access>
             <charset>UTF-8</charset>
-            <header>Referer*https://byblovecw8.org</header>
+            <header>Referer*https://fuzhaiboylove3.work</header>
             <order>asc</order>
         </basicInfo>
         
         <!--查询规则-->
         <searchRule>
-            <action>https://byblovecw8.org/home/api/searchk?keyword=</action>
+            <action>https://fuzhaiboylove3.work/home/api/searchk?keyword=</action>
             <method>Get</method>
             <inputName>null</inputName>
             <inputFormatParam>null</inputFormatParam>
@@ -33,7 +33,7 @@
         <jumpRule>
             <method>stringReplace</method>
             <parameter>-2-1-</parameter>
-            <regular>https://byblovecw8.org.*</regular>
+            <regular>https://fuzhaiboylove3.work.*</regular>
             <offset>null</offset>
             <startPage>null</startPage>
         </jumpRule>
@@ -42,7 +42,7 @@
         <menuBar>
             <menu>
                 <text>首页</text>
-                <url>https://byblovecw8.org/home/api/cate/tp/1-0-2-1-1-0-1-0</url>
+                <url>https://fuzhaiboylove3.work/home/api/cate/tp/1-0-2-1-1-0-1-0</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -55,7 +55,7 @@
                 <level>1</level>
                 <css>2</css>
                 <baseUrl>null</baseUrl>
-                <regular>https://byblovecw8.org/home/api/searchk\?keyword=.*</regular>
+                <regular>https://fuzhaiboylove3.work/home/api/searchk\?keyword=.*</regular>
                 <subset></subset>
             </menu>
             <menu>
@@ -68,52 +68,52 @@
                 <subset>
                     <submenu>
                         <text>清水</text>
-                        <url>https://byblovecw8.org/home/api/cate/tp/1-清水-2-1-1-0-1-0</url>
+                        <url>https://fuzhaiboylove3.work/home/api/cate/tp/1-清水-2-1-1-0-1-0</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>健气受</text>
-                        <url>https://byblovecw8.org/home/api/cate/tp/1-健气受-2-1-1-0-1-0</url>
+                        <url>https://fuzhaiboylove3.work/home/api/cate/tp/1-健气受-2-1-1-0-1-0</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>腹黑攻</text>
-                        <url>https://byblovecw8.org/home/api/cate/tp/1-腹黑攻-2-1-1-0-1-0</url>
+                        <url>https://fuzhaiboylove3.work/home/api/cate/tp/1-腹黑攻-2-1-1-0-1-0</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>校园</text>
-                        <url>https://byblovecw8.org/home/api/cate/tp/1-校园-2-1-1-0-1-0</url>
+                        <url>https://fuzhaiboylove3.work/home/api/cate/tp/1-校园-2-1-1-0-1-0</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>年下攻</text>
-                        <url>https://byblovecw8.org/home/api/cate/tp/1-年下攻-2-1-1-0-1-0</url>
+                        <url>https://fuzhaiboylove3.work/home/api/cate/tp/1-年下攻-2-1-1-0-1-0</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>甜文</text>
-                        <url>https://byblovecw8.org/home/api/cate/tp/1-甜文-2-1-1-0-1-0</url>
+                        <url>https://fuzhaiboylove3.work/home/api/cate/tp/1-甜文-2-1-1-0-1-0</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>韩漫</text>
-                        <url>https://byblovecw8.org/home/api/cate/tp/1-韩漫-2-1-1-0-1-0</url>
+                        <url>https://fuzhaiboylove3.work/home/api/cate/tp/1-韩漫-2-1-1-0-1-0</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>高H</text>
-                        <url>https://byblovecw8.org/home/api/cate/tp/1-高H-2-1-1-0-1-0</url>
+                        <url>https://fuzhaiboylove3.work/home/api/cate/tp/1-高H-2-1-1-0-1-0</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>日漫</text>
-                        <url>https://byblovecw8.org/home/api/cate/tp/1-日漫-2-1-1-0-1-0</url>
+                        <url>https://fuzhaiboylove3.work/home/api/cate/tp/1-日漫-2-1-1-0-1-0</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>待分类</text>
-                        <url>https://byblovecw8.org/home/api/cate/tp/1-待分类-2-1-1-0-1-0</url>
+                        <url>https://fuzhaiboylove3.work/home/api/cate/tp/1-待分类-2-1-1-0-1-0</url>
                         <level>2</level>
                     </submenu>
                 </subset>
