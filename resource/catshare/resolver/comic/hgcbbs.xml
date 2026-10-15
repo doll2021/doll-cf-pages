@@ -5,14 +5,14 @@
         <!--解析器的基本信息-->
         <basicInfo>
             <name>hgcbbs</name>
-            <version>20251216_producer</version>
+            <version>20261015_producer</version>
             <baseUrl>https://082332.b6093rv.cc/pw/</baseUrl>
             <startUrl>https://082332.b6093rv.cc/pw/thread111.php?fid=14&amp;page=1</startUrl>
             <type>comic</type>
             <template>2</template>
             <access>Get</access>
             <charset>UTF-8</charset>
-            <header>null</header>
+            <header>Referer*https://082332.b6093rv.cc/pw/</header>
             <order>null</order>
         </basicInfo>
         
@@ -178,7 +178,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>3</widget>
-                <path>t5*0|tr1*0|tpc_content*0|f14*0|img*0|@src</path>
+                <path>t5*0|tr1*0|tpc_content*0|f14*0|img*0|@src|_TEXT*0|[_ADD-L_]*https://image.44466444.xyz/?url=</path>
                 <tag>startImage</tag>
                 <type>0</type>
                 <checkText>null</checkText>
@@ -200,7 +200,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>-999</widget>
-                <path>t5*0|tr1*0|tpc_content*0|f14*0|img*999|(@src)|_TEXT*0|[_REPL_][]*</path>
+                <path>t5*0|tr1*0|tpc_content*0|f14*0|img*999|(@src|_TEXT*0|[_ADD-L_]*https://image.44466444.xyz/?url=)|_TEXT*0|[_REPL_][]*</path>
                 <tag>imageList</tag>
                 <type>0</type>
                 <checkText>null</checkText>
