@@ -6,19 +6,19 @@
         <basicInfo>
             <name>manwamh</name>
             <version>20260514_StupidDoll</version>
-            <baseUrl>https://manwaqh.cc</baseUrl>
-            <startUrl>https://manwaqh.cc/booklist?tag=&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</startUrl>
+            <baseUrl>https://manwaud.cc</baseUrl>
+            <startUrl>https://manwaud.cc/booklist?tag=&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</startUrl>
             <type>comic</type>
             <template>3</template>
             <access>Get</access>
             <charset>UTF-8</charset>
-            <header>Referer*https://manwaqh.cc</header>
+            <header>Referer*https://manwaud.cc</header>
             <order>asc</order>
         </basicInfo>
         
         <!--查询规则-->
         <searchRule>
-            <action>https://manwaqh.cc/search?keyword=</action>
+            <action>https://manwaud.cc/search?keyword=</action>
             <method>Get</method>
             <inputName>null</inputName>
             <inputFormatParam>null</inputFormatParam>
@@ -33,7 +33,7 @@
         <jumpRule>
             <method>stringReplace</method>
             <parameter>page=</parameter>
-            <regular>https://manwaqh.cc.*</regular>
+            <regular>https://manwaud.cc.*</regular>
             <offset>0</offset>
             <startPage>null</startPage>
         </jumpRule>
@@ -42,7 +42,7 @@
         <menuBar>
             <menu>
                 <text>首页</text>
-                <url>https://manwaqh.cc/booklist?tag=&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                <url>https://manwaud.cc/booklist?tag=&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
                 <level>1</level>
                 <css>1</css>
                 <baseUrl>null</baseUrl>
@@ -59,12 +59,12 @@
                 <subset>
                     <submenu>
                         <text>连载</text>
-                        <url>https://manwaqh.cc/booklist?tag=&amp;end=2&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <url>https://manwaud.cc/booklist?tag=&amp;end=2&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>完结</text>
-                        <url>https://manwaqh.cc/booklist?tag=&amp;end=1&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <url>https://manwaud.cc/booklist?tag=&amp;end=1&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
                         <level>2</level>
                     </submenu>
                 </subset>
@@ -75,7 +75,7 @@
                 <level>1</level>
                 <css>2</css>
                 <baseUrl>null</baseUrl>
-                <regular>https://manwaqh.cc/search\?keyword=.*</regular>
+                <regular>https://manwaud.cc/search\?keyword=.*</regular>
                 <subset></subset>
             </menu>
             <menu>
@@ -88,17 +88,17 @@
                 <subset>
                     <submenu>
                         <text>国漫</text>
-                        <url>https://manwaqh.cc/booklist?tag=&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=4&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <url>https://manwaud.cc/booklist?tag=&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=4&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>韩漫</text>
-                        <url>https://manwaqh.cc/booklist?tag=&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=2&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <url>https://manwaud.cc/booklist?tag=&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=2&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>日漫</text>
-                        <url>https://manwaqh.cc/booklist?tag=&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=3&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <url>https://manwaud.cc/booklist?tag=&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=3&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
                         <level>2</level>
                     </submenu>
                 </subset>
@@ -113,77 +113,77 @@
                 <subset>
                     <submenu>
                         <text>3D</text>
-                        <url>https://manwaqh.cc/booklist?tag=3D&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <url>https://manwaud.cc/booklist?tag=3D&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>透视</text>
-                        <url>https://manwaqh.cc/booklist?tag=透视&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <url>https://manwaud.cc/booklist?tag=透视&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>全彩</text>
-                        <url>https://manwaqh.cc/booklist?tag=全彩&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <url>https://manwaud.cc/booklist?tag=全彩&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>调教</text>
-                        <url>https://manwaqh.cc/booklist?tag=调教&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <url>https://manwaud.cc/booklist?tag=调教&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>乱伦</text>
-                        <url>https://manwaqh.cc/booklist?tag=乱伦&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <url>https://manwaud.cc/booklist?tag=乱伦&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>触手</text>
-                        <url>https://manwaqh.cc/booklist?tag=触手&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <url>https://manwaud.cc/booklist?tag=触手&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>扶他</text>
-                        <url>https://manwaqh.cc/booklist?tag=扶他&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <url>https://manwaud.cc/booklist?tag=扶他&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>重口</text>
-                        <url>https://manwaqh.cc/booklist?tag=重口&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <url>https://manwaud.cc/booklist?tag=重口&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>兽交</text>
-                        <url>https://manwaqh.cc/booklist?tag=兽交&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <url>https://manwaud.cc/booklist?tag=兽交&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>百合</text>
-                        <url>https://manwaqh.cc/booklist?tag=百合&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <url>https://manwaud.cc/booklist?tag=百合&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>校园</text>
-                        <url>https://manwaqh.cc/booklist?tag=校园&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <url>https://manwaud.cc/booklist?tag=校园&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>后宫</text>
-                        <url>https://manwaqh.cc/booklist?tag=后宫&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <url>https://manwaud.cc/booklist?tag=后宫&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>日常</text>
-                        <url>https://manwaqh.cc/booklist?tag=日常&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <url>https://manwaud.cc/booklist?tag=日常&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>爱情</text>
-                        <url>https://manwaqh.cc/booklist?tag=爱情&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <url>https://manwaud.cc/booklist?tag=爱情&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
                         <level>2</level>
                     </submenu>
                     <submenu>
                         <text>同人</text>
-                        <url>https://manwaqh.cc/booklist?tag=同人&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
+                        <url>https://manwaud.cc/booklist?tag=同人&amp;end=&amp;gender=-1&amp;has_full=-1&amp;area=&amp;sort=-1&amp;level=-1&amp;page=1{User-Agent*Mozilla/5.0 (Linux; Android 10; HarmonyOS; SCM-W09; HMSCore 6.6.0.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.2.332 Mobile Safari/537.36}</url>
                         <level>2</level>
                     </submenu>
                 </subset>
