@@ -295,7 +295,7 @@
                 <level>2</level>
                 <css>1</css>
                 <widget>4</widget>
-                <path>metas-body*0|span*0|@+metas-body*0|span*1|@+metas-body*0|span*2|@+metas-body*0|span*3|@+metas-body*0|span*4|@+metas-body*0|span*5|@+metas-desc*0|p*0|@|_TEXT*0|[_ADD-L_]*简介：</path>
+                <path>metas-body*0|span*0|@+metas-body*0|span*1|@+metas-body*0|span*2|@+metas-body*0|span*3|@+metas-body*0|span*4|@+metas-body*0|span*5|@+metas-body*0|span*6|@+metas-desc*0|p*0|@|_TEXT*0|[_ADD-L_]*简介：</path>
                 <tag>intro</tag>
                 <type>0</type>
                 <checkText>null</checkText>
