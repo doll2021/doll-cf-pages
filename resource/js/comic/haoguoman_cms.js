@@ -1,52 +1,27 @@
 /*!
- * haoguoman_cms.js  v1.0
- * 替代 /static/js/cms-2.0.1.min.js：把整话图片地址一次性写进 <img src>，不再走 XHR+blob 懒加载。
- *
+ * haoguoman_cms.js  v2.0
+ * 替代 /static/js/cms-2.0.1.min.js：解密 params，把整话图片地址一次性写进 <img src>。
+ * 本版只做一件事：让 DOM 里的 <img> 拥有正确的图片地址。
+ * 不代理、不本地化、不做错误占位 —— 图片能不能显示（CDN 只认 haoguoman8.com 的 Referer，会 403）不关心。
  * 用法：
  *   <script src="https://page.44477444.xyz/resource/js/comic/haoguoman_cms.js"></script>
- *   替换掉保存页面里的 <script src="/static/js/cms-2.0.1.min.js?v=1.0.66"></script>
- *
- * 也可在容器上按页覆盖配置：
- *   <div class="chapter-images" data-img-mode="direct" data-img-proxy="...">
  */
 (function (window, document) {
   'use strict';
 
   /* ============================ 配置区 ============================ */
   var CFG = {
-    // 显示模式：
-    //  'direct' —— img.src 直接等于 CDN 原图地址（纯取地址用；本地/异域名打开会 403 裂图）
-    //  'proxy'  —— img.src = 代理前缀 + encodeURIComponent(原图地址)，由自己的服务器补 Referer（推荐）
-    //  'local'  —— img.src 指向本地已下载的文件（配合 download.js）
-    mode: 'proxy',
-
-    proxy: 'https://page.44477444.xyz/resource/php/img.php?u=',
-
-    localDir: 'images/256/', // mode=local：图片目录（相对本页面）
-    localPad: 3,             // 序号补零位数：1 -> 001
-    localExt: '.webp',
-
-    host: '',                // 强制覆盖图床域名，留空则用密文里的 images_hosts[0]
-    aesKey: '5V&RoR%Jf@pJPydF', // 站点换 key 时改这里
-    checkHost: false,        // 原版会校验密文签发的域名，本地打开必须 false
-    lazy: false,             // false = 立刻加载全部（你要的“一次性赋值”）
-    injectStyle: true        // 注入一点错误占位样式
+    host: '',                    // 覆盖图床域名，留空则用密文里的 images_hosts[0]
+    aesKey: '5V&RoR%Jf@pJPydF',  // 站点换 key 时改这里
+    keepSize: true               // 只影响版面：图片 403 时给个最小高度，防止整页塌成一条。纯取地址可设 false
   };
   /* ============================================================== */
-
-  var B64_KEY = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
   /* ---------------- 基础工具 ---------------- */
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
-  }
-
-  function pad(n) {
-    var s = String(n);
-    while (s.length < CFG.localPad) s = '0' + s;
-    return s;
   }
 
   function b64ToBytes(b64) {
@@ -118,53 +93,13 @@
   /* ---------------- 拼真实图片地址 ---------------- */
   function buildUrl(item, data) {
     var p = String(item == null ? '' : item);
-    if (/^(?:[a-z][a-z0-9+.-]*:|\/\/)/i.test(p)) return p; // 已是绝对地址
+    if (/^(?:[a-z][a-z0-9+.-]*:|\/\/)/i.test(p)) return p; // 已是绝对地址（本站在用这种）
     var host = CFG.host || data.images_domain || (data.images_hosts || [])[0] || data.cdnurl || '';
     var path = data.images_base64 ? utf8ToB64(p) : p;
     return host ? host.replace(/\/+$/, '') + '/' + path.replace(/^\/+/, '') : p;
   }
 
-  function displayUrl(realUrl, i) {
-    if (CFG.mode === 'proxy') return CFG.proxy + encodeURIComponent(realUrl);
-    if (CFG.mode === 'local') return CFG.localDir + pad(i + 1) + CFG.localExt;
-    return realUrl;
-  }
-
-  /* ---------------- 渲染 ---------------- */
-  function injectStyleOnce() {
-    if (!CFG.injectStyle || document.getElementById('hgm-style')) return;
-    var st = document.createElement('style');
-    st.id = 'hgm-style';
-    st.textContent =
-      '.chapter-image.hgm-img-error{min-height:120px;background:#f7f7f7;display:flex;' +
-      'align-items:center;justify-content:center;border-radius:4px}' +
-      '.chapter-image.hgm-img-error img{display:none}' +
-      '.chapter-image.hgm-img-error::after{content:attr(data-err);color:#999;font-size:14px;padding:12px;text-align:center}';
-    (document.head || document.documentElement).appendChild(st);
-  }
-
-  function bindError(box) {
-    injectStyleOnce();
-    if (box.__hgmBound) return;
-    box.__hgmBound = true;
-    box.addEventListener(
-      'error',
-      function (e) {
-        var img = e.target;
-        if (!img || img.tagName !== 'IMG') return;
-        var wrap = img.parentNode;
-        if (!wrap || !wrap.classList) return;
-        var tip =
-          CFG.mode === 'direct'
-            ? '加载失败：CDN 只认 haoguoman8.com 的 Referer，请改用 proxy 或 local 模式'
-            : '加载失败：' + CFG.mode;
-        wrap.classList.add('hgm-img-error');
-        wrap.setAttribute('data-err', tip);
-      },
-      true
-    );
-  }
-
+  /* ---------------- 渲染：src 直接等于真实地址 ---------------- */
   function render(box, data) {
     var list = (data && data.chapter_images) || [];
     if (!list.length) {
@@ -176,12 +111,12 @@
     for (i = 0; i < list.length; i++) real.push(buildUrl(list[i], data));
 
     var altBase = [data.comic_name, data.chapter_title].filter(Boolean).join(' ');
+    var keep = CFG.keepSize ? ' style="min-height:160px"' : '';
     var html = '';
     for (i = 0; i < real.length; i++) {
       html +=
-        '<div class="chapter-image" data-index="' + i + '" data-src="' + esc(real[i]) + '">' +
-        '<img src="' + esc(displayUrl(real[i], i)) + '" alt="' + esc(altBase + ' ' + (i + 1)) + '"' +
-        (CFG.lazy ? ' loading="lazy"' : '') + ' decoding="async">' +
+        '<div class="chapter-image" data-index="' + i + '"' + keep + '>' +
+        '<img src="' + esc(real[i]) + '" alt="' + esc(altBase + ' ' + (i + 1)) + '">' +
         '</div>';
     }
 
@@ -192,31 +127,22 @@
     box.innerHTML = html;
     box.setAttribute('data-hgm-done', '1');
 
-    // 方便控制台复查/复制
+    // 地址清单，控制台可直接 copy(HGM_IMAGES.join('\n'))
     window.HGM_IMAGES = real;
     window.HGM_PARAMS = data;
 
-    bindError(box);
-
-    var n = document.querySelector('.j-read-i');
-    if (n && data.chapter_images) {
-      var total = document.querySelectorAll('.chapter-image').length;
-      var c = document.querySelector('.chapter-total');
-      if (c) c.textContent = total;
-    }
+    var total = document.querySelector('.chapter-total');
+    if (total) total.textContent = real.length;
   }
 
   function start(box) {
     if (!box || box.getAttribute('data-hgm-done')) return Promise.resolve();
     box.setAttribute('data-hgm-done', '1');
-    if (box.getAttribute('data-img-mode')) CFG.mode = box.getAttribute('data-img-mode');
-    if (box.getAttribute('data-img-proxy')) CFG.proxy = box.getAttribute('data-img-proxy');
-    if (box.getAttribute('data-img-dir')) CFG.localDir = box.getAttribute('data-img-dir');
 
     return getParams()
       .then(function (data) {
         var pageHost = (window.location && window.location.host) || '';
-        if (CFG.checkHost && data.host && pageHost && data.host !== pageHost) {
+        if (data.host && pageHost && data.host !== pageHost) {
           console.warn('[hgm] 密文签发给 ' + data.host + '，当前 ' + pageHost);
         }
         render(box, data);
