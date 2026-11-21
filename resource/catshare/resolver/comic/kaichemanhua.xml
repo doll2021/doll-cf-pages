@@ -5,7 +5,7 @@
         <!--解析器的基本信息-->
         <basicInfo>
             <name>kaichemanhua</name>
-            <version>20260919_StupidDoll</version>
+            <version>20261121_StupidDoll</version>
             <baseUrl>https://kaichemanhua-proxy.44422444.xyz</baseUrl>
             <startUrl>https://kaichemanhua-proxy.44422444.xyz/library/?cid=0&amp;pi=1</startUrl>
             <type>comic</type>
@@ -354,7 +354,7 @@
             <device>pc</device>
             <imageInnerHeader>null</imageInnerHeader>
             <urlFormatParam>_TEXT*0|[_ADD-L_]*https://kaichemanhua-login.44422444.xyz/?url=</urlFormatParam>
-            <imageFormatParam>_TEXT*0|[_ADD-L_]*https://image.44422444.xyz/?url=</imageFormatParam>
+            <imageFormatParam>_TEXT*0|[_ADD-L_]*https://image.44422444.xyz/?url=|[_ADD-R_]*{User-Agent*PostmanRuntime/7.51.1}</imageFormatParam>
             <dataFormatParam>null</dataFormatParam>
             <runJS>null</runJS>
             <imageType>static</imageType>
